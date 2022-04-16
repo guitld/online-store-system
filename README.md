@@ -1,4 +1,4 @@
-# Meu Amigo PeT
+# Meu Amigo Pet
 
 Projeto da disciplina Introdução ao Desenvolvimento Web - SCC0219.
 
