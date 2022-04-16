@@ -29,7 +29,7 @@ O tema escolhido por nós foi desenvolver um website de um petshop virtual.
 ## 2. Descrição do Projeto
 
 
-### Diagrama de navegação:
+### Diagrama de navegação
 
 ### Funcionalidades
 
