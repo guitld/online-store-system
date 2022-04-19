@@ -1,7 +1,18 @@
-.acessar-conta,
-.img-pet {
+.body {
     position: absolute;
-    padding-top: 5%;
+}
+
+.container {
+    position: relative;
+    margin-top: 8%;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.acessar-conta {
+    padding-right: 15%;
+    padding-left: 10%;
 }
 
 .acessar-conta h4 {
@@ -20,6 +31,7 @@
 .acessar-conta p {
     text-transform: lowercase;
     font-size: small;
+    padding-right: 6%;
 }
 
 .acessar-conta p a {
@@ -58,10 +70,14 @@ input {
     border-radius: 30px;
     width: 120px;
     height: 50px;
+    text-align: center;
+    margin: auto;
+    display: flex;
 }
 
 .btn_submit[value] {
     font-weight: 300;
+    justify-content: center;
 }
 
 .btn_submit:hover {
@@ -71,19 +87,6 @@ input {
 }
 
 
-.img-pet {
-    position: absolute;
-    background: url(header-pet-na-cabine.png);
-}
-
 #pet-na-cabine {
-    height: 250px;
+    height: 80%;
 }
-
-.container {
-    position: absolute;
-    top: 30%;
-    left: 8%;  
-    align-content: center;
-}
-
