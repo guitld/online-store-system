@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 body {
@@ -103,15 +104,35 @@ li>a>strong {
     background: #EDFFBD;
 }
 
-#footer .fcontainer {
+/* #footer .fcontainer {
     margin: 12px 10px;
-}
+} */
 
 #footer .fcontainer p {
     font-size: 12px;
 }
 
 #footer .fcontainer {
-    text-align: left;
-    float: left;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
+
+#footer .fcontainer .fleft {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#footer .fcontainer .fleft .col {
+    width: 50%;
+}
+
+#footer .fcontainr #about-us {
+    width: 50%;
+}
+
+/* 
+.ftitle {
+    margin-bottom: 10px;
+} */
