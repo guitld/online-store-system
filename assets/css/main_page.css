@@ -1,0 +1,30 @@
+/* .wraper {
+    position: absolute;
+    width: 50%;
+} */
+
+.cards-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-wrap .card-item {
+    padding: 15px 25px;
+    width: 25%;
+}
+.cards-wrap .card-inner {
+    background: #ffffff49;
+    border-radius: 5px;
+    min-width: 300px;
+    min-height: 100px;
+    padding: 10px;
+    width: 100px;
+}
+
+.cards-wrap .card-inner img {
+    width: 300px;
+    height: auto;
+    margin-bottom: 10px;
+}
