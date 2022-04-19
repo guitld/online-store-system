@@ -97,42 +97,30 @@ li>a>strong {
 }
 
 #footer {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
     height: 120px;
     background: #EDFFBD;
+    justify-content: center;
 }
 
-/* #footer .fcontainer {
-    margin: 12px 10px;
-} */
+
+#footer .fcontainer {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-left: 20px;
+}
 
 #footer .fcontainer p {
     font-size: 12px;
 }
 
-#footer .fcontainer {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+#footer .fcontainer .col {
+    margin: 15px;
 }
 
-#footer .fcontainer .fleft {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-#footer .fcontainer .fleft .col {
-    width: 50%;
-}
-
-#footer .fcontainr #about-us {
-    width: 50%;
-}
-
-/* 
-.ftitle {
+#footer .fcontainer .ftitle {
     margin-bottom: 10px;
-} */
+}
