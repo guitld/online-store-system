@@ -22,6 +22,14 @@
     font-size: small;
 }
 
+.acessar-conta p a {
+    color: black;
+}
+
+.acessar-conta p a:hover {
+    color: rgb(50, 49, 49);
+}
+
 input {
     border: 2px solid #F5E9EE;
     background-color: #F5E9EE;
@@ -44,6 +52,10 @@ input {
     border-radius: 30px;
     width: 120px;
     height: 50px;
+}
+
+.btn_submit[value] {
+    font-weight: 300;
 }
 
 .btn_submit:hover {
