@@ -6,11 +6,11 @@ O tema escolhido por nós foi desenvolver um website de um petshop virtual.
 
 ### Autores
 
-| NUSP     | Nome                       |
-|----------|----------------------------|
-|          |	Bernardo                  |
-|          |  Guilherme                 |
-| 11369767 | Laís Saloum Deghaide       |
+| NUSP     | Nome                          |
+|----------|-------------------------------|
+| 11795551 |	Bernardo Marques Costa       |
+| 11795811 |  Guilherme Lourenço de Toledo |
+| 11369767 |  Laís Saloum Deghaide         |
 
 ### Tabela de conteúdos 
 
