@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Meu Amigo Pet</title>
     <link href="style.css" rel="stylesheet">
+    <link href="login_style.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -53,7 +54,23 @@
     <!-- ======= Fim Cabeçalho ======= -->
 
     <div class="container">
+        <div class="acessar-conta">
+            <h4>Acesse sua conta</h4>
+            <p>é novo por aqui? <a href="cadastro.html"><strong>cadastre-se</strong></a></p>
+            <form class="formulario">
+                <div class="email">
+                    <input type="email" id="femail" name="femail" placeholder="e-mail" required>
+                </div>
+                <div class="senha">
+                    <input type="password" id="fpassword" name="fpassword" placeholder="senha" required>
+                </div>
+                <input class="btn_submit" type="submit" value="Entrar">
+            </form>
+        </div>
 
+        <!--<div class="img-pet col-md-6">
+            <img src="img/header-pet-na-cabine.png" alt="" id="pet-na-cabine">
+        </div>-->
     </div>
 
     <!-- ======= Rodapé ========= -->
