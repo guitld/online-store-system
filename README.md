@@ -45,7 +45,10 @@ Nosso sistema, como funcionalidade extra, também terá um teste de personalidad
 O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus usuários.
 
 ## 2. Descrição do Projeto
-
+Nesta primeira entrega, criamos o HTML e CSS da página princial, login e cadastro.
+Todas as outras telas foram feitas no Figma e criamos também o diagrama de navegação.
+Para garantir uma boa experiência para o úsario, criamos um menu em todas as páginas que garante a movimentação rápida e eficiente entre as páginas.
+A página de Carrinho só será possivel de visualizar após o cliente realizar o login, bem como a página de alteração de informações de cadastro pelo usuário.
 
 ### Diagrama de navegação
 
@@ -59,6 +62,7 @@ O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus us
 
 ## 3. Comentários sobre o código
 
+
 ## 4. Plano de teste
 
 
@@ -69,6 +73,11 @@ O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus us
 
 
 ## 7. Problemas
-
+Certa dificuldade de traduzir as imagens do mockup para código HTML e CSS, por causa da falta de padronização do tamanho das fontes entre as telas feitas no mockup.
 
 ## 8. Comentários
+Algumas das ferramentas usadas pelo grupo foram:
+
+Figma (mockup)
+HTML e CSS para as 3 páginas pedidas (mockup)
+X (diagrama de navegação)
