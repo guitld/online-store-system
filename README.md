@@ -78,6 +78,6 @@ Certa dificuldade de traduzir as imagens do mockup para código HTML e CSS, por 
 ## 8. Comentários
 Algumas das ferramentas usadas pelo grupo foram:
 
-Figma (mockup)
-HTML e CSS para as 3 páginas pedidas (mockup)
+Figma (mockup) <br>
+HTML e CSS para as 3 páginas pedidas (mockup) <br>
 X (diagrama de navegação)
