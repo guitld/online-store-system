@@ -1,33 +1,18 @@
-.acessar-conta,
-.img-pet {
-    position: absolute;
-    padding-top: 5%;
-}
-
-.acessar-conta h4 {
-    text-align: center;
-}
-
-.acessar-conta p {
-    text-align: right;
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .acessar-conta h4,
+.cadastrar-conta h4 {
+    text-align: center;
+}
+
+.acessar-conta h4,
+.cadastrar-conta h4,
 .btn_submit {
     text-transform: uppercase;
-}
-
-.acessar-conta p {
-    text-transform: lowercase;
-    font-size: small;
-}
-
-.acessar-conta p a {
-    color: black;
-}
-
-.acessar-conta p a:hover {
-    color: rgb(50, 49, 49);
 }
 
 input {
@@ -36,14 +21,7 @@ input {
     border-radius: 5px;
     width: 330px;
     height: 50px;
-    margin: 20px;
     padding-left: 5px;
-}
-
-.formulario {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
 }
 
 .btn_submit,
@@ -58,10 +36,14 @@ input {
     border-radius: 30px;
     width: 120px;
     height: 50px;
+    text-align: center;
+    margin: auto;
+    display: flex;
 }
 
 .btn_submit[value] {
     font-weight: 300;
+    justify-content: center;
 }
 
 .btn_submit:hover {
@@ -69,20 +51,3 @@ input {
     border: 4px solid #c0eb4c;
     cursor: pointer;
 }
-
-.img-pet {
-    position: absolute;
-    background: url(header-pet-na-cabine.png);
-}
-
-#pet-na-cabine {
-    height: 250px;
-}
-
-.container {
-    position: absolute;
-    top: 30%;
-    left: 8%;  
-    align-content: center;
-}
-

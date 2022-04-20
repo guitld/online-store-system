@@ -38,6 +38,7 @@ li {
 
 .nav-menu {
     display: table;
+    text-align: center;
     margin: 0 auto;
 }
 

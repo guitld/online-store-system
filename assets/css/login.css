@@ -1,0 +1,39 @@
+.body {
+    position: absolute;
+}
+
+.container {
+    margin-top: 8%;
+    flex-direction: row;
+}
+
+.acessar-conta {
+    padding-right: 15%;
+    padding-left: 10%;
+}
+
+.acessar-conta p {
+    text-align: right;
+}
+
+.acessar-conta p {
+    text-transform: lowercase;
+    font-size: small;
+    padding-right: 6%;
+}
+
+.acessar-conta p a {
+    color: black;
+}
+
+.acessar-conta p a:hover {
+    color: rgb(50, 49, 49);
+}
+
+input {
+    margin: 20px;
+}
+
+#pet-na-cabine {
+    height: 80%;
+}
