@@ -3,10 +3,7 @@
 }
 
 .container {
-    position: relative;
     margin-top: 8%;
-    justify-content: center;
-    display: flex;
     flex-direction: row;
 }
 
@@ -15,17 +12,8 @@
     padding-left: 10%;
 }
 
-.acessar-conta h4 {
-    text-align: center;
-}
-
 .acessar-conta p {
     text-align: right;
-}
-
-.acessar-conta h4,
-.btn_submit {
-    text-transform: uppercase;
 }
 
 .acessar-conta p {
@@ -43,49 +31,8 @@
 }
 
 input {
-    border: 2px solid #F5E9EE;
-    background-color: #F5E9EE;
-    border-radius: 5px;
-    width: 330px;
-    height: 50px;
     margin: 20px;
-    padding-left: 5px;
 }
-
-.formulario {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-.btn_submit,
-.btn_submit:hover {
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.btn_submit {
-    background-color: #EDFFBD;
-    border: 4px solid #D8FF6E;
-    border-radius: 30px;
-    width: 120px;
-    height: 50px;
-    text-align: center;
-    margin: auto;
-    display: flex;
-}
-
-.btn_submit[value] {
-    font-weight: 300;
-    justify-content: center;
-}
-
-.btn_submit:hover {
-    background-color: #c0eb4c;
-    border: 4px solid #c0eb4c;
-    cursor: pointer;
-}
-
 
 #pet-na-cabine {
     height: 80%;
