@@ -4,13 +4,13 @@
     justify-content: center;
 }
 
-.acessar-conta h4,
-.cadastrar-conta h4 {
+.sign-in h4,
+.sign-up h4 {
     text-align: center;
 }
 
-.acessar-conta h4,
-.cadastrar-conta h4,
+.sign-in h4,
+.sign-up h4,
 .btn_submit {
     text-transform: uppercase;
 }

@@ -4,9 +4,9 @@
 <head>
     <meta charset="utf-8">
     <title>Meu Amigo Pet</title>
-    
+
     <link href="assets/css/style.css" rel="stylesheet">
-    <link href="assets/css/main_page.css" rel="stylesheet">
+    <link href="assets/css/index.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +18,8 @@
     <link href="assets/img/apple-touch-icon.png" rel="icon">
 </head>
 
-    <body>
-
+<body>
+    <div class="page-wrapper">
         <!-- ======= Cabeçalho ======= -->
         <header id="header">
 
@@ -27,28 +27,28 @@
                 <ul>
                     <li class="drop-down"><a href="">acessórios</a>
                         <ul>
-                            <li><a href="acessorios.html#roupas">roupas</a></li>
-                            <li><a href="acessorios.html#camas_casinhas">camas e casinhas</a></li>
-                            <li><a href="acessorios.html#brinquedos">brinquedos</a></li>
-                            <li><a href="acessorios.html#alimentacao">alimentação</a></li>
+                            <li><a href="accessories.html#clothing">roupas</a></li>
+                            <li><a href="accessories.html#bed_houses">camas e casinhas</a></li>
+                            <li><a href="accessories.html#toys">brinquedos</a></li>
+                            <li><a href="accessories.html#food_accessories">alimentação</a></li>
                         </ul>
                     </li>
                     <li class="drop-down"><a href="">serviços</a>
                         <ul>
-                            <li><a href="servicos.html#about">banho</a></li>
-                            <li><a href="servicos.html#services">tosa</a></li>
+                            <li><a href="services.html#about">banho</a></li>
+                            <li><a href="services.html#services">tosa</a></li>
                         </ul>
                     </li>
                     <li class="drop-down"><a href="">comidinhas</a>
                         <ul>
-                            <li><a href="comidinhas.html#cards">petiscos</a></li>
-                            <li><a href="comidinhas.html#portfolio">rações</a></li>
+                            <li><a href="foods.html#snacks">petiscos</a></li>
+                            <li><a href="foods.html#pet_food">rações</a></li>
                         </ul>
                     </li>
-                    <li><a href="main_page.html"><strong>meu amigo pet</strong></a></li>
+                    <li><a href="index.html" class="current_page"><strong>meu amigo pet</strong></a></li>
                     <li><a href="login.html">entrar</a></li>
-                    <li><a href="cadastro.html">cadastrar</a></li>
-                    <li><a href="carrinho.html">carrinho</a></li>
+                    <li><a href="sign_up.html">cadastrar</a></li>
+                    <li><a href="shop_cart.html">carrinho</a></li>
                 </ul>
             </nav>
 
@@ -60,34 +60,34 @@
                 <div class="card-item">
                     <div class="card-inner">
                         <img src="assets/img/servicos.jpg">
-                        <div class="descricao">
-                            <a href="./servicos.html">serviços</a>
+                        <div class="description">
+                            <a href="./services.html">serviços</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-item">
                     <div class="card-inner">
                         <img src="assets/img/comidinhas.jpg">
-                        <div class="descricao">
-                            <a href="./comidinhas.html">comidinhas</a>
+                        <div class="description">
+                            <a href="./foods.html">comidinhas</a>
                         </div>
                     </div>
                 </div>
                 <div class="card-item">
                     <div class="card-inner">
                         <img src="assets/img/acessorio.jpg">
-                        <div class="descricao">
-                            <a href="./acessorio.html">acessórios</a>
+                        <div class="description">
+                            <a href="./accessories.html">acessórios</a>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="cat-dog-image">
+                <img src="./assets/img/header-pet-na-cabine.png" alt="">
+            </div>
         </div>
 
-        <div class="cat-dog-image">
-            <img src="./assets/img/header-pet-na-cabine.png" alt="">
-        </div>
-        
+
         <!-- ======= Rodapé ========= -->
         <footer id="footer">
             <div class="fcontainer">
@@ -96,7 +96,7 @@
                     <p>+55 (16) 3241-1413<br>
                         meu.amigo.pet@usp.br</p>
                 </div>
-                
+
                 <div class="col">
                     <h5 class="ftitle">endereço</h5>
                     <p>Rua Alberto Janequine, 32
@@ -106,7 +106,7 @@
                 </div>
 
                 <div class="col">
-                    <h5 class="ftitle" >sobre nós</h5>
+                    <h5 class="ftitle">sobre nós</h5>
                     <p>Lorem Ipsum is simply dummy text
                         of the printing and typesetting industry.
                         Lorem Ipsum has been the industry's standard dummy
@@ -115,6 +115,7 @@
                 </div>
             </div>
         </footer>
-    </body>
+    </div>
+</body>
 
 </html>

@@ -6,7 +6,7 @@
     <title>Meu Amigo Pet</title>
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/login_signup.css" rel="stylesheet">
-    <link href="assets/css/login.css" rel="stylesheet">
+    <link href="assets/css/signup.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -46,8 +46,8 @@
                         </ul>
                     </li>
                     <li><a href="index.html"><strong>meu amigo pet</strong></a></li>
-                    <li><a href="login.html" class="current_page">entrar</a></li>
-                    <li><a href="sign_up.html">cadastrar</a></li>
+                    <li><a href="login.html">entrar</a></li>
+                    <li><a href="sign_up.html" class="current_page">cadastrar</a></li>
                     <li><a href="shop_cart.html">carrinho</a></li>
                 </ul>
             </nav>
@@ -56,24 +56,29 @@
         <!-- ======= Fim Cabeçalho ======= -->
 
         <div class="container">
-            <div class="sign-in-flexbox">
-                <div class="sign-in">
-                    <h4>Acesse sua conta</h4>
-                    <p>é novo por aqui? <a href="sign_up.html"><strong>cadastre-se</strong></a></p>
-                    <form class="formulary">
-                        <div class="email">
-                            <input type="email" id="femail" name="femail" placeholder="e-mail" required>
-                        </div>
-                        <div class="password">
-                            <input type="password" id="fpassword" name="fpassword" placeholder="senha" required>
-                        </div>
-                        <input class="btn_submit" type="submit" value="Entrar">
-                    </form>
-                </div>
-
-                <div class="pet-img">
-                    <img src="assets/img/header-pet-na-cabine.png" alt="" class="form-pet-logo">
-                </div>
+            <div class="sign-up">
+                <h4>Cadastre sua conta</h4>
+                <form class="formulary">
+                    <div class="name">
+                        <input type="text" id="fname" name="name" placeholder="nome" required>
+                    </div>
+                    <div class="email">
+                        <input type="email" id="femail" name="femail" placeholder="e-mail" required>
+                    </div>
+                    <div class="cpf">
+                        <input type="text" id="fcpf" name="fcpf" placeholder="cpf" required>
+                    </div>
+                    <div class="address">
+                        <input type="text" id="faddress" name="faddress" placeholder="endereço" required>
+                    </div>
+                    <div class="telephone">
+                        <input type="telephone" id="ftel" name="ftel" placeholder="telefone" required>
+                    </div>
+                    <div class="password">
+                        <input type="password" id="fpassword" name="fpassword" placeholder="senha" required>
+                    </div>
+                    <input class="btn_submit" type="submit" value="Entrar">
+                </form>
             </div>
         </div>
 

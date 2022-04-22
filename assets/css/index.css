@@ -1,14 +1,16 @@
+.wrapper {
+    width: 80%;
+    margin: auto auto;
+}
+
 .cards-wrap {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 8%;
-}
-
-.cards-wrap .card-item {
-    margin: 50px;
+    gap: 50px;
+    margin: 30px 0;
 }
 
 .cards-wrap .card-inner {
@@ -16,7 +18,7 @@
     border-radius: 20px;
     min-width: 300px;
     min-height: 200px;
-    width: 200px;
+    width: 300px;
     text-align: center;
 }
 
@@ -27,15 +29,19 @@
     border-top-right-radius: 10px;
 }
 
-.cards-wrap .card-item .card-inner .descricao {
-    margin-top: 10px;
-    margin-bottom: 15px;
+.cards-wrap .card-item .card-inner .description {
+    padding: 15px;
 }
 
-.cards-wrap .card-item .card-inner  a {
+.cards-wrap .card-item .card-inner a {
     font-weight: bold;
     text-decoration: none;
     color: #000000;
+}
+
+.cards-wrap .card-item .card-inner a:hover {
+    color: #00c1c1;
+    text-decoration: none;
 }
 
 .cat-dog-image {
@@ -45,19 +51,5 @@
 }
 
 .cat-dog-image img {
-    width: 300px;
-}
-
-.fcontainer .col {
-    display: flex;
-    flex-flow: wrap;
-}
-
-.fcontainer:nth-child(1), 
-.fcontainer:nth-child(2) {
-    float: left;
-}
-
-.fcontainer:last-child {
-    float:right;
+    width: 30%;
 }

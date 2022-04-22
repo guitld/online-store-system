@@ -3,30 +3,28 @@
 }
 
 .container {
-    margin-top: 8%;
+    width: 70%;
+    margin: auto auto;
+}
+
+.sign-in-flexbox{
+    display: flex;
     flex-direction: row;
+    gap: 100px;
 }
 
-.acessar-conta {
-    padding-right: 15%;
-    padding-left: 10%;
-}
-
-.acessar-conta p {
+.sign-in p {
     text-align: right;
-}
-
-.acessar-conta p {
     text-transform: lowercase;
     font-size: small;
     padding-right: 6%;
 }
 
-.acessar-conta p a {
+.sign-in p a {
     color: black;
 }
 
-.acessar-conta p a:hover {
+.sign-in p a:hover {
     color: rgb(50, 49, 49);
 }
 
@@ -34,6 +32,11 @@ input {
     margin: 10px;
 }
 
-#pet-na-cabine {
-    height: 80%;
+.pet-img {
+    width: 100%;
+    margin: auto;
+}
+
+.form-pet-logo {
+    width: 400px;
 }
