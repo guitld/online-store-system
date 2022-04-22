@@ -67,21 +67,18 @@ As funcionalidades do site são:
 - Opção de inserir informações do cartão de crédito para efetuar o pagamento.
 
 
-### Servidor
-Nesta primeira entrega ainda não salvamos nada no servidor.
-
-
 ## 3. Comentários sobre o código
 Utilizamos apenas HTML e CSS, conforme explicitado no Millestone 1. Nossas páginas são estaticas e, para essa primeira entrega, criamos 3 HTMLs.
+
 
 ## 4. Plano de teste
 Nosso projeto foi desenvolvido e testado no Edge e no Google Chrome, no Windows.
 
 ## 5. Resultados dos testes
-
+O comportamento do site apresenta ser satisfatório nos dois navegadores testados, com um tempo de resposta rápido. 
 
 ## 6. Building
-
+Para essa primeira entrega, basta baixar esse repositório e abrir as páginas HTML no navegador da sua escolha.
 
 ## 7. Problemas
 Certa dificuldade de traduzir as imagens do mockup para código HTML e CSS, por causa da falta de padronização do tamanho das fontes entre as telas feitas no mockup.
