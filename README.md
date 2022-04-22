@@ -88,4 +88,4 @@ Algumas das ferramentas usadas pelo grupo foram:
 
 Figma (mockup) <br>
 HTML e CSS para as 3 páginas pedidas (mockup) <br>
-X (diagrama de navegação)
+Draw.io (diagrama de navegação)
