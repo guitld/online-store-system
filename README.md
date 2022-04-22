@@ -22,6 +22,7 @@ O tema escolhido por nós foi desenvolver um website de um petshop virtual.
 - [6. Building](#6-building)
 - [7. Problemas](#7-problemas)
 - [8. Comentários](#8-comentários)
+- [9. Comentários](#9-comentários)
 
 ## 1. Requisitos
 O sistema deve ter 2 tipos de usuários: clientes e administradores.
@@ -90,5 +91,5 @@ Figma (mockup) <br>
 HTML e CSS para as 3 páginas pedidas (mockup) <br>
 Draw.io (diagrama de navegação)
 
-## Link para o Figma
+## 9. Link para o Figma
 https://www.figma.com/file/jM4s8v0abX4JJOMJaymm74/meu-amigo-pet?node-id=0%3A1
