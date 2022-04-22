@@ -59,6 +59,10 @@ li {
     font-family: 'JetBrains Mono', monospace;
 }
 
+.nav-menu a.current_page {
+    color: #d403b9;
+}
+
 .nav-menu a:hover,
 .nav-menu .active>a,
 .nav-menu li:hover>a {
@@ -99,6 +103,7 @@ li {
 .nav-menu .drop-down ul li:hover>a {
     color: #00c1c1;
 }
+
 
 li>a>strong {
     font-size: 24px;
