@@ -5,6 +5,7 @@
 }
 
 body {
+    height: 100%;
     background-color: #FAD2E1;
     color: #000000;
     font-family: 'Arimo', sans-serif;
@@ -98,7 +99,7 @@ li>a>strong {
 }
 
 #footer {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
     height: 120px;
@@ -120,6 +121,9 @@ li>a>strong {
 
 #footer .fcontainer .col {
     margin: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+
 }
 
 #footer .fcontainer .ftitle {

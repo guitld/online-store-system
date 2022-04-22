@@ -1,30 +1,63 @@
-/* .wraper {
-    position: absolute;
-    width: 50%;
-} */
-
 .cards-wrap {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 8%;
 }
 
-.card-wrap .card-item {
-    padding: 15px 25px;
-    width: 25%;
+.cards-wrap .card-item {
+    margin: 50px;
 }
+
 .cards-wrap .card-inner {
-    background: #ffffff49;
-    border-radius: 5px;
+    background: #ffffff9a;
+    border-radius: 20px;
     min-width: 300px;
-    min-height: 100px;
-    padding: 10px;
-    width: 100px;
+    min-height: 200px;
+    width: 200px;
+    text-align: center;
 }
 
-.cards-wrap .card-inner img {
+.cards-wrap .card-item .card-inner img {
     width: 300px;
-    height: auto;
-    margin-bottom: 10px;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.cards-wrap .card-item .card-inner .descricao {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.cards-wrap .card-item .card-inner  a {
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+}
+
+.cat-dog-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px;
+}
+
+.cat-dog-image img {
+    width: 300px;
+}
+
+.fcontainer .col {
+    display: flex;
+    flex-flow: wrap;
+}
+
+.fcontainer:nth-child(1), 
+.fcontainer:nth-child(2) {
+    float: left;
+}
+
+.fcontainer:last-child {
+    float:right;
 }
