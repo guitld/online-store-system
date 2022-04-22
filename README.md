@@ -22,7 +22,7 @@ O tema escolhido por nós foi desenvolver um website de um petshop virtual.
 - [6. Building](#6-building)
 - [7. Problemas](#7-problemas)
 - [8. Comentários](#8-comentários)
-- [9. Link para o Figma](#9-link para o Figma)
+- [9. Link para o Figma](#9-link-para-o-Figma)
 
 ## 1. Requisitos
 O sistema deve ter 2 tipos de usuários: clientes e administradores.
