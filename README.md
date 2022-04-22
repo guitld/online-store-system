@@ -90,5 +90,5 @@ Figma (mockup) <br>
 HTML e CSS para as 3 páginas pedidas (mockup) <br>
 Draw.io (diagrama de navegação)
 
-## 9. Link para o Figma
+## Link para o Figma
 https://www.figma.com/file/jM4s8v0abX4JJOMJaymm74/meu-amigo-pet?node-id=0%3A1
