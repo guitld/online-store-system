@@ -53,7 +53,7 @@ Para garantir uma boa experiência para o úsario, criamos um menu em todas as p
 A página de Carrinho só será possivel de visualizar após o cliente realizar o login, bem como a página de alteração de informações de cadastro pelo usuário.
 
 ### Diagrama de navegação
-<img src="https://github.com/guitld/online-store-system/blob/main/assets/img/diagrama_navegacao.jpeg" width=600px>
+<img src="https://github.com/guitld/online-store-system/blob/main/assets/img/diagrama_navegacao.jpeg" width=800px>
 
 ### Funcionalidades
 As funcionalidades do site são:
