@@ -26,7 +26,7 @@ O tema escolhido por nós foi desenvolver um website de um petshop virtual.
 ## 1. Requisitos
 O sistema deve ter 2 tipos de usuários: clientes e administradores.
 
-Os administradores são responsáveis por registrar/gerenciar administradores, clientes e produtos fornecidos. O aplicativo já vem com uma conta admin com senha admin.
+Os administradores são responsáveis por registrar/gerenciar administradores, clientes e produtos fornecidos. O aplicativo já vem com uma conta `admin` com senha `admin`.
 
 Clientes são usuários que acessam o sistema para comprar produtos.
 
@@ -45,26 +45,37 @@ Nosso sistema, como funcionalidade extra, também terá um teste de personalidad
 O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus usuários.
 
 ## 2. Descrição do Projeto
-Nesta primeira entrega, criamos o HTML e CSS da página princial, login e cadastro.
-Todas as outras telas foram feitas no Figma e criamos também o diagrama de navegação.
+Nesta primeira entrega, criamos o HTML e CSS da página principal, login e cadastro.
+
+Todas as outras telas foram feitas no Figma e criamos também o diagrama de navegação. 
+
 Para garantir uma boa experiência para o úsario, criamos um menu em todas as páginas que garante a movimentação rápida e eficiente entre as páginas.
 A página de Carrinho só será possivel de visualizar após o cliente realizar o login, bem como a página de alteração de informações de cadastro pelo usuário.
 
 ### Diagrama de navegação
+<img src="https://github.com/guitld/online-store-system/blob/main/assets/img/diagrama_navegacao.jpeg" width=600px>
 
 ### Funcionalidades
+As funcionalidades do site são:
+
+- Login com email e senha na plataforma, com opção de criar uma nova conta.
+- Visualização das informações do cliente, com opção de alterar cadastro.
+- Visualização da página de administrador, com opção de administrar os produtos e usuários da loja.
+- Acesso à homepage, com visualização de menu de produtos.
+- Visualização de um produto, com seu nome, descrição, preço, id, quantidade em estoque, quantidade já vendida e botão para adicionar ao carrinho.
+- Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, conferir o preço total e finalizar compra.
+- Opção de inserir informações do cartão de crédito para efetuar o pagamento.
+
 
 ### Servidor
+Nesta primeira entrega ainda não salvamos nada no servidor.
 
-#### Contas:
-
-#### Produtos:
 
 ## 3. Comentários sobre o código
-
+Utilizamos apenas HTML e CSS, conforme explicitado no Millestone 1. Nossas páginas são estaticas e, para essa primeira entrega, criamos 3 HTMLs.
 
 ## 4. Plano de teste
-
+Nosso projeto foi desenvolvido e testado no Edge e no Google Chrome, no Windows.
 
 ## 5. Resultados dos testes
 
