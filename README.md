@@ -22,7 +22,7 @@ O tema escolhido por nós foi desenvolver um website de um petshop virtual.
 - [6. Building](#6-building)
 - [7. Problemas](#7-problemas)
 - [8. Comentários](#8-comentários)
-- [9. Link para o Figma](#9-link-para-o-Figma)
+- [9. Link para o Figma](#9-link-para-o-figma)
 
 ## 1. Requisitos
 O sistema deve ter 2 tipos de usuários: clientes e administradores.
@@ -58,7 +58,7 @@ As funcionalidades do site são:
 - Login com email e senha na plataforma, com opção de criar uma nova conta.
 - Visualização das informações do cliente, com opção de alterar cadastro.
 - Visualização da página de administrador, com opção de administrar os produtos e usuários da loja.
-- Acesso à homepage, com visualização de menu de produtos.
+- Acesso à homepage, com visualização das seções do site: prestação de serviços (tosa e banho), vendas de comidas e acessórios para pet.
 - Visualização de um produto, com seu nome, descrição, preço, id, quantidade em estoque, quantidade já vendida e botão para adicionar ao carrinho.
 - Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, conferir o preço total e finalizar compra.
 - Opção de inserir informações do cartão de crédito para efetuar o pagamento.
