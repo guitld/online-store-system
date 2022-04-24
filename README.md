@@ -41,10 +41,6 @@ Venda de produtos: Os produtos são selecionados, são incluídos em um carrinho
 
 Gerenciamento de produto: os administradores podem criar/atualizar/ler/excluir novos produtos. Por exemplo, eles podem alterar a quantidade em estoque.
 
-Nosso sistema, como funcionalidade extra, também terá um teste de personalidade em forma de quiz, que de acordo com as respostas dos usuários, escolherá um animal que mais se encaixa com o seu perfil.
-
-O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus usuários.
-
 ## 2. Descrição do Projeto
 Nesta primeira entrega, criamos o HTML e CSS da página principal, login e cadastro.
 
