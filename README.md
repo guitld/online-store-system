@@ -41,6 +41,8 @@ Venda de produtos: Os produtos são selecionados, são incluídos em um carrinho
 
 Gerenciamento de produto: os administradores podem criar/atualizar/ler/excluir novos produtos. Por exemplo, eles podem alterar a quantidade em estoque.
 
+Nosso sistema, como funcionalidade extra, possui sons customizados para cada aba clicável na barra de navegação. Os sons são característicos de animas pets populares.
+
 ## 2. Descrição do Projeto
 Nesta primeira entrega, criamos o HTML e CSS da página principal, login e cadastro.
 
