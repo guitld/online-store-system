@@ -14,10 +14,12 @@
 }
 
 .sign-in p {
+    margin-top: 12px;
     text-align: right;
     text-transform: lowercase;
-    font-size: small;
+    font-size: 14px;
     padding-right: 6%;
+
 }
 
 .sign-in p a {
@@ -30,6 +32,10 @@
 
 input {
     margin: 10px;
+}
+
+.formulary>div>label {
+    margin: 7% 5%;
 }
 
 .pet-img {

@@ -13,3 +13,7 @@
 input {
     margin: 5px;
 }
+
+.formulary>div>label {
+    margin: 5.5% 4%;
+}

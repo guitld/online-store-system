@@ -17,11 +17,45 @@
 
 input {
     border: 2px solid #F5E9EE;
-    background-color: #F5E9EE;
+    background-color: #FAD2E1;
     border-radius: 5px;
     width: 330px;
     height: 40px;
     padding-left: 5px;
+}
+
+input:focus {
+    border-color: #cb5c7f;
+}
+
+.formulary>div {
+    position: relative;
+    padding-top: 2px;
+}
+
+.formulary>div>label {
+    position: absolute;
+    left: 0;
+    font-size: small;
+    color: rgba(0, 0, 0, 0.4);
+    cursor: text;
+    transition: top 200ms ease-in, left 200 ease-in, font-size 200ms ease-in;
+    background-color: #FAD2E1;
+}
+
+input:focus+label,
+input:not(:placeholder-shown)+label {
+    transform: translateY(-1.8em) scale(0.9);
+    transition: 0.3s;
+    color: black;
+}*/
+
+input::placeholder {
+    color: transparent;
+}
+
+input:focus {
+    outline: none !important;
 }
 
 .btn_submit,
