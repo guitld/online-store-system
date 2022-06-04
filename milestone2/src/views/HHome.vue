@@ -2,17 +2,16 @@
   <div class="wrapper">
     <div class="cards-wrap">
       <div v-for="card in cards" :key="card" class="card-item">
-        <div v-for="option in card" :key="option" class="card-inner">
-          <img :src="image" />
+        <div class="card-inner">
+          <img :src="card.image" />
           <div class="description">
-            <router-link to="link">{{ title }}</router-link>
+            <router-link :to="card.link">{{ card.title }}</router-link>
           </div>
         </div>
       </div>
     </div>
     <div class="cat-dog-image">
-      <!--<img src="./assets/img/header-pet-na-cabine.png" alt="">
-            -->
+      <img :src="catDogImage" alt="">
     </div>
   </div>
 </template>
@@ -25,25 +24,91 @@ export default {
     return {
       cards: [
         {
-          title: "Serviços",
+          title: "serviços",
           description: "Banho, tosa, etc.",
-          image: "../assets/img/servicos.jpg",
+          image: "assets/img/servicos.jpg",
           link: "/services",
         },
         {
-          title: "Comidinhas",
+          title: "comidinhas",
           description: "Petiscos, rações, etc.",
-          image: "../assets/img/comidinhas.jpg",
+          image: "assets/img/comidinhas.jpg",
           link: "/foods",
         },
         {
-          title: "Acessórios",
+          title: "acessórios",
           description: "Roupas, cama, brinquedos, etc.",
-          image: "../assets/img/acessorio.jpg",
+          image: "assets/img/acessorio.jpg",
           link: "/accessories",
         },
       ],
+
+      catDogImage: "assets/img/header-pet-na-cabine.png",
     };
+    /*methods: {
+      chanceColorHover() {
+        
+      },
+    },*/
   },
 };
 </script>
+
+<style scoped>
+
+  .wrapper {
+    width: 80%;
+    margin: auto auto;
+  }
+
+  .cards-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+    margin: 30px 0;
+  }
+
+  .cards-wrap .card-inner {
+    background: #ffffff9a;
+    border-radius: 20px;
+    min-width: 300px;
+    min-height: 200px;
+    width: 300px;
+    text-align: center;
+  }
+
+  .cards-wrap .card-item .card-inner img {
+    width: 300px;
+    height: 200px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .cards-wrap .card-item .card-inner .description {
+    padding: 15px;
+  }
+
+  .cards-wrap .card-item .card-inner router-link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  .cards-wrap .card-item .card-inner router-link:hover {
+    color: #00c1c1;
+    text-decoration: none;
+  }
+
+  .cat-dog-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px;
+  }
+
+  .cat-dog-image img {
+    width: 30%;
+  }
+</style>

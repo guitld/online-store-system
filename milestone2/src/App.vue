@@ -9,6 +9,7 @@
   </head>
   <body>
     <div class="page-wrapper">
+      <router-view />
       <HHeader />
       <HHome />
       <FFooter />
@@ -26,7 +27,7 @@ export default {
   components: {
     FFooter,
     HHeader,
-    HHome,
+    HHome
   },
 };
 </script>

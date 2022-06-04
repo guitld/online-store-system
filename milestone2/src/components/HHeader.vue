@@ -5,34 +5,33 @@
         <li class="drop-down">
           <a href="">acessórios</a>
           <ul>
-            <li><a href="accessories.html#clothing">roupas</a></li>
-            <li><a href="accessories.html#bed_houses">camas e casinhas</a></li>
-            <li><a href="accessories.html#toys">brinquedos</a></li>
-            <li><a href="accessories.html#food_accessories">alimentação</a></li>
+            <li><router-link :to="{name: 'accessories', hash: '#clothing'}" class="drop-down-router">roupas</router-link></li>
+            <li><router-link :to="{name: 'accessories', hash: '#bed_houses'}" class="drop-down-router">camas e casinhas</router-link></li>
+            <li><router-link :to="{name: 'accessories', hash: '#toys'}" class="drop-down-router">brinquedos</router-link></li>
+            <li><router-link :to="{name: 'accessories', hash: '#food_accessories'}" class="drop-down-router">alimentação</router-link></li>
           </ul>
         </li>
         <li class="drop-down">
           <a href="">serviços</a>
           <ul>
-            <li><a href="services.html#banho">banho</a></li>
-            <li><a href="services.html#tosa">tosa</a></li>
+            <li><router-link :to="{name: 'services', hash: '#banho'}" class="drop-down-router">banho</router-link></li>
+            <li><router-link :to="{name: 'services', hash: '#tosa'}" class="drop-down-router">tosa</router-link></li>
           </ul>
         </li>
         <li class="drop-down">
           <a href="">comidinhas</a>
           <ul>
-            <li><a href="foods.html#snacks">petiscos</a></li>
-            <li><a href="foods.html#pet_food">rações</a></li>
+            <li><router-link :to="{name : 'foods', hash: '#snacks'}" class="drop-down-router">petiscos</router-link></li>
+            <li><router-link :to="{name: 'foods', hash: '#pet_food'}" class="drop-down-router">rações</router-link></li>
           </ul>
         </li>
         <li>
-          <a href="index.html" class="current_page"
-            ><strong>meu amigo pet</strong></a
-          >
+          <router-link to="/" class="current_page"
+            ><strong>meu amigo pet</strong></router-link>
         </li>
-        <li><a href="login.html">entrar</a></li>
-        <li><a href="sign_up.html">cadastrar</a></li>
-        <li><a href="shop_cart.html">carrinho</a></li>
+        <li><router-link to="/login" class="nav-router">entrar</router-link></li>
+        <li><router-link to="/sign-up" class="nav-router">cadastrar</router-link></li>
+        <li><router-link to="/shop-cart" class="nav-router">carrinho</router-link></li>
       </ul>
     </nav>
   </header>
@@ -42,56 +41,67 @@
   #header {
     background-color: #D8FF6E;
     height: 12%;
-  }
+}
 
-  ul {
+ul {
     list-style-type: none;
-  }
+}
 
-  li a:link {
+li a:link {
     text-decoration: none;
-  }
+}
 
-  li {
+li {
     display: inline-block;
     font-size: 12px;
-  }
+    padding: 16px 16px;
+}
 
-  .nav-menu>ul>li,
-  .nav-menu a,
-  .nav-menu .drop-down li {
+.nav-menu>ul>li,
+.nav-menu a,
+.nav-menu .nav-router,
+.nav-menu .drop-down li {
     position: relative;
-  }
+}
 
-  .nav-menu {
+.nav-menu {
     display: table;
     text-align: center;
     margin: 0 auto;
-  }
+}
 
-  .nav-menu a {
+.nav-menu a,
+.nav-menu .nav-router {
     display: block;
     text-transform: lowercase;
     color: #000000;
-    padding: 10px 37px;
+    padding: 10px 16px;
     transition: 0.3s;
     font-size: 13px;
     font-weight: 600;
     font-family: 'JetBrains Mono', monospace;
-  }
+}
 
-  .nav-menu a.current_page {
+.nav-menu a.current_page,
+.nav-menu .nav-router.current_page,
+.nav-menu router-link.current_page {
     color: #d403b9;
-  }
+}
 
-  .nav-menu a:hover,
-  .nav-menu .active>a,
-  .nav-menu li:hover>a {
+.nav-menu a:hover,
+.nav-menu .active>a,
+.nav-menu li:hover>a,
+.nav-menu .drop-down-router:hover,
+.nav-menu .active>.drop-down-router,
+.nav-menu li:hover>drop-down-router,
+.nav-menu .nav-router:hover,
+.nav-menu .active>.nav-router,
+.nav-menu li:hover>nav-router {
     color: #00c1c1;
     text-decoration: none;
-  }
+}
 
-  .nav-menu .drop-down ul {
+.nav-menu .drop-down ul {
     display: block;
     position: absolute;
     left: 0;
@@ -102,30 +112,32 @@
     background: #fff;
     box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
     transition: ease all 0.3s;
-  }
+}
 
-  .nav-menu .drop-down:hover>ul {
+.nav-menu .drop-down:hover>ul {
     opacity: 1;
     top: 100%;
     visibility: visible;
-  }
+}
 
-  .nav-menu .drop-down ul a {
-    padding: 0 auto;
+
+.nav-menu .drop-down ul router-link {
+    padding: 8px 2px;
     font-size: 14px;
     font-weight: 560;
     text-transform: none;
     color: #000000;
-  }
+}
 
-  .nav-menu .drop-down ul a:hover,
-  .nav-menu .drop-down ul .active>a,
-  .nav-menu .drop-down ul li:hover>a {
+.nav-menu .drop-down ul router-link:hover,
+.nav-menu .drop-down ul .active>router-link,
+.nav-menu .drop-down ul li:hover>router-link {
     color: #00c1c1;
-  }
+}
 
-  li>a>strong {
+
+li>router-link>strong {
     font-size: 24px;
-  }
+}
 
 </style>
