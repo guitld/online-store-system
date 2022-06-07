@@ -8,46 +8,49 @@
     />
   </head>
   <body>
-    <div>
+    <div class="page-wrapper">
+      <Header/>
       <router-view />
+      <Footer/>
     </div>
   </body>
 </template>
 
 
 <script>
-import FooterView from "./components/FooterView.vue";
-import HeaderView from "./components/HeaderView.vue";
+import Header from "./components/HeaderView.vue";
+import Footer from "./components/FooterView.vue";
 
 export default {
-  name: "App",
   components: {
-    FooterView,
-    HeaderView,
+    Footer,
+    Header,
   },
 };
 </script>
 
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+* {
+  margin: 0;
+  padding: 0;
+}
+#app,
+body {
+  font-family: "JetBrains Mono", monospace;
 }
 
-nav {
-  padding: 30px;
+body {
+  height: 100%;
+  background-color: #fad2e1;
+  color: #000000;
+  font-family: "Arimo", sans-serif;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>

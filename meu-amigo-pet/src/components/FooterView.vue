@@ -33,7 +33,7 @@
     background: #EDFFBD;
     justify-content: center;
     overflow: auto;
-    padding: 15px 70px 15px 70px;
+    padding: 20px 70px 20px 70px;
 }
 
 #footer .fcontainer {
@@ -44,5 +44,6 @@
 
 #footer .fcontainer p {
     font-size: 12px;
+    font-family: "JetBrains Mono", monospace;
 }
 </style>

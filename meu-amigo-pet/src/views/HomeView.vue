@@ -1,3 +1,4 @@
+<!-- ME PARECE OK-->
 <template>
   <div class="wrapper">
     <div class="cards-wrap">
@@ -25,19 +26,16 @@ export default {
       cards: [
         {
           title: "serviços",
-          description: "Banho, tosa, etc.",
           image: "assets/img/servicos.jpg",
           link: "/services",
         },
         {
           title: "comidinhas",
-          description: "Petiscos, rações, etc.",
           image: "assets/img/comidinhas.jpg",
           link: "/foods",
         },
         {
           title: "acessórios",
-          description: "Roupas, cama, brinquedos, etc.",
           image: "assets/img/acessorio.jpg",
           link: "/accessories",
         },
@@ -86,13 +84,13 @@ export default {
     padding: 15px;
   }
 
-  .cards-wrap .card-item .card-inner router-link {
+  .cards-wrap .card-item .card-inner .description a {
     font-weight: bold;
     text-decoration: none;
     color: #000000;
   }
 
-  .cards-wrap .card-item .card-inner router-link:hover {
+  .cards-wrap .card-item .card-inner a:hover {
     color: #00c1c1;
     text-decoration: none;
   }
