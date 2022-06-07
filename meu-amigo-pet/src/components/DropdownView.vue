@@ -1,3 +1,4 @@
+<!-- VER COMO DIRECIONA PARA UMA SEÇÃO ESPECIFICA NA PAGINA -->
 <template>
     <div class="menu-item"  @mouseover="onOver" @mouseleave="onLeave">
         <a href="#">{{ title }}</a>

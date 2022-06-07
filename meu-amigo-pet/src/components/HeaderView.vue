@@ -5,7 +5,7 @@
       <dropdown-view title="serviços" :items="services"></dropdown-view>
       <dropdown-view title="comidinhas" :items="foods"></dropdown-view>  
       
-      <div class="menu-item" id="current_page"><router-link to="/"><strong>meu amigo pet</strong></router-link></div>
+      <div class="menu-item"><router-link to="/"><strong>meu amigo pet</strong></router-link></div>
       <div class="menu-item"><router-link to="/login">entrar</router-link></div>
       <div class="menu-item"><router-link to="/sign-up">cadastrar</router-link></div>
       <div class="menu-item"><router-link to="/shop-cart">carrinho</router-link></div>
@@ -105,7 +105,7 @@ nav .menu-item a {
   color: #000000;
 }
 
-#current_page.menu-item a {
+nav .menu-item a.active-link {
   color: #d403b9;
 }
 
