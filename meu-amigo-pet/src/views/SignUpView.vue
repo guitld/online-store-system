@@ -23,7 +23,7 @@
       class="btn_submit"
       type="submit"
       value="CADASTRAR"
-      @click="cadastrar()"
+      @click="cadastrar"
     />
   </form>
 </template>

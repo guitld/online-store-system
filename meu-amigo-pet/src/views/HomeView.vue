@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="cat-dog-image">
-      <img :src="catDogImage" alt="">
+      <img :src="catDogImage" alt="" />
     </div>
   </div>
 </template>
@@ -27,17 +27,17 @@ export default {
         {
           title: "serviços",
           image: "assets/img/servicos.jpg",
-          link: "/services",
+          link: "/serviços",
         },
         {
           title: "comidinhas",
           image: "assets/img/comidinhas.jpg",
-          link: "/foods",
+          link: "/comidinhas",
         },
         {
           title: "acessórios",
           image: "assets/img/acessorio.jpg",
-          link: "/accessories",
+          link: "/acessórios",
         },
       ],
 
@@ -104,4 +104,5 @@ export default {
   .cat-dog-image img {
     width: 30%;
   }
+
 </style>

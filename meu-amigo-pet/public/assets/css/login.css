@@ -1,0 +1,48 @@
+.body {
+    position: absolute;
+}
+
+.container {
+    width: 70%;
+    margin: auto auto;
+}
+
+.sign-in-flexbox{
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+}
+
+.sign-in p {
+    margin-top: 12px;
+    text-align: right;
+    text-transform: lowercase;
+    font-size: 14px;
+    padding-right: 6%;
+
+}
+
+.sign-in p a {
+    color: black;
+}
+
+.sign-in p a:hover {
+    color: rgb(50, 49, 49);
+}
+
+input {
+    margin: 10px;
+}
+
+.formulary>div>label {
+    margin: 7% 5%;
+}
+
+.pet-img {
+    width: 100%;
+    margin: auto;
+}
+
+.form-pet-logo {
+    width: 400px;
+}

@@ -23,17 +23,17 @@ const routes = [
     component: () => import('../views/ShopCartView.vue')
   },
   {
-    path: '/acessories',
+    path: '/acessorios',
     name: 'acessories',
     component: () => import('../views/AcessoriesView.vue')
   },
   {
-    path: '/services',
+    path: '/serviços',
     name: 'services',
     component: () => import('../views/ServicesView.vue')
   },
   {
-    path: '/foods',
+    path: '/comidinhas',
     name: 'foods',
     component: () => import('../views/FoodsView.vue')
   }
@@ -46,13 +46,13 @@ const router = createRouter({
   linkExactActiveClass: 'exact-active-link',
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
-      }
+      return { selector: to.hash }
+    } else if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { x: 0, y: 0 }
     }
   }
-
 })
 
 export default router

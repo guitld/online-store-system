@@ -1,0 +1,19 @@
+.container {
+    align-items: center;
+}
+
+.sign-up {
+    margin-top: 2%;
+}
+
+.sign-up h4 {
+    padding-bottom: 10px;
+}
+
+input {
+    margin: 5px;
+}
+
+.formulary>div>label {
+    margin: 5.5% 4%;
+}
