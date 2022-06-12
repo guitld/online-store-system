@@ -1,26 +1,29 @@
 <template>
-  <h1>Agende seu serviço</h1>
+  <h1>Alterar perfil</h1>
   <form>
     <simple-input
-      v-model="event.cep" label="cep" type="text" required
+      v-model="event.nome" label="nome" type="text" required
     ></simple-input>
     <simple-input
-      v-model="event.numero" label="número" type="text" required
+      v-model="event.email" label="e-mail" type="email" required
     ></simple-input>
     <simple-input
-      v-model="event.data" label="data" type="date" required
+      v-model="event.cpf" label="cpf" type="text" pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" required
     ></simple-input>
     <simple-input
-      v-model="event.hora" label="hora" type="time" required
+      v-model="event.endereco" label="endereço" type="text" required
     ></simple-input>
     <simple-input
-      v-model="event.telefone" label="senha" type="tel" required
+      v-model="event.telefone" label="telefone" type="tel" required
+    ></simple-input>
+    <simple-input
+      v-model="event.senha" label="senha" type="password" required
     ></simple-input>
     <input
       class="btn_submit"
       type="submit"
-      value="AGENDAR"
-      @click="agendar"
+      value="ATUALIZAR CADASTRO"
+      @click="handleCadastro"
     />
   </form>
 </template>
@@ -32,18 +35,19 @@ export default {
   data() {
     return {
       event: {
-        cep: "",
-        numero: "",
-        data: "",
-        hora: "",
+        nome: "",
+        email: "",
+        cpf: "",
+        endereco: "",
         telefone: "",
+        senha: "",
       },
     };
   },
   methods: {
-    agendar() {
+    handleCadastro() {
       // REFINAR ISSO AQUI, QUANDO CLICA, DÁ O ALERTA MESMO N TENDO CAMPO PREENCHIDO
-      alert("Cadastro realizado com sucesso!");
+      alert("Dados alterados com sucesso!");
     },
   },
 };
@@ -99,7 +103,7 @@ input:focus {
   background-color: #edffbd;
   border: 4px solid #d8ff6e;
   border-radius: 30px;
-  width: 120px;
+  width: 200px;
   height: 50px;
   text-align: center;
   margin: 10px auto;
