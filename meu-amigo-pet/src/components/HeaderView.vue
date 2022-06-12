@@ -33,7 +33,7 @@ export default {
         },
         {
           title: 'camas e casinhas',
-          link: '/acessros/camas-e-casinhas',
+          link: '/acessorios/camas-e-casinhas',
         },
         {
           title: 'brinquedos',

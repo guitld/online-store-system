@@ -37,7 +37,7 @@ export default {
         {
           title: "acessórios",
           image: "assets/img/acessorio.jpg",
-          link: "/acessórios",
+          link: "/acessorios",
         },
       ],
 
