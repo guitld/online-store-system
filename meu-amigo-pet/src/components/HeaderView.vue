@@ -7,8 +7,8 @@
       
       <div class="menu-item"><router-link to="/"><strong>meu amigo pet</strong></router-link></div>
       <div class="menu-item"><router-link to="/login">entrar</router-link></div>
-      <div class="menu-item"><router-link to="/sign-up">cadastrar</router-link></div>
-      <div class="menu-item"><router-link to="/shop-cart">carrinho</router-link></div>
+      <div class="menu-item"><router-link to="/cadastro">cadastrar</router-link></div>
+      <div class="menu-item"><router-link to="/carrinho">carrinho</router-link></div>
     </nav>
   </header>
 </template>

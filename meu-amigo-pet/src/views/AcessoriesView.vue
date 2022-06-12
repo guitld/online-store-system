@@ -71,7 +71,7 @@
 <script>
 
 export default {
-  name: "Home",
+  name: "Acessories",
 
   data() {
     return {

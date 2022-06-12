@@ -61,7 +61,7 @@ export default {
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
-    margin: 30px 0;
+    margin: 30px auto;
   }
 
   .cards-wrap .card-inner {

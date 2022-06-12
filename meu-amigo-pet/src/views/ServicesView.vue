@@ -1,5 +1,5 @@
 <template>
-  <div class="cards-wrap">
+ <div class="cards-wrap">
     <div v-for="card in cards" :key="card" class="card-item">
       <div class="card-inner">
         <img :src="card.image" />
@@ -13,19 +13,19 @@
 
 <script>
 export default {
-  name: "Home",
+  name: "Services",
 
   data() {
     return {
       cards: [
         {
           title: "banho",
-          image: "assets/img/servicos.jpg",
+          image: "assets/img/banho.jpg",
           link: "/serviços/agendamento",
         },
         {
           title: "tosa",
-          image: "assets/img/comidinhas.jpg",
+          image: "assets/img/tosa.jpg",
           link: "/serviços/agendamento",
         },
       ],
@@ -47,7 +47,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   gap: 50px;
-  margin: 30px 0;
+  margin: auto auto;
 }
 
 .cards-wrap .card-inner {

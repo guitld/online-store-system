@@ -13,12 +13,12 @@ const routes = [
     component: () => import('../views/LoginView.vue')
   },
   {
-    path: '/sign-up',
+    path: '/cadastro',
     name: 'signup',
     component: () => import('../views/SignUpView.vue')
   },
   {
-    path: '/shop-cart',
+    path: '/carrinho',
     name: 'shopcart',
     component: () => import('../views/ShopCartView.vue')
   },
@@ -31,6 +31,11 @@ const routes = [
     path: '/serviços',
     name: 'services',
     component: () => import('../views/ServicesView.vue')
+  },
+  {
+    path: '/serviços/agendamento',
+    name: 'schedule-services',
+    component: () => import('../views/ScheduleServiceView.vue')
   },
   {
     path: '/comidinhas',
