@@ -25,15 +25,15 @@ const routes = [
   {
     path: '/acessorios',
     name: 'acessories',
-    component: () => import('../views/AcessoriesView.vue')
+    component: () => import('../views/AccessoriesView.vue')
   },
   {
-    path: '/serviços',
+    path: '/servicos',
     name: 'services',
     component: () => import('../views/ServicesView.vue')
   },
   {
-    path: '/serviços/agendamento',
+    path: '/servicos/agendamento',
     name: 'schedule-services',
     component: () => import('../views/ScheduleServiceView.vue')
   },
@@ -43,13 +43,13 @@ const routes = [
     component: () => import('../views/FoodsView.vue')
   },
   {
-    path: '/produto/',
+    path: '/produto/:category/:id',
     name: 'product',
     component: () => import('../views/ProductView.vue')
   },
   {
 		path: '/perfil-cliente',
-		name: 'perfilcliente',
+		name: 'perfil-cliente',
 		component: () => import('../views/UserView.vue')
 	},
   {
