@@ -1,5 +1,5 @@
 <template>
-  <div v-for="item in items">
+  <div v-for="item in items" :key="item">
     <h1>{{ item.category }}</h1>
     <div class="cards-wrap">
       <div v-for="product in item.products" :key="product" class="card-item">

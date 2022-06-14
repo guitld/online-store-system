@@ -13,8 +13,11 @@
     <simple-input
       v-model="event.hora" label="hora" type="time" required
     ></simple-input>
+     <simple-input
+      v-model="event.email" label="e-mail" type="email" required
+    ></simple-input>
     <simple-input
-      v-model="event.telefone" label="senha" type="tel" required
+      v-model="event.telefone" label="senha" type="password" required
     ></simple-input>
     <input
       class="btn_submit"
@@ -36,6 +39,7 @@ export default {
         numero: "",
         data: "",
         hora: "",
+        email: "",
         telefone: "",
       },
     };
