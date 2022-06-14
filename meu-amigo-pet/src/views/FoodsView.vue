@@ -4,7 +4,7 @@
 
 <script>
 import ItemList from "@/components/ItemListView.vue"
-import foods_data from "@/data/foods.json"
+import data from "@/data/teste.json"
 
 export default {
   name: "Foods",
@@ -13,7 +13,7 @@ export default {
 
   data() {
     return {
-      items: foods_data
+      items: data["foods"]
     };
   },
 };

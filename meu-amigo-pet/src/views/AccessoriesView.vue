@@ -4,16 +4,16 @@
 
 <script>
 import ItemList from "@/components/ItemListView.vue"
-import acessories_data from "@/data/acessories.json"
+import data from "@/data/teste.json"
 
 export default {
-  name: "Acessories",
+  name: "Accessories",
 
   components: {ItemList},
 
   data() {
     return {
-      items: acessories_data
+      items: data["accessory"]
     };
   },
 };

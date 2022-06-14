@@ -6,7 +6,7 @@
         <div class="card-inner">
           <img :src="product.image" alt="">
           <div class="description">
-            <router-link :to="`produto/${item.category}/${product.id}`">{{ product.title }}</router-link>
+            <router-link :to="`/produto/${item.category}/${product.id}`">{{ product.title }}</router-link>
           </div>
           <div class="price">
             {{ product.price }}

@@ -29,40 +29,27 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
-import products from '@/data/acessories.json'
+import products from '@/data/teste.json'
 
 export default {
-  // setup() {
-  //   const route = useRoute()
-  //   const product = computed(() => {
-  //       return products.filter(a => a.abbreviation === route.params.code.toUpperCase())[0]
-  //     })
-
-  //     return { airport }
-  // },
-
   name: 'product',
   data() {
     return {
-      product: products[0]['products'][0],
-      // product: this.$store.getters.product(this.$route.params.id)
-      
-      // unitary_price: this.computePrice(product.price),
-      // number_of_products: 1
+      product: '',
+      final_price: 0,
+      number_of_products: 0
     }
   },
 
-  watch: {
-    number_of_products(old_v, new_v) {
-      this.final_price = this.product.price * new_v
-    }
+  created() {
+    this.$watch(
+      () => this.$route.params,
+      (toParams, previousParams) => {
+        product = products[toParams['category']]
+      }
+    )
   },
 
-  methods: {
-    computePrice() {
-
-    }
-  }
 };
 </script>
 
@@ -113,6 +100,9 @@ export default {
   .product-description>p, 
   .num-products-input{
     margin: 10px;
+  }
+  .product-description>p {
+    font-size: 10px;
   }
 
   .num-products-input {
