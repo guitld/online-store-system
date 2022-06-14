@@ -1,12 +1,12 @@
 <template>
   <div v-for="item in items" :key="item">
-    <h1>{{ item.category }}</h1>
+    <h1>{{ item.section }}</h1>
     <div class="cards-wrap">
       <div v-for="product in item.products" :key="product" class="card-item">
         <div class="card-inner">
           <img :src="product.image" alt="">
           <div class="description">
-            <router-link :to="`/produto/${item.category}/${product.id}`">{{ product.title }}</router-link>
+            <router-link :to="`/produto/${product.id}`">{{ product.title }}</router-link>
           </div>
           <div class="price">
             {{ product.price }}
