@@ -27,7 +27,7 @@ export default {
         {
           title: "serviços",
           image: "assets/img/servicos.jpg",
-          link: "/serviços",
+          link: "/servicos",
         },
         {
           title: "comidinhas",
