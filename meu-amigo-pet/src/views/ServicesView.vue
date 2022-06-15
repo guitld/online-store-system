@@ -51,7 +51,7 @@ export default {
 }
 
 .cards-wrap .card-inner {
-  background: #ffffff9a;
+  background: #FAF6EF;
   border-radius: 20px;
   min-width: 300px;
   min-height: 200px;

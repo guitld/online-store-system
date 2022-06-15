@@ -5,7 +5,7 @@
         <h4>Acesse sua conta</h4>
         <p>
           é novo por aqui?
-          <router-link to="/sign-up"><strong>cadastre-se</strong></router-link>
+          <router-link to="/cadastro"><strong>cadastre-se</strong></router-link>
         </p>
         <form>
           <simple-input
