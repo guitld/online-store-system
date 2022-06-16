@@ -31,26 +31,7 @@ export default {
 
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-#app,
-body {
-  font-family: "JetBrains Mono", monospace;
-}
-
-body {
-  height: 100%;
-  background-color: #fad2e1;
-  color: #000000;
-  font-family: "Arimo", sans-serif;
-}
-
-.page-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
+@import  '/public/assets/css/index.css';
+@import '/public/assets/css/style.css';
 
 </style>

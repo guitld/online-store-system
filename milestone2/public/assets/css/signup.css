@@ -11,9 +11,10 @@
 }
 
 input {
-    margin: 5px;
+    display: block;
 }
 
 .formulary>div>label {
     margin: 5.5% 4%;
 }
+

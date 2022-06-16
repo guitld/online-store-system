@@ -20,10 +20,7 @@
             type="password"
             required
           ></simple-input>
-          <!-- <input class="btn_submit" type="submit" value="ENTRAR" /> -->
-          <!-- <input class="btn_submit" type="submit" @click="login()" value="ENTRAR"> -->
-          <!-- <button class="btn_submit" type="button" @click="login()"> ENTRAR </button> -->
-          <router-link class="btn_submit" type="button" to="/" @click="login()"> entrar    
+          <router-link class="btn_submit" type="button" to="/login" @click="login()"> entrar    
           </router-link>
         </form>
       </div>
@@ -78,8 +75,10 @@ export default {
 </script>
 
 <style scoped>
+@import '/public/assets/css/login_signup.css';
+@import '/public/assets/css/login.css';
 
-.container {
+/*.container {
     width: 70%;
     margin: auto auto;
     position: relative;
@@ -186,6 +185,6 @@ input:focus {
     background-color: #c0eb4c;
     border: 4px solid #c0eb4c;
     cursor: pointer;
-}
+}*/
 
 </style>
