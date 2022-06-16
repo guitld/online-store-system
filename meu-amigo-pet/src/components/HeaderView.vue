@@ -1,8 +1,8 @@
 <template>
   <header>
     <nav>
-      <dropdown-view title="acessórios" :items="acessories"></dropdown-view>
-      <dropdown-view title="serviços" :items="services"></dropdown-view>
+      <dropdown-view title="acessorios" :items="acessories"></dropdown-view>
+      <dropdown-view title="servicos" :items="services"></dropdown-view>
       <dropdown-view title="comidinhas" :items="foods"></dropdown-view>  
       
       <div class="menu-item"><router-link to="/"><strong>meu amigo pet</strong></router-link></div>
