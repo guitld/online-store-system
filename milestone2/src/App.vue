@@ -9,37 +9,35 @@
   </head>
   <body>
     <div class="page-wrapper">
+      <Header/>
       <router-view />
-      <HHeader />
-      <HHome />
-      <FFooter />
+      <Footer/>
     </div>
   </body>
 </template>
 
+
 <script>
-import FFooter from "./components/FFooter.vue";
-import HHeader from "./components/HHeader.vue";
-import HHome from "./views/HHome.vue";
+import Header from "./components/HeaderView.vue";
+import Footer from "./components/FooterView.vue";
 
 export default {
-  name: "App",
   components: {
-    FFooter,
-    HHeader,
-    HHome
+    Footer,
+    Header,
   },
 };
 </script>
 
+
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 #app,
 body {
   font-family: "JetBrains Mono", monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin: 0;
-  padding: 0;
 }
 
 body {
@@ -50,8 +48,9 @@ body {
 }
 
 .page-wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
+
 </style>
