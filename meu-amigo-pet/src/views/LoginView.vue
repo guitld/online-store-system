@@ -5,7 +5,7 @@
         <h4>Acesse sua conta</h4>
         <p>
           é novo por aqui?
-          <router-link to="/sign-up"><strong>cadastre-se</strong></router-link>
+          <router-link to="/cadastro"><strong>cadastre-se</strong></router-link>
         </p>
         <form>
           <simple-input
@@ -15,12 +15,16 @@
             required
           ></simple-input>
           <simple-input
-            v-model="event.senha"
+            v-model="event.password"
             label="senha"
             type="password"
             required
           ></simple-input>
-          <input class="btn_submit" type="submit" value="ENTRAR" />
+          <!-- <input class="btn_submit" type="submit" value="ENTRAR" /> -->
+          <!-- <input class="btn_submit" type="submit" @click="login()" value="ENTRAR"> -->
+          <!-- <button class="btn_submit" type="button" @click="login()"> ENTRAR </button> -->
+          <router-link class="btn_submit" type="button" to="/" @click="login()"> entrar    
+          </router-link>
         </form>
       </div>
 
@@ -33,6 +37,7 @@
 
 <script>
 import SimpleInput from "@/components/SimpleInput.vue";
+import users from "@/data/users.json";
 
 export default {
   components: { SimpleInput },
@@ -45,6 +50,30 @@ export default {
       catDogImage: "assets/img/header-pet-na-cabine.png",
     };
   },
+
+  methods:{
+    login(){
+      if(this.event.email != "" && this.event.password != "") {
+        let emailFound = false;
+    
+        for (let i = 0; i < users.length; i++){
+          if (this.event.email == users[i]['email']){
+            emailFound = true;
+            if (this.event.password == users[i]['password']){
+              this.emitter.emit('authenticated', true);
+              break;
+            }
+            else
+              alert("Senha incorreta.");
+          }
+        }
+        if (!emailFound)
+          alert("Email não cadastrado.");
+      }
+      else
+        alert("Preencha os campos de Email e Senha");
+    }
+  }
 };
 </script>
 
@@ -148,11 +177,9 @@ input:focus {
     text-align: center;
     margin: auto;
     display: flex;
-}
-
-.btn_submit[value] {
     font-weight: 300;
     justify-content: center;
+    padding: 10px;
 }
 
 .btn_submit:hover {

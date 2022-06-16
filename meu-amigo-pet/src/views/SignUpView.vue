@@ -1,6 +1,16 @@
 <template>
   <h1>Cadastre sua conta</h1>
-  <form>
+  <!-- <form> -->
+  <simple-input :items="items"></simple-input>
+  <button class="btn_submit" @click="cadastrar()"></button>
+  <!-- <input
+      class="btn_submit"
+      type="submit"
+      value="CADASTRAR"
+      @click="cadastrar"
+    /> -->
+  <!-- </form> -->
+  <!-- <form>
     <simple-input
       v-model="event.nome" label="nome" type="text" required
     ></simple-input>
@@ -18,14 +28,15 @@
     ></simple-input>
     <simple-input
       v-model="event.senha" label="senha" type="password" required
-    ></simple-input>
-    <input
+    ></simple-input> -->
+    <!-- <input
       class="btn_submit"
       type="submit"
       value="CADASTRAR"
       @click="cadastrar"
-    />
-  </form>
+    /> -->
+    <!-- <button class="btn_submit" @click="cadastrar()"></button> -->
+  <!-- </form> -->
 </template>
 
 <script>
@@ -34,20 +45,47 @@ export default {
   components: { SimpleInput },
   data() {
     return {
-      event: {
-        nome: "",
-        email: "",
-        cpf: "",
-        endereco: "",
-        telefone: "",
-        senha: "",
-      },
+      // event: {
+      //   nome: "",
+      //   email: "",
+      //   cpf: "",
+      //   endereco: "",
+      //   telefone: "",
+      //   senha: ""
+      // }
+      items: [
+        {
+          label: "nome",
+          modelValue: ""
+        },
+        {
+          label: "email",
+          modelValue: ""
+        },
+        {
+          label: "cpf",
+          modelValue:  ""
+        },
+        {
+          label: "endereço",
+          modelValue: ""
+        },
+        {
+          label: "telefone",
+          modelValue: ""
+        },
+        {
+          label: "senha",
+          modelValue: ""
+        },
+      ]
     };
   },
   methods: {
     cadastrar() {
       // REFINAR ISSO AQUI, QUANDO CLICA, DÁ O ALERTA MESMO N TENDO CAMPO PREENCHIDO
-      alert("Cadastro realizado com sucesso!");
+      console.log(this.items);
+      // alert("Cadastro realizado com sucesso!");
     },
   },
 };

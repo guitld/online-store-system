@@ -48,8 +48,8 @@ const routes = [
     component: () => import('../views/ProductView.vue')
   },
   {
-		path: '/perfil-cliente',
-		name: 'perfil-cliente',
+		path: '/perfil',
+		name: 'perfil',
 		component: () => import('../views/UserView.vue')
 	},
   {

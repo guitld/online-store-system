@@ -21,6 +21,7 @@
 import Header from "./components/HeaderView.vue";
 import Footer from "./components/FooterView.vue";
 
+
 export default {
   components: {
     Footer,

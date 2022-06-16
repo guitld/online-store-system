@@ -1,0 +1,19 @@
+[
+    {
+        "email": "123@123.com",
+        "nome": "Batata Inglesa Mandioca",
+        "cpf": "90522045923",
+        "endereço": "Rua Plantação Batata, 44",
+        "telefone": "11923493950",
+        "password": "123"
+    },
+    {
+        "email": "234@123.com",
+        "nome": "Batata Inglesa Mandioca",
+        "cpf": "90522045923",
+        "endereço": "Rua Plantação Batata, 44",
+        "telefone": "11923493950",
+        "password": "123"
+    }
+
+]
