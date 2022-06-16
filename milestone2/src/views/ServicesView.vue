@@ -21,12 +21,12 @@ export default {
         {
           title: "banho",
           image: "assets/img/banho.jpg",
-          link: "/serviços/agendamento",
+          link: "/servicos/agendamento",
         },
         {
           title: "tosa",
           image: "assets/img/tosa.jpg",
-          link: "/serviços/agendamento",
+          link: "/servicos/agendamento",
         },
       ],
     };

@@ -1,14 +1,15 @@
 <template>
   <header>
     <nav>
-      <dropdown-view title="acessorios" :items="acessories"></dropdown-view>
-      <dropdown-view title="servicos" :items="services"></dropdown-view>
-      <dropdown-view title="comidinhas" :items="foods"></dropdown-view>  
-      
+      <router-link to="/acessorios" style="text-decoration: none;"><dropdown-view title="acessórios" :items="acessories"></dropdown-view> </router-link>
+      <router-link to="/servicos" style="text-decoration: none;"><dropdown-view title="serviços" :items="services"></dropdown-view> </router-link>
+      <router-link to="/comidinhas" style="text-decoration: none;"><dropdown-view title="comidinhas" :items="foods"></dropdown-view> </router-link>
       <div class="menu-item"><router-link to="/"><strong>meu amigo pet</strong></router-link></div>
-      <div class="menu-item"><router-link to="/login">entrar</router-link></div>
-      <div class="menu-item"><router-link to="/cadastro">cadastrar</router-link></div>
       <div class="menu-item"><router-link to="/carrinho">carrinho</router-link></div>
+      <div v-if="authenticated" class="menu-item"><router-link to="/perfil">perfil</router-link></div>
+      <div v-else class="menu-item"><router-link to="/login">entrar</router-link></div>
+      <div v-if="authenticated" class="menu-item"> <a href="/" @click="logout()"> sair </a> </div> 
+      <div v-else class="menu-item"><router-link to="/cadastro">cadastrar</router-link></div>
     </nav>
   </header>
 </template>
@@ -23,9 +24,21 @@ export default {
   components: {
     DropdownView,
   },
+  created() {
+    this.emitter.on('authenticated', status => {
+      this.authenticated = status;
+    })
+  },
+
+  methods: {
+    logout() {
+        this.authenticated = false;
+    }
+  },
 
   data() {
     return {
+      authenticated: false,
       acessories: [
         {
           title: 'roupas',
@@ -91,6 +104,7 @@ nav .menu-item {
   font-size: 14px;
   font-weight: 600;
   font-family: "JetBrains Mono", monospace;
+  z-index: 1;
 }
 
 nav .menu-item a:active,

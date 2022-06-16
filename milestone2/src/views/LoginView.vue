@@ -15,12 +15,16 @@
             required
           ></simple-input>
           <simple-input
-            v-model="event.senha"
+            v-model="event.password"
             label="senha"
             type="password"
             required
           ></simple-input>
-          <input class="btn-submit" type="submit" value="ENTRAR" />
+          <!-- <input class="btn_submit" type="submit" value="ENTRAR" /> -->
+          <!-- <input class="btn_submit" type="submit" @click="login()" value="ENTRAR"> -->
+          <!-- <button class="btn_submit" type="button" @click="login()"> ENTRAR </button> -->
+          <router-link class="btn_submit" type="button" to="/" @click="login()"> entrar    
+          </router-link>
         </form>
       </div>
 
@@ -33,6 +37,7 @@
 
 <script>
 import SimpleInput from "@/components/SimpleInput.vue";
+import users from "@/data/users.json";
 
 export default {
   components: { SimpleInput },
@@ -45,6 +50,30 @@ export default {
       catDogImage: "assets/img/header-pet-na-cabine.png",
     };
   },
+
+  methods:{
+    login(){
+      if(this.event.email != "" && this.event.password != "") {
+        let emailFound = false;
+    
+        for (let i = 0; i < users.length; i++){
+          if (this.event.email == users[i]['email']){
+            emailFound = true;
+            if (this.event.password == users[i]['password']){
+              this.emitter.emit('authenticated', true);
+              break;
+            }
+            else
+              alert("Senha incorreta.");
+          }
+        }
+        if (!emailFound)
+          alert("Email não cadastrado.");
+      }
+      else
+        alert("Preencha os campos de Email e Senha");
+    }
+  }
 };
 </script>
 
@@ -97,7 +126,7 @@ input {
 }
 
 .sign-in h4,
-.btn-submit {
+.btn_submit {
     text-transform: uppercase;
 }
 
@@ -133,13 +162,13 @@ input:focus {
     outline: none !important;
 }
 
-.btn-submit,
-.btn-submit:hover {
+.btn_submit,
+.btn_submit:hover {
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.btn-submit {
+.btn_submit {
     background-color: #EDFFBD;
     border: 4px solid #D8FF6E;
     border-radius: 30px;
@@ -148,14 +177,12 @@ input:focus {
     text-align: center;
     margin: auto;
     display: flex;
-}
-
-.btn-submit[value] {
     font-weight: 300;
     justify-content: center;
+    padding: 10px;
 }
 
-.btn-submit:hover {
+.btn_submit:hover {
     background-color: #c0eb4c;
     border: 4px solid #c0eb4c;
     cursor: pointer;
