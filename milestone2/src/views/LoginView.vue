@@ -7,7 +7,7 @@
           é novo por aqui?
           <router-link to="/cadastro"><strong>cadastre-se</strong></router-link>
         </p>
-        <form>
+        <form class="form-login">
           <simple-input
             v-model="event.email"
             label="e-mail"
@@ -20,7 +20,7 @@
             type="password"
             required
           ></simple-input>
-          <router-link class="btn_submit" type="button" to="/login" @click="login()"> entrar    
+          <router-link class="btn_submit" type="button" to="/" @click="login()"> entrar    
           </router-link>
         </form>
       </div>

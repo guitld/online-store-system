@@ -1,5 +1,4 @@
 <template>
-  <!--<label>{{ label }}</label>-->
   <input
     v-bind="$attrs"
     :placeholder="label"
@@ -7,6 +6,7 @@
     :value="modelValue"
     @input="$emit('update:modelValue', $event.target.value)"
   />
+  <label>{{ label }}</label>
 </template>
 
 <script>
@@ -25,4 +25,3 @@ export default {
 }
 
 </script>
-

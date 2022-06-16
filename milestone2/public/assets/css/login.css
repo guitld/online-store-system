@@ -19,7 +19,7 @@
     text-transform: lowercase;
     font-size: 14px;
     padding-right: 6%;
-
+    padding-bottom: 10px;
 }
 
 .sign-in p a>strong {
@@ -31,8 +31,8 @@
     color: rgb(50, 49, 49);
 }
 
-form>div>label {
-    margin: 7% 5%;
+.form-login>label {
+    margin: 2.5% 2%;
 }
 
 .pet-img {

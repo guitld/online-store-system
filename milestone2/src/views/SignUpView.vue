@@ -1,7 +1,7 @@
 <template>
 <div class="sign-up">
     <h4>Cadastre sua conta</h4>
-    <form>
+    <form class="form-signup">
       <simple-input
         v-model="event.name" label="nome" type="text" required
       ></simple-input>
@@ -20,7 +20,7 @@
       <simple-input
         v-model="event.password" label="senha" type="password" required
       ></simple-input>
-      <router-link class="btn_submit" type="button" to="/login" @click="cadastrar()"> cadastrar    
+      <router-link class="btn_submit" type="button" to="/" @click="cadastrar()"> cadastrar    
       </router-link>
     </form>
   </div>
@@ -28,6 +28,9 @@
 
 <script>
 import SimpleInput from "@/components/SimpleInput.vue";
+import users from "@/data/users.json";
+
+
 export default {
   components: { SimpleInput },
   data() {
@@ -43,13 +46,13 @@ export default {
     };
   },
   methods: {
-    login(){
-      if(this.event.email !== "" && 
-          this.event.password !== "" && 
-          this.event.name !== "" && 
-          this.event.cpf !== "" && 
-          this.event.address !== "" &&
-          this.event.phone !== "") {
+    cadastrar(){
+      if(this.event.email != "" && 
+          this.event.password != "" && 
+          this.event.name != "" && 
+          this.event.cpf != "" && 
+          this.event.address != "" &&
+          this.event.phone != "") {
         let newEmail = true;
         let newCPF = true;
     
@@ -79,8 +82,7 @@ export default {
         
         else{
           alert("Bem-vindx ao Meu Amigo Pet!")
-          users.push(this.event);
-          this.emitter.emit('authenticated', true);
+          this.emitter.emit('authenticated', true)
         }
       }
       else {

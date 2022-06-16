@@ -48,7 +48,7 @@ input:not(:placeholder-shown)+label {
     transform: translateY(-1.8em) scale(0.9);
     transition: 0.3s;
     color: black;
-}*/
+}
 
 input::placeholder {
     color: transparent;
