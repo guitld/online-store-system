@@ -54,17 +54,17 @@ export default {
         },
         {
           title: 'alimentação',
-          link: '/acessorios/alimentação',
+          link: '/acessorios/alimentacao',
         },
       ],
       services: [
         {
           title: 'banho',
-          link: '/serviços/banho',
+          link: '/servicos/banho',
         },
         {
           title: 'tosa',
-          link: '/seviços/tosa',
+          link: '/sevicos/tosa',
         },
       ],
       foods: [
@@ -74,7 +74,7 @@ export default {
         },
         {
           title: 'rações',
-          link: '/comidinhas/rações',
+          link: '/comidinhas/racoes',
         },
       ],
     };
