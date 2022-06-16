@@ -1,26 +1,27 @@
 <template>
-    <div class="wrapper">
-        <div class="grid-wrapper">
-            <div style="grid-column: span 3"></div>
-            <span class="grid-header">quantidade</span>
-            <span class="grid-header">preco unitario</span>
-            <span class="grid-header">preco total</span>
-            
-            <template v-for="item in cart_items">
-                <button class="grid-item btn grid-product-remove-btn"></button>
-                <img :src="item.image" class="grid-item grid-product-image">
-                <span class="grid-item">{{item.title}}</span>
-                <span class="grid-item">{{ item.quantities }}</span>
-                <span class="grid-item">R$ {{ item.price }}</span>
-                <span class="grid-item">R${{ (item.price * item.quantities).toFixed(2) }}</span>
-            </template>
+    <div class="content-wrapper">
+        <div class="product-table-container">
+            <table-with-products :items="cart_items" @emit-click-remove="removeItem"></table-with-products>
         </div>
+        <div class="cat-dog-image-container">
+            <img :src="catDogImage" alt="" id="cat-dog-image" />
+        </div>
+    </div>
+
+    <div class="continue-purshase-container">
+        <span class="final-price">Preço total: R$ {{ final_price }}</span>
+        <input class="btn-submit" type="submit" value="continuar para finalizar compra" />
     </div>
 </template>
 
 <script>
+import { parse } from 'path';
+import TableWithProducts from '@/components/TableWithProducts.vue'
+
 export default {
     name: "Cart",
+
+    components: {TableWithProducts},
 
     data() {
         return {
@@ -49,50 +50,195 @@ export default {
                     "category": "comidinhas",
                     "quantities": "2",
                     "product_class": "petiscos"      
+                }, {
+                    "id": "11",
+                    "title": "mordedor",
+                    "price": 12.90,
+                    "image": "/assets/img/mordedor.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+                    "category": "acessorios",
+                    "quantities": "5",
+                    "product_class": "brinquedos"
                 },
-            ]
+
+                {
+                    "id": "12",
+                    "title": "ossinhos",
+                    "price": 14.90,
+                    "image": "/assets/img/ossinho.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
+                    "category": "comidinhas",
+                    "quantities": "2",
+                    "product_class": "petiscos"      
+                }, {
+                    "id": "11",
+                    "title": "mordedor",
+                    "price": 12.90,
+                    "image": "/assets/img/mordedor.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+                    "category": "acessorios",
+                    "quantities": "5",
+                    "product_class": "brinquedos"
+                },
+
+                {
+                    "id": "12",
+                    "title": "ossinhos",
+                    "price": 14.90,
+                    "image": "/assets/img/ossinho.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
+                    "category": "comidinhas",
+                    "quantities": "2",
+                    "product_class": "petiscos"      
+                }, {
+                    "id": "11",
+                    "title": "mordedor",
+                    "price": 12.90,
+                    "image": "/assets/img/mordedor.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+                    "category": "acessorios",
+                    "quantities": "5",
+                    "product_class": "brinquedos"
+                },
+
+                {
+                    "id": "12",
+                    "title": "ossinhos",
+                    "price": 14.90,
+                    "image": "/assets/img/ossinho.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
+                    "category": "comidinhas",
+                    "quantities": "2",
+                    "product_class": "petiscos"      
+                }, {
+                    "id": "11",
+                    "title": "mordedor",
+                    "price": 12.90,
+                    "image": "/assets/img/mordedor.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+                    "category": "acessorios",
+                    "quantities": "5",
+                    "product_class": "brinquedos"
+                },
+
+                {
+                    "id": "12",
+                    "title": "ossinhos",
+                    "price": 14.90,
+                    "image": "/assets/img/ossinho.png",
+                    "stock_quantities": 0,
+                    "sold_quantities": 0,
+                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
+                    "category": "comidinhas",
+                    "quantities": "2",
+                    "product_class": "petiscos"      
+                },
+            ],
+
+            catDogImage: "assets/img/header-pet-na-cabine.png",
+            final_price: 0,
         }
     },
+
+    created() {
+        this.computeFinalPrice();
+    },  
+
+    methods: {
+        computeFinalPrice() {
+            for (let idx in this.cart_items) {
+                this.final_price += this.cart_items[idx].price * parseInt(this.cart_items[idx].quantities)
+            }
+
+            this.final_price = this.final_price.toFixed(2)
+        },
+
+        removeItem(id) {
+            for (let idx in this.cart_items) {
+                if (this.cart_items[idx].id === id) {
+                    this.final_price = (this.final_price - (this.cart_items[idx].price * this.cart_items[idx].quantities)).toFixed(2)
+                    this.cart_items.splice(idx, 1)
+                }
+            }
+        },
+    }
 };
 </script>
 
 <style scoped>
-.wrapper {
-    margin: auto auto;
-}
 
 * {
     margin: 0;
     padding: 0;
-    font-family: "JetBrains Mono", monospace;
+    font-family: 'Courier New', Courier, monospace;
 }
 
-.grid-wrapper {
-    background-color: #FAF6EF;
-    display: grid;
-    grid-template-columns: repeat(6, auto);
-    column-gap: 20px;
-    border-radius: 20px;
-    padding: 15px 30px 15px 30px;
-    align-items: center;
+.content-wrapper {
+    width: 90%;
+    margin: auto auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
-.grid-header {
-    font-size: 17px;
+
+.cat-dog-image-container {
+    margin: auto;
+}
+
+#cat-dog-image {
+    margin: auto auto;
+}
+
+.continue-purshase-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-around;
+}
+
+.btn-submit,
+.btn-submit:hover {
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.btn-submit {
+    background-color: #EDFFBD;
+    border: 4px solid #D8FF6E;
+    border-radius: 30px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    display: flex;
+}
+
+.btn-submit[value] {
+    font-weight: bold;
+    justify-content: center;
+}
+
+.btn-submit:hover {
+    background-color: #c0eb4c;
+    border: 4px solid #c0eb4c;
+    cursor: pointer;
+}
+
+.final-price {
     font-weight: bold;
 }
 
-.grid-item {
-    justify-self: center;
-}
-
-.grid-product-remove-btn {
-    width: 30px;
-    height: 30px;
-    border-color: transparent;
-    background: transparent url('@/../public/assets/img/delete-button.png') no-repeat top;
-}
-
-.grid-product-image {
-    width: 80px;
-}
 </style>
