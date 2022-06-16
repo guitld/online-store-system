@@ -20,7 +20,7 @@
             type="password"
             required
           ></simple-input>
-          <input class="btn_submit" type="submit" value="ENTRAR" />
+          <input class="btn-submit" type="submit" value="ENTRAR" />
         </form>
       </div>
 
@@ -97,7 +97,7 @@ input {
 }
 
 .sign-in h4,
-.btn_submit {
+.btn-submit {
     text-transform: uppercase;
 }
 
@@ -133,13 +133,13 @@ input:focus {
     outline: none !important;
 }
 
-.btn_submit,
-.btn_submit:hover {
+.btn-submit,
+.btn-submit:hover {
     box-sizing: border-box;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.btn_submit {
+.btn-submit {
     background-color: #EDFFBD;
     border: 4px solid #D8FF6E;
     border-radius: 30px;
@@ -150,12 +150,12 @@ input:focus {
     display: flex;
 }
 
-.btn_submit[value] {
+.btn-submit[value] {
     font-weight: 300;
     justify-content: center;
 }
 
-.btn_submit:hover {
+.btn-submit:hover {
     background-color: #c0eb4c;
     border: 4px solid #c0eb4c;
     cursor: pointer;
