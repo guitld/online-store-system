@@ -63,15 +63,24 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
+
   linkActiveClass: 'active-link',
   linkExactActiveClass: 'exact-active-link',
+  
   scrollBehavior(to, from, savedPosition) {
-    if (to.hash) {
-      return { selector: to.hash }
-    } else if (savedPosition) {
-      return savedPosition;
-    } else {
-      return { x: 0, y: 0 }
+    if (savedPosition) {
+      return savedPosition
+    }
+    else {
+      const position = {}
+      if (to.hash) {
+        position.selector = to.hash
+        if (document.querySelector(to.hash)) {
+          console.log('entrou aqui')
+          return {el: to.hash}
+        }
+        return false
+      }
     }
   }
 })

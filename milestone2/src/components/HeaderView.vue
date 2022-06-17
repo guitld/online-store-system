@@ -1,9 +1,10 @@
 <template>
   <header>
     <nav>
-      <router-link to="/acessorios" style="text-decoration: none;"><dropdown-view title="acessórios" :items="acessories"></dropdown-view> </router-link>
-      <router-link to="/servicos" style="text-decoration: none;"><dropdown-view title="serviços" :items="services"></dropdown-view> </router-link>
-      <router-link to="/comidinhas" style="text-decoration: none;"><dropdown-view title="comidinhas" :items="foods"></dropdown-view> </router-link>
+      <dropdown-view title="acessórios" path="acessorios" :items="acessories"></dropdown-view>
+      <dropdown-view title="serviços" path="servicos" :items="services"></dropdown-view>
+      <dropdown-view title="comidinhas" path="comidinhas" :items="foods"></dropdown-view>
+
       <div class="menu-item"><router-link to="/"><strong>meu amigo pet</strong></router-link></div>
       <div class="menu-item"><router-link to="/carrinho">carrinho</router-link></div>
       <div v-if="authenticated" class="menu-item"><router-link to="/perfil">perfil</router-link></div>
@@ -42,39 +43,47 @@ export default {
       acessories: [
         {
           title: 'roupas',
-          link: '/acessorios/#roupas',
+          link: '/acessorios',
+          hash: '#roupas'
         },
         {
           title: 'camas e casinhas',
-          link: '/acessorios/#camas-e-casinhas',
+          link: '/acessorios',
+          hash: '#camas'
         },
         {
           title: 'brinquedos',
-          link: '/acessorios/#brinquedos',
+          link: '/acessorios',
+          hash: '#brinquedos'
         },
         {
           title: 'alimentação',
-          link: '/acessorios/#alimentacao',
+          link: '/acessorios',
+          hash: '#alimentacao'
         },
       ],
       services: [
         {
           title: 'banho',
-          link: '/servicos/#banho',
+          link: '/servicos',
+          hash: '#banho'
         },
         {
           title: 'tosa',
-          link: '/servicos/#tosa',
+          link: '/servicos',
+          hash: '#tosa'
         },
       ],
       foods: [
         {
           title: 'petiscos',
-          link: '/comidinhas/#petiscos',
+          link: '/comidinhas',
+          hash: '#petiscos'
         },
         {
           title: 'rações',
-          link: '/comidinhas/#racoes',
+          link: '/comidinhas',
+          hash: '#racoes'
         },
       ],
     };
@@ -87,12 +96,15 @@ header {
   background-color: #d8ff6e;
   height: 12%;
   padding: 25px;
+  position: sticky;
+  top: 0;
 }
 
 nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: sticky;
 }
 
 nav .menu-item {
@@ -119,7 +131,11 @@ nav .menu-item a {
   color: #000000;
 }
 
-nav .menu-item a.active-link {
+/* #nav  a.active-link {
+  color: #d403b9;
+} */
+
+nav>.menu-item>a.active-link {
   color: #d403b9;
 }
 
