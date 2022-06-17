@@ -42,39 +42,39 @@ export default {
       acessories: [
         {
           title: 'roupas',
-          link: '/acessorios/roupas',
+          link: '/acessorios/#roupas',
         },
         {
           title: 'camas e casinhas',
-          link: '/acessorios/camas-e-casinhas',
+          link: '/acessorios/#camas-e-casinhas',
         },
         {
           title: 'brinquedos',
-          link: '/acessorios/brinquedos',
+          link: '/acessorios/#brinquedos',
         },
         {
           title: 'alimentação',
-          link: '/acessorios/alimentacao',
+          link: '/acessorios/#alimentacao',
         },
       ],
       services: [
         {
           title: 'banho',
-          link: '/servicos/banho',
+          link: '/servicos/#banho',
         },
         {
           title: 'tosa',
-          link: '/sevicos/tosa',
+          link: '/servicos/#tosa',
         },
       ],
       foods: [
         {
           title: 'petiscos',
-          link: '/comidinhas/petiscos',
+          link: '/comidinhas/#petiscos',
         },
         {
           title: 'rações',
-          link: '/comidinhas/racoes',
+          link: '/comidinhas/#racoes',
         },
       ],
     };

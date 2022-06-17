@@ -109,6 +109,14 @@ li>a>strong {
     font-size: 24px;
 }
 
+ h4 {
+    text-align: center;
+}
+
+h4 {
+    text-transform: uppercase;
+}
+
 #footer {
     margin-top: auto;
     background: #EDFFBD;

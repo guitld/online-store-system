@@ -1,31 +1,29 @@
 <template>
-  <h1>Agende seu serviço</h1>
-  <form>
-    <simple-input
-      v-model="event.cep" label="cep" type="text" required
-    ></simple-input>
-    <simple-input
-      v-model="event.numero" label="número" type="text" required
-    ></simple-input>
-    <simple-input
-      v-model="event.data" label="data" type="date" required
-    ></simple-input>
-    <simple-input
-      v-model="event.hora" label="hora" type="time" required
-    ></simple-input>
-     <simple-input
-      v-model="event.email" label="e-mail" type="email" required
-    ></simple-input>
-    <simple-input
-      v-model="event.telefone" label="senha" type="password" required
-    ></simple-input>
-    <input
-      class="btn_submit"
-      type="submit"
-      value="AGENDAR"
-      @click="agendar"
-    />
-  </form>
+  <div class="formulary">
+    <h4>Agende seu serviço</h4>
+    <form class="form-inputs">
+      <simple-input
+        v-model="event.zipcode" label="cep" type="text" required
+      ></simple-input>
+      <simple-input
+        v-model="event.number" label="número" type="text" required
+      ></simple-input>
+      <simple-input
+        v-model="event.date" type="date" required
+      ></simple-input>
+      <simple-input
+        v-model="event.hour" type="time" required
+      ></simple-input>
+      <simple-input
+        v-model="event.email" label="e-mail" type="email" required
+      ></simple-input>
+      <simple-input
+        v-model="event.phone" label="senha" type="password" required
+      ></simple-input>
+      <router-link class="btn-submit" type="button" to="/" @click="agendar()"> agendar    
+      </router-link>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -35,19 +33,27 @@ export default {
   data() {
     return {
       event: {
-        cep: "",
-        numero: "",
-        data: "",
-        hora: "",
+        zipcode: "",
+        number: "",
+        date: "",
+        hour: "",
         email: "",
-        telefone: "",
+        phone: "",
       },
     };
   },
   methods: {
     agendar() {
-      // REFINAR ISSO AQUI, QUANDO CLICA, DÁ O ALERTA MESMO N TENDO CAMPO PREENCHIDO
-      alert("Cadastro realizado com sucesso!");
+       if(this.event.zipcode != "" && 
+          this.event.number != "" && 
+          this.event.date != "" &&
+          this.event.hour != "" &&
+          this.event.email != "" &&
+          this.event.phone != "") {
+          alert("Agendamento realizado com sucesso!");
+       }
+       else 
+        alert("Preencha todos os campos!");
     },
   },
 };
@@ -55,70 +61,6 @@ export default {
 
 
 <style>
-h1, input {
-    font-family: "JetBrains Mono", monospace;
-}
-
-h1 {
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 16px;
-  margin-top: 15px;
-}
-
-form {
-  margin: 0 auto;
-}
-
-
-input {
-  display: block;
-
-  width: 350px;
-  padding: 10px 5px;
-  margin: 20px;
-
-  font-size: 0.75em;
-  letter-spacing: 1px;
-  color: rgba(0, 0, 0, 0.7);
-
-  box-sizing: border-box;
-  background-color: #fad2e1;
-  border: 2px solid #f5e9ee;
-  border-radius: 5px;
-}
-
-input:focus {
-  border-color: #cb5c7f;
-  outline: none !important;
-}
-
-.btn_submit,
-.btn_submit:hover {
-  box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.btn_submit {
-  background-color: #edffbd;
-  border: 4px solid #d8ff6e;
-  border-radius: 30px;
-  width: 120px;
-  height: 50px;
-  text-align: center;
-  margin: 10px auto;
-  display: flex;
-}
-
-.btn_submit[value] {
-  font-weight: 300;
-  justify-content: center;
-}
-
-.btn_submit:hover {
-  background-color: #c0eb4c;
-  border: 4px solid #c0eb4c;
-  cursor: pointer;
-}
-
+@import '/public/assets/css/forms.css';
+@import '/public/assets/css/button.css';
 </style>

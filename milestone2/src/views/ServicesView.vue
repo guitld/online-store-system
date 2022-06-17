@@ -35,49 +35,10 @@ export default {
 </script>
 
 <style scoped>
-.wrapper {
-  width: 80%;
-  margin: auto auto;
-}
+@import '/public/assets/css/index.css';
 
 .cards-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
-  margin: auto auto;
+  margin-top: 4rem;
 }
 
-.cards-wrap .card-inner {
-  background: #FAF6EF;
-  border-radius: 20px;
-  min-width: 300px;
-  min-height: 200px;
-  width: 300px;
-  text-align: center;
-}
-
-.cards-wrap .card-item .card-inner img {
-  width: 300px;
-  height: 200px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.cards-wrap .card-item .card-inner .description {
-  padding: 15px;
-}
-
-.cards-wrap .card-item .card-inner .description a {
-  font-weight: bold;
-  text-decoration: none;
-  color: #000000;
-}
-
-.cards-wrap .card-item .card-inner a:hover {
-  color: #00c1c1;
-  text-decoration: none;
-}
 </style>

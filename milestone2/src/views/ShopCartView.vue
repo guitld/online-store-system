@@ -10,7 +10,9 @@
 
     <div class="continue-purshase-container">
         <span class="final-price">Preço total: R$ {{ final_price }}</span>
-        <input class="btn-submit" type="submit" value="continuar para finalizar compra" />
+        <button class="btn-submit" type="button">
+        continuar para finalizar a compra
+      </button>
     </div>
 </template>
 
@@ -180,12 +182,8 @@ export default {
 </script>
 
 <style scoped>
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Courier New', Courier, monospace;
-}
+@import "/public/assets/css/button.css";
+@import "/public/assets/css/style.css";
 
 .content-wrapper {
     width: 90%;
@@ -210,31 +208,8 @@ export default {
     justify-content: space-around;
 }
 
-.btn-submit,
-.btn-submit:hover {
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
 .btn-submit {
-    background-color: #EDFFBD;
-    border: 4px solid #D8FF6E;
-    border-radius: 30px;
     width: 300px;
-    height: 50px;
-    text-align: center;
-    display: flex;
-}
-
-.btn-submit[value] {
-    font-weight: bold;
-    justify-content: center;
-}
-
-.btn-submit:hover {
-    background-color: #c0eb4c;
-    border: 4px solid #c0eb4c;
-    cursor: pointer;
 }
 
 .final-price {

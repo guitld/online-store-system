@@ -1,21 +1,13 @@
-.container {
-    position: relative;
-    display: flex;
-    justify-content: center;
+.formulary {
+    margin-top: 2%;
 }
 
-.sign-in h4,
-.sign-up h4 {
-    text-align: center;
-}
-
-.sign-in h4,
-.sign-up h4,
-.btn_submit {
-    text-transform: uppercase;
+.formulary h4 {
+    padding-bottom: 10px;
 }
 
 input {
+    display: block;
     border: 2px solid #F5E9EE;
     background-color: #FAD2E1;
     border-radius: 5px;
@@ -36,12 +28,15 @@ form>div {
 
 form>label {
     position: absolute;
-    left: 0;
     font-size: small;
     color: rgba(0, 0, 0, 0.4);
     cursor: text;
     transition: top 200ms ease-in, left 200 ease-in, font-size 200ms ease-in;
     background-color: #FAD2E1;
+}
+
+.form-inputs>label {
+    margin: -3.25% 38%;
 }
 
 input:focus+label,
@@ -57,34 +52,4 @@ input::placeholder {
 
 input:focus {
     outline: none !important;
-}
-
-.btn_submit,
-.btn_submit:hover {
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.btn_submit {
-    background-color: #EDFFBD;
-    border: 4px solid #D8FF6E;
-    border-radius: 30px;
-    width: 120px;
-    height: 50px;
-    margin: auto;
-    display: flex;
-}
-
-a.btn_submit {
-    text-decoration: none;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-}
-
-
-.btn_submit:hover {
-    background-color: #c0eb4c;
-    border: 4px solid #c0eb4c;
-    cursor: pointer;
 }

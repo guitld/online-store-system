@@ -7,7 +7,7 @@
           é novo por aqui?
           <router-link to="/cadastro"><strong>cadastre-se</strong></router-link>
         </p>
-        <form class="form-login">
+        <form class="form-inputs">
           <simple-input
             v-model="event.email"
             label="e-mail"
@@ -20,7 +20,8 @@
             type="password"
             required
           ></simple-input>
-          <router-link class="btn_submit" type="button" to="/" @click="login()"> entrar    
+          <router-link class="btn-submit" type="button" to="/" @click="login()">
+            entrar
           </router-link>
         </form>
       </div>
@@ -48,71 +49,62 @@ export default {
     };
   },
 
-  methods:{
-    login(){
-      if(this.event.email != "" && this.event.password != "") {
+  methods: {
+    login() {
+      if (this.event.email != "" && this.event.password != "") {
         let emailFound = false;
-    
-        for (let i = 0; i < users.length; i++){
-          if (this.event.email == users[i]['email']){
+
+        for (let i = 0; i < users.length; i++) {
+          if (this.event.email == users[i]["email"]) {
             emailFound = true;
-            if (this.event.password == users[i]['password']){
-              this.emitter.emit('authenticated', true);
+            if (this.event.password == users[i]["password"]) {
+              this.emitter.emit("authenticated", true);
               break;
-            }
-            else
-              alert("Senha incorreta.");
+            } else alert("Senha incorreta.");
           }
         }
-        if (!emailFound)
-          alert("Email não cadastrado.");
-      }
-      else
-        alert("Preencha os campos de Email e Senha");
-    }
-  }
+        if (!emailFound) alert("Email não cadastrado.");
+      } else alert("Preencha os campos de Email e Senha");
+    },
+  },
 };
 </script>
 
 <style scoped>
-@import '/public/assets/css/login_signup.css';
-@import '/public/assets/css/login.css';
+@import "/public/assets/css/button.css";
+@import "/public/assets/css/forms.css";
 
-/*.container {
-    width: 70%;
-    margin: auto auto;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    font-family: 'JetBrains Mono', monospace;
+.container {
+  width: 70%;
+  margin: auto auto;
 }
 
-.sign-in-flexbox{
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-    margin: 50px;
+.sign-in-flexbox {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
 }
 
 .sign-in p {
-    margin-top: 12px;
-    text-align: right;
-    text-transform: lowercase;
-    font-size: 14px;
-    padding-right: 6%;
-
+  margin-top: 12px;
+  text-align: right;
+  text-transform: lowercase;
+  font-size: 14px;
+  padding-right: 6%;
+  padding-bottom: 10px;
 }
 
-.sign-in p a {
-    color: black;
+.sign-in p a > strong {
+  color: black;
+  font-size: 16px;
 }
 
 .sign-in p a:hover {
-    color: rgb(50, 49, 49);
+  color: rgb(50, 49, 49);
 }
 
-input {
-    margin: 10px;
+.form-inputs {
+  margin: 0 -140%;
 }
 
 .pet-img {
@@ -120,71 +112,7 @@ input {
   margin: auto;
 }
 
-.sign-in h4{
-  text-align: center;
+.pet-img img {
+  width: 400px;
 }
-
-.sign-in h4,
-.btn_submit {
-    text-transform: uppercase;
-}
-
-input {
-    border: 2px solid #F5E9EE;
-    background-color: #FAD2E1;
-    border-radius: 5px;
-    width: 330px;
-    height: 40px;
-    padding-left: 5px;
-}
-
-input:focus {
-    border-color: #cb5c7f;
-}
-
-.formulary>div {
-    position: relative;
-    padding-top: 2px;
-}
-
-.formulary>div>label {
-    position: absolute;
-    left: 0;
-    font-size: small;
-    color: rgba(0, 0, 0, 0.4);
-    cursor: text;
-    transition: top 200ms ease-in, left 200 ease-in, font-size 200ms ease-in;
-    background-color: #FAD2E1;
-}
-
-input:focus {
-    outline: none !important;
-}
-
-.btn_submit,
-.btn_submit:hover {
-    box-sizing: border-box;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-
-.btn_submit {
-    background-color: #EDFFBD;
-    border: 4px solid #D8FF6E;
-    border-radius: 30px;
-    width: 120px;
-    height: 50px;
-    text-align: center;
-    margin: auto;
-    display: flex;
-    font-weight: 300;
-    justify-content: center;
-    padding: 10px;
-}
-
-.btn_submit:hover {
-    background-color: #c0eb4c;
-    border: 4px solid #c0eb4c;
-    cursor: pointer;
-}*/
-
 </style>

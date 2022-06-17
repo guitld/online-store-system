@@ -1,7 +1,7 @@
 <template>
-<div class="sign-up">
+<div class="formulary">
     <h4>Cadastre sua conta</h4>
-    <form class="form-signup">
+    <form class="form-inputs">
       <simple-input
         v-model="event.name" label="nome" type="text" required
       ></simple-input>
@@ -20,7 +20,7 @@
       <simple-input
         v-model="event.password" label="senha" type="password" required
       ></simple-input>
-      <router-link class="btn_submit" type="button" to="/" @click="cadastrar()"> cadastrar    
+      <router-link class="btn-submit" type="button" to="/" @click="cadastrar()"> cadastrar    
       </router-link>
     </form>
   </div>
@@ -95,6 +95,6 @@ export default {
 
 
 <style scoped>
-@import '/public/assets/css/login_signup.css';
-@import '/public/assets/css/signup.css';
+@import '/public/assets/css/button.css';
+@import '/public/assets/css/forms.css';
 </style>
