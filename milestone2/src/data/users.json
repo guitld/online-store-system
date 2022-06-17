@@ -14,6 +14,13 @@
         "endereço": "Rua Plantação Batata, 44",
         "telefone": "11923493950",
         "password": "123"
+    },
+    {
+        "email": "admin@gmail.com",
+        "nome": "Admin",
+        "cpf": "40605934230",
+        "endereço": "Rua Plantação Batata, 44",
+        "telefone": "11923493950",
+        "password": "admin"
     }
-
 ]

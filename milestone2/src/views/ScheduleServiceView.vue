@@ -1,28 +1,40 @@
 <template>
-  <div class="formulary">
+  <div class="formulary" v-if="true">
     <h4>Agende seu serviço</h4>
     <form class="form-inputs">
       <simple-input
-        v-model="event.zipcode" label="cep" type="text" required
+        v-model="event.zipcode"
+        label="cep"
+        type="text"
+        required
       ></simple-input>
       <simple-input
-        v-model="event.number" label="número" type="text" required
+        v-model="event.number"
+        label="número"
+        type="text"
+        required
+      ></simple-input>
+      <simple-input v-model="event.date" type="date" required></simple-input>
+      <simple-input v-model="event.hour" type="time" required></simple-input>
+      <simple-input
+        v-model="event.email"
+        label="e-mail"
+        type="email"
+        required
       ></simple-input>
       <simple-input
-        v-model="event.date" type="date" required
+        v-model="event.phone"
+        label="senha"
+        type="password"
+        required
       ></simple-input>
-      <simple-input
-        v-model="event.hour" type="time" required
-      ></simple-input>
-      <simple-input
-        v-model="event.email" label="e-mail" type="email" required
-      ></simple-input>
-      <simple-input
-        v-model="event.phone" label="senha" type="password" required
-      ></simple-input>
-      <router-link class="btn-submit" type="button" to="/" @click="agendar()"> agendar    
-      </router-link>
+      <button type="submit" @click="agendar()" class="btn-submit">
+        <span class="btn-submit-text">agendar</span>
+      </button>
     </form>
+  </div>
+  <div v-else class="need-authentication">
+    <h4>Faça o seu login para agendar um serviço.</h4>
   </div>
 </template>
 
@@ -44,16 +56,17 @@ export default {
   },
   methods: {
     agendar() {
-       if(this.event.zipcode != "" && 
-          this.event.number != "" && 
-          this.event.date != "" &&
-          this.event.hour != "" &&
-          this.event.email != "" &&
-          this.event.phone != "") {
-          alert("Agendamento realizado com sucesso!");
-       }
-       else 
-        alert("Preencha todos os campos!");
+      if (
+        this.event.zipcode != "" &&
+        this.event.number != "" &&
+        this.event.date != "" &&
+        this.event.hour != "" &&
+        this.event.email != "" &&
+        this.event.phone != ""
+      ) {
+        alert("Agendamento realizado com sucesso!");
+        this.$router.push("/");
+      } else alert("Preencha todos os campos!");
     },
   },
 };
@@ -61,6 +74,11 @@ export default {
 
 
 <style>
-@import '/public/assets/css/forms.css';
-@import '/public/assets/css/button.css';
+@import "/public/assets/css/forms.css";
+@import "/public/assets/css/button.css";
+
+.need-authentication {
+  margin: auto;
+}
+
 </style>

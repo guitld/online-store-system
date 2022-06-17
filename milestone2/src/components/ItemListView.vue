@@ -1,6 +1,6 @@
 <template>
   <div v-for="item in items" :key="item" :id="item.section">
-      <h1>{{ item.section }}</h1>
+      <h4>{{ item.section }}</h4>
       <div class="cards-wrap">
         <div v-for="product in item.products" :key="product" class="card-item">
           <div class="card-inner">
@@ -31,13 +31,7 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-family: "JetBrains Mono", monospace;
-}
-
-h1 {
-  text-transform: uppercase;
-  text-align: center;
+h4 {
   font-size: 16px;
   margin-top: 30px;
 }
