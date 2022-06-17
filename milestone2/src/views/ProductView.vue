@@ -64,7 +64,7 @@
 </template>
 
 <script>
-import data from "@/data/teste2.json";
+import data from "@/data/products.json";
 
 export default {
   name: "product",

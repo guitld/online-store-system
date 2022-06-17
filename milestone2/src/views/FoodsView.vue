@@ -4,7 +4,7 @@
 
 <script>
 import ItemList from "@/components/ItemListView.vue"
-import data from "@/data/teste2.json"
+import data from "@/data/products.json"
 
 export default {
   name: "Foods",

@@ -1,10 +1,10 @@
 <template>
-	<item-list :items="items"></item-list>
+		<item-list :items="items"></item-list>
 </template>
 
 <script>
 import ItemList from "@/components/ItemListView.vue"
-import data from "@/data/teste2.json"
+import data from "@/data/products.json"
 import { throwStatement } from "@babel/types";
 
 export default {
