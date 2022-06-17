@@ -102,10 +102,6 @@ export default {
   color: rgb(50, 49, 49);
 }
 
-.form-inputs {
-  margin: 0 -140%;
-}
-
 .pet-img {
   width: 100%;
   margin: auto;

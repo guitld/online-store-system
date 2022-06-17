@@ -1,5 +1,5 @@
 <template>
-  <div class="formulary">
+  <div class="formulary" v-if="is_admin">
     <div class="form-wrapper-flex">
       <form class="form-inputs">
         <h4>Gerenciar usuários</h4>
@@ -90,6 +90,9 @@
       </form>
     </div>
   </div>
+  <div v-else class="login-admin">
+    <h4>Faça login como administrador</h4>
+  </div>
 </template>
 
 <script>
@@ -111,6 +114,9 @@ export default {
         price: "",
         update2: ""
       },
+
+      is_admin: true,
+
     };
   },
   methods: {

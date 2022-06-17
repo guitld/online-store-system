@@ -1,12 +1,14 @@
 <template>
-  <input
-    v-bind="$attrs"
-    :placeholder="label"
-    class="field"
-    :value="modelValue"
-    @input="$emit('update:modelValue', $event.target.value)"
-  />
-  <label>{{ label }}</label>
+  <div class="simple-input">
+    <label>{{ label }}</label>
+    <input
+      v-bind="$attrs"
+      :placeholder="label"
+      class="field"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    />
+  </div>
 </template>
 
 <script>
