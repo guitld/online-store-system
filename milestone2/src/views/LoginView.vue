@@ -20,9 +20,7 @@
             type="password"
             required
           ></simple-input>
-          <router-link class="btn-submit" type="button" to="/" @click="login()">
-            entrar
-          </router-link>
+          <button type="submit" @click="login()" class="btn-submit"><span class="btn-submit-text">entrar</span></button>
         </form>
       </div>
 
@@ -59,6 +57,7 @@ export default {
             emailFound = true;
             if (this.event.password == users[i]["password"]) {
               this.emitter.emit("authenticated", true);
+              // this.$router.push('/')
               break;
             } else alert("Senha incorreta.");
           }
@@ -115,4 +114,5 @@ export default {
 .pet-img img {
   width: 400px;
 }
+
 </style>
