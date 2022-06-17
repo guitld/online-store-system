@@ -1,99 +1,96 @@
 <template>
-  <div class="formulary">
-    <form class="form-inputs">
-      <h4>Gerenciar usuários</h4>
-      <simple-input
-        v-model="event.nome"
-        label="nome"
-        type="text"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.email"
-        label="e-mail"
-        type="email"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.cpf"
-        label="cpf"
-        type="text"
-        pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.endereco"
-        label="endereço"
-        type="text"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.telefone"
-        label="telefone"
-        type="tel"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.senha"
-        label="senha"
-        type="password"
-        required
-      ></simple-input>
-      <button
-        class="btn-submit"
-        type="button"
-        @click="handleCadastro()"
-      >
-        atualizar usuário
-      </button>
-    </form>
-    <form class="form-inputs">
-      <h4>Gerenciar produtos</h4>
-      <simple-input
-        v-model="event.nome"
-        label="nome"
-        type="text"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.email"
-        label="e-mail"
-        type="email"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.cpf"
-        label="cpf"
-        type="text"
-        pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.endereco"
-        label="endereço"
-        type="text"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.telefone"
-        label="telefone"
-        type="tel"
-        required
-      ></simple-input>
-      <simple-input
-        v-model="event.senha"
-        label="senha"
-        type="password"
-        required
-      ></simple-input>
-      <button
-        class="btn-submit"
-        type="button"
-        @click="handleProduto()"
-      >
-        atualizar produto
-      </button>
-    </form>
+  <div v-if="isLoggedAdmin()">
+    <div class="formulary">
+      <form class="form-inputs">
+        <h4>Gerenciar usuários</h4>
+        <simple-input
+          v-model="event.nome"
+          label="nome"
+          type="text"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.email"
+          label="e-mail"
+          type="email"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.cpf"
+          label="cpf"
+          type="text"
+          pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.endereco"
+          label="endereço"
+          type="text"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.telefone"
+          label="telefone"
+          type="tel"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.senha"
+          label="senha"
+          type="password"
+          required
+        ></simple-input>
+        <button class="btn-submit" type="button" @click="handleCadastro()">
+          atualizar usuário
+        </button>
+      </form>
+      <form class="form-inputs">
+        <h4>Gerenciar produtos</h4>
+        <simple-input
+          v-model="event.nome"
+          label="nome"
+          type="text"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.email"
+          label="e-mail"
+          type="email"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.cpf"
+          label="cpf"
+          type="text"
+          pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.endereco"
+          label="endereço"
+          type="text"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.telefone"
+          label="telefone"
+          type="tel"
+          required
+        ></simple-input>
+        <simple-input
+          v-model="event.senha"
+          label="senha"
+          type="password"
+          required
+        ></simple-input>
+        <button class="btn-submit" type="button" @click="handleProduto()">
+          atualizar produto
+        </button>
+      </form>
+    </div>
+  </div>
+  <div v-else class="login-admin">
+    <h4>Faça login como administrador</h4>
   </div>
 </template>
 
@@ -134,4 +131,7 @@ export default {
   margin-bottom: 20px;
 }
 
+.login-admin {
+  margin: auto;
+}
 </style>
