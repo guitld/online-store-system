@@ -1,18 +1,18 @@
 <template>
     <div class="content-wrapper">
-        <div class="product-table-container">
-            <table-with-products :items="cart_items" @emit-click-remove="removeItem"></table-with-products>
+        <div class="cart-info">
+            <div class="product-table-container">
+                <table-with-products :items="cart_items" @emit-click-remove="removeItem" :total="final_price" :edit_disabled="false"></table-with-products>
+            </div>
+            <div class="continue-purshase-container" v-if="cart_items.length">
+                <button class="btn-submit" type="button" @click="routePaymentView()">
+                ir para finalizar a compra
+                </button>
+            </div>
         </div>
-        <div class="cat-dog-image-container">
+        <div class="cat-dog-image-container" >
             <img :src="catDogImage" alt="" id="cat-dog-image" />
         </div>
-    </div>
-
-    <div class="continue-purshase-container">
-        <span class="final-price">Preço total: R$ {{ final_price }}</span>
-        <button class="btn-submit" type="button">
-        continuar para finalizar a compra
-      </button>
     </div>
 </template>
 
@@ -177,6 +177,10 @@ export default {
                 }
             }
         },
+
+        routePaymentView() {
+            this.$router.push({name: 'pagamento', params: { data : this.cart_items } })
+        }
     }
 };
 </script>
@@ -191,6 +195,8 @@ export default {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 50px;
 }
 
 .cat-dog-image-container {
@@ -199,21 +205,27 @@ export default {
 
 #cat-dog-image {
     margin: auto auto;
+    width: 90%;
 }
 
-.continue-purshase-container {
+.cart-info {
     display: flex;
-    flex-direction: row;
-    width: 50%;
-    justify-content: space-around;
+    flex-direction: column;
+    margin: auto;
+}
+
+
+.continue-purshase-container {
+    width: 100%;
+    margin-top: 30px;
 }
 
 .btn-submit {
-    width: 300px;
+    width: 254px;
+    float: right;
+    margin: auto auto;
 }
 
-.final-price {
-    font-weight: bold;
-}
+
 
 </style>

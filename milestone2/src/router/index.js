@@ -57,6 +57,11 @@ const routes = [
 		name: 'administrador',
 		component: () => import('../views/AdminView.vue')
 	},
+  {
+    path: '/pagamento',
+    name: 'pagamento',
+    component: () => import('../views/PaymentView.vue'),
+  },
 
 ]
 
@@ -76,7 +81,6 @@ const router = createRouter({
       if (to.hash) {
         position.selector = to.hash
         if (document.querySelector(to.hash)) {
-          console.log('entrou aqui')
           return {el: to.hash}
         }
         return false
