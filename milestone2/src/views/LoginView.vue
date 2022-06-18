@@ -57,7 +57,7 @@ export default {
             emailFound = true;
             if (this.event.password == users[i]["password"]) {
               this.emitter.emit("authenticated", true);
-              // this.$router.push('/')
+              this.$router.push('/')
               break;
             } else alert("Senha incorreta.");
           }
