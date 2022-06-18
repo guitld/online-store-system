@@ -5,35 +5,35 @@
         title="acessórios"
         path="/acessorios"
         :items="acessories"
-        @click="handleSound()"
+        @click.prevent="handleSound()"
       ></dropdown-view>
       <dropdown-view
         title="comidinhas"
         path="/comidinhas"
         :items="foods"
-        @click="handleSound()"
+        @click.prevent="handleSound()"
       ></dropdown-view>
 
       <div class="menu-item">
-        <router-link to="/servicos" @click="handleSound()">serviços</router-link>
+        <router-link to="/servicos" @click.prevent="handleSound()">serviços</router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/" @click="handleSound()"><strong>meu amigo pet</strong></router-link>
+        <router-link to="/" @click.prevent="handleSound()"><strong>meu amigo pet</strong></router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/carrinho" @click="handleSound()">carrinho</router-link>
+        <router-link to="/carrinho" @click.prevent="handleSound()">carrinho</router-link>
       </div>
       <div v-if="authenticated" class="menu-item">
-        <router-link to="/perfil" @click="handleSound()">perfil</router-link>
+        <router-link to="/perfil" @click.prevent="handleSound()">perfil</router-link>
       </div>
       <div v-else class="menu-item">
-        <router-link to="/login" @click="handleSound()">entrar</router-link>
+        <router-link to="/login" @click.prevent="handleSound()">entrar</router-link>
       </div>
       <div v-if="authenticated" class="menu-item">
         <a href="/" @click="logout()"> sair </a>
       </div>
       <div v-else class="menu-item">
-        <router-link to="/cadastro" @click="handleSound()">cadastrar</router-link>
+        <router-link to="/cadastro" @click.prevent="handleSound()">cadastrar</router-link>
       </div>
     </nav>
   </header>
