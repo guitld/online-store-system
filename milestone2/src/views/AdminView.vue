@@ -1,5 +1,5 @@
 <template>
-  <div class="formulary" v-if="is_admin">
+  <div class="formulary" v-if="isAdmin">
     <div class="form-wrapper-flex">
       <form class="form-inputs">
         <h4>Gerenciar usuários</h4>
@@ -114,12 +114,12 @@ export default {
         price: "",
         update2: ""
       },
-
-      is_admin: true,
-
     };
   },
   methods: {
+    isAdmin() {
+      return this.$store.state.isAdmin && this.$store.state.isAuthenticated;
+    },
     handleCadastro() {
       if (
         this.event.email != "" &&
@@ -190,6 +190,10 @@ export default {
 .formulary {
   width: 80%;
   margin: auto auto;
+}
+
+.login-admin {
+  margin: auto 0;
 }
 
 .form-wrapper-flex {
