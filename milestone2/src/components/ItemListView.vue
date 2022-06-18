@@ -1,6 +1,8 @@
 <template>
   <div v-for="item in items" :key="item" :id="item.section">
-      <h4>{{ item.section }}</h4>
+      <h4 v-if="item.section  !== 'alimentacao' && item.section  !== 'racoes'">{{ item.section }}</h4>
+      <h4 v-else-if="item.section  === 'alimentacao'">alimentação</h4>
+      <h4 v-else>rações</h4>
       <div class="cards-wrap">
         <div v-for="product in item.products" :key="product" class="card-item">
           <div class="card-inner">
