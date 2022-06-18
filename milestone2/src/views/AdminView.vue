@@ -117,9 +117,11 @@ export default {
     };
   },
   methods: {
+    // POR ENQUANTO NÃO FUNCIONA
     isAdmin() {
       return this.$store.state.isAdmin && this.$store.state.isAuthenticated;
     },
+
     handleCadastro() {
       if (
         this.event.email != "" &&

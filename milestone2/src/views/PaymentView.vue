@@ -80,9 +80,9 @@ export default {
 </script>
 
 <style scoped>
-
 @import "/public/assets/css/button.css";
 @import "/public/assets/css/forms.css";
+
 .payment-page-wrapper {
     width: 90%;
     margin: auto auto;

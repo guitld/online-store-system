@@ -19,9 +19,13 @@ body {
     scroll-padding: 5px;
 }
 
-#header {
+header {
     background-color: #D8FF6E;
     height: 12%;
+    padding: 25px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 ul {
@@ -36,6 +40,13 @@ li {
     display: inline-block;
     font-size: 12px;
     padding: 16px 16px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
 }
 
 .nav-menu>ul>li,
@@ -106,20 +117,16 @@ li {
     color: #00c1c1;
 }
 
-
-li>a>strong {
+a>strong {
     font-size: 24px;
 }
 
- h4 {
-    text-align: center;
-}
-
 h4 {
+    text-align: center;
     text-transform: uppercase;
 }
 
-#footer {
+footer {
     margin-top: auto;
     background: #EDFFBD;
     justify-content: center;
@@ -127,12 +134,12 @@ h4 {
     padding: 15px 70px 15px 70px;
 }
 
-#footer .fcontainer {
+footer .fcontainer {
     display: grid;
     grid-template-columns: 25% 25% auto;
     gap: 50px;
 }
 
-#footer .fcontainer p {
+footer .fcontainer p {
     font-size: 12px;
 }

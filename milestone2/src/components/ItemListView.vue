@@ -31,33 +31,15 @@ export default {
 </script>
 
 <style scoped>
+@import '/public/assets/css/style.css';
+@import '/public/assets/css/index.css';
+
 h4 {
-  font-size: 16px;
   margin-top: 30px;
-}
-
-.wrapper {
-  width: 60%;
-  margin: auto auto;
-}
-
-.cards-wrap {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 50px;
-  margin: 30px 0;
 }
 
 .cards-wrap .card-inner {
   background: #fbacca;
-  border-radius: 20px;
-  min-width: 300px;
-  min-height: 200px;
-  width: 300px;
-  text-align: center;
 }
 
 .cards-wrap .card-item .card-inner img {
@@ -65,9 +47,6 @@ h4 {
   text-align: center;
   width: 100px;
   height: 100px;
-  border-top-left-radius: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
 }
 
 .cards-wrap .card-item .card-inner .description {
@@ -75,19 +54,8 @@ h4 {
 }
 
 .price {
-  padding-top: 5px;
+  margin: 5px 0;
   color: #4b4b4b;
-}
-
-.cards-wrap .card-item .card-inner .description a {
-  font-weight: bold;
-  text-decoration: none;
-  color: #000000;
-}
-
-.cards-wrap .card-item .card-inner a:hover {
-  color: #00c1c1;
-  text-decoration: none;
 }
 
 </style>

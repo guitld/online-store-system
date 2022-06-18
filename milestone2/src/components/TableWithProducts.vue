@@ -58,13 +58,7 @@ export default {
 </script>
 
 <style scoped>
-
-* {
-    margin: 0;
-    padding: 0;
-    font-family: "JetBrains Mono", monospace;
-}
-
+@import '/public/assets/css/style.css';	
 
 .grid-wrapper,
 .grid-header {

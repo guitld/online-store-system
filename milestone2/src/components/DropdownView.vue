@@ -44,6 +44,7 @@ nav .menu-item .sub-menu {
   transform: translateX(-50%);
   transition: ease all 0.2s;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  z-index: 2;
 }
 
 nav .menu-item .sub-menu a {
