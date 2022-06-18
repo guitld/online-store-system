@@ -5,33 +5,35 @@
         title="acessórios"
         path="/acessorios"
         :items="acessories"
+        @click="handleSound()"
       ></dropdown-view>
       <dropdown-view
         title="comidinhas"
         path="/comidinhas"
         :items="foods"
+        @click="handleSound()"
       ></dropdown-view>
 
       <div class="menu-item">
-        <router-link to="/servicos">serviços</router-link>
+        <router-link to="/servicos" @click="handleSound()">serviços</router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/"><strong>meu amigo pet</strong></router-link>
+        <router-link to="/" @click="handleSound()"><strong>meu amigo pet</strong></router-link>
       </div>
       <div class="menu-item">
-        <router-link to="/carrinho">carrinho</router-link>
+        <router-link to="/carrinho" @click="handleSound()">carrinho</router-link>
       </div>
       <div v-if="authenticated" class="menu-item">
-        <router-link to="/perfil">perfil</router-link>
+        <router-link to="/perfil" @click="handleSound()">perfil</router-link>
       </div>
       <div v-else class="menu-item">
-        <router-link to="/login">entrar</router-link>
+        <router-link to="/login" @click="handleSound()">entrar</router-link>
       </div>
       <div v-if="authenticated" class="menu-item">
         <a href="/" @click="logout()"> sair </a>
       </div>
       <div v-else class="menu-item">
-        <router-link to="/cadastro">cadastrar</router-link>
+        <router-link to="/cadastro" @click="handleSound()">cadastrar</router-link>
       </div>
     </nav>
   </header>
@@ -40,6 +42,7 @@
 
 <script>
 import DropdownView from "./DropdownView.vue";
+import data from "@/data/sounds.json";
 
 export default {
   name: "HeaderView",
@@ -57,8 +60,14 @@ export default {
     logout() {
       this.authenticated = false;
     },
-  },
 
+    handleSound() {
+      let objKey = Object.keys(data).map((key) => data[key]);
+      let randomKey = objKey[Math.floor(Math.random() * objKey.length - 1)];
+      let sound = new Audio(randomKey.sound)
+      sound.play()
+    }
+  },
   data() {
     return {
       authenticated: false,

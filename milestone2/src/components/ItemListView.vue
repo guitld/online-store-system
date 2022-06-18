@@ -1,23 +1,21 @@
 <template>
-  <div class="teste">
-    <div v-for="item in items" :key="item" :id="item.section">
-      <h4 v-if="item.section !== 'alimentacao' && item.section !== 'racoes'">
-        {{ item.section }}
-      </h4>
-      <h4 v-else-if="item.section === 'alimentacao'">alimentação</h4>
-      <h4 v-else>rações</h4>
-      <div class="cards-wrap">
-        <div v-for="product in item.products" :key="product" class="card-item">
-          <div class="card-inner">
-            <img :src="product.image" alt="" />
-            <div class="description">
-              <router-link :to="`/produto/${product.id}`">{{
-                product.title
-              }}</router-link>
-            </div>
-            <div class="price">
-              {{ product.price }}
-            </div>
+  <div v-for="item in items" :key="item" :id="item.section" class="items">
+    <h4 v-if="item.section !== 'alimentacao' && item.section !== 'racoes'">
+      {{ item.section }}
+    </h4>
+    <h4 v-else-if="item.section === 'alimentacao'">alimentação</h4>
+    <h4 v-else>rações</h4>
+    <div class="cards-wrap">
+      <div v-for="product in item.products" :key="product" class="card-item">
+        <div class="card-inner">
+          <img :src="product.image" alt="" />
+          <div class="description">
+            <router-link :to="`/produto/${product.id}`">{{
+              product.title
+            }}</router-link>
+          </div>
+          <div class="price">
+            {{ product.price }}
           </div>
         </div>
       </div>
@@ -46,8 +44,9 @@ h4 {
   margin-top: 30px;
 }
 
-.teste {
-  scroll-behavior: smooth;
+.items {
+  padding-top: 14%;
+  margin-top: -14%;
 }
 
 .cards-wrap .card-inner {
