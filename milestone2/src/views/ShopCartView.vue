@@ -156,7 +156,7 @@ export default {
         }
     },
 
-    created() {
+    mounted() {
         this.computeFinalPrice();
     },  
 
@@ -166,7 +166,7 @@ export default {
                 this.final_price += this.cart_items[idx].price * parseInt(this.cart_items[idx].quantities)
             }
 
-            this.final_price = this.final_price.toFixed(2)
+            this.final_price = parseFloat(this.final_price.toFixed(2))
         },
 
         removeItem(id) {
