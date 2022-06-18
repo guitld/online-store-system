@@ -9,7 +9,7 @@
         <div class="grid-wrapper">
             <template  v-for="item in items" :key="item">
                 <label for="input-delete" v-if="!edit_disabled">
-                    <img src="@/../public/assets/img/delete-button.png" id="delete-button-image" @click="emitRemoveItem(item.id)"/>
+                    <img :src="require('@/../public/assets/img/delete-button.png')" id="delete-button-image" @click="emitRemoveItem(item.id)"/>
                 </label>
                 <div v-else></div>
                 <input type="button" name="input-delete" id="input-delete" style="display: none">
