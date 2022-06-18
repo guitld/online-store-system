@@ -1,9 +1,9 @@
 <template>
   <header>
     <nav>
-      <dropdown-view title="acessórios" path="acessorios" :items="acessories"></dropdown-view>
-      <dropdown-view title="serviços" path="servicos" :items="services"></dropdown-view>
-      <dropdown-view title="comidinhas" path="comidinhas" :items="foods"></dropdown-view>
+      <dropdown-view title="acessórios" path="/acessorios" :items="acessories"></dropdown-view>
+      <dropdown-view title="serviços" path="/servicos" :items="services"></dropdown-view>
+      <dropdown-view title="comidinhas" path="/comidinhas" :items="foods"></dropdown-view>
 
       <div class="menu-item"><router-link to="/"><strong>meu amigo pet</strong></router-link></div>
       <div class="menu-item"><router-link to="/carrinho">carrinho</router-link></div>
