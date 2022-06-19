@@ -74,6 +74,21 @@ export default {
             final_price: 0,
         }
     },
+
+    created() {
+        this.computeFinalPrice();
+    },
+
+    methods: {
+        computeFinalPrice() {
+            this.cart_items.forEach((element) => {
+                console.log(element)
+                this.final_price += parseFloat((parseInt(element.quantities) * parseFloat(element.price)))
+            })
+
+            this.final_price = this.final_price.toFixed(2)
+        }
+    }
 };
 </script>
 
@@ -89,6 +104,12 @@ export default {
     flex-wrap: wrap-reverse;
 }
 
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 .payment-form h4 {
     padding-bottom: 20px;
 }

@@ -1,5 +1,6 @@
 <template>
     <div class="wrapper">
+        <h3 class="page-title">seu carrinho</h3>
         <div class="content-wrapper">
             <div class="cart-info">
                 <div class="product-table-container">
@@ -17,7 +18,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -160,17 +160,18 @@ export default {
         }
     },
 
-    mounted() {
+    created() {
         this.computeFinalPrice();
     },
 
     methods: {
         computeFinalPrice() {
-            for (let idx in this.cart_items) {
-                this.final_price += this.cart_items[idx].price * parseInt(this.cart_items[idx].quantities)
-            }
+            this.cart_items.forEach((element) => {
+                console.log(element)
+                this.final_price += parseFloat((parseInt(element.quantities) * parseFloat(element.price)))
+            })
 
-            this.final_price = parseFloat(this.final_price.toFixed(2))
+            this.final_price = this.final_price.toFixed(2)
         },
 
         removeItem(id) {
@@ -178,6 +179,7 @@ export default {
                 if (this.cart_items[idx].id === id) {
                     this.final_price = (this.final_price - (this.cart_items[idx].price * this.cart_items[idx].quantities)).toFixed(2)
                     this.cart_items.splice(idx, 1)
+                    console.log(idx)
                 }
             }
         },
@@ -217,17 +219,20 @@ export default {
     display: flex;
     flex-direction: column;
     margin: auto;
+    gap: 40px;
 }
 
-
-.continue-purshase-container {
-    width: 100%;
-    margin-top: 30px;
-}
 
 .btn-submit {
     width: 254px;
     float: right;
     margin: auto auto;
 }
+
+@media only screen and (max-width: 550px) {
+    .cart-info {
+        align-items: center;
+    }
+}
+
 </style>

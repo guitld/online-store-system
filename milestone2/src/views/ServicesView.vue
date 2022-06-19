@@ -38,8 +38,4 @@ export default {
 
 <style scoped>
 @import '/public/assets/css/index.css';
-
-.cards-wrap {
-    margin-top: 4rem;
-}
 </style>

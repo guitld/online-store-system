@@ -62,7 +62,11 @@ const routes = [
     name: 'pagamento',
     component: () => import('../views/PaymentView.vue'),
   },
-
+  {
+    path: "/:catchAll(.*)",
+    name: 'Not Found',
+    component: () => import('../views/NotFound.vue')
+  },
 ]
 
 const router = createRouter({
