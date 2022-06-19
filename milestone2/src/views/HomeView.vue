@@ -1,4 +1,3 @@
-<!-- ME PARECE OK-->
 <template>
   <div class="wrapper">
     <div class="cards-wrap">

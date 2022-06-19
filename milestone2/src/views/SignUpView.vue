@@ -1,18 +1,20 @@
 <template>
-    <div class="formulary">
-        <h4>Cadastre sua conta</h4>
-        <form class="form-inputs">
-            <simple-input v-model="event.name" label="nome" type="text" required></simple-input>
-            <simple-input v-model="event.email" label="e-mail" type="email" required></simple-input>
-            <simple-input v-model="event.cpf" label="cpf" type="text"
-                pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" required></simple-input>
-            <simple-input v-model="event.address" label="endereço" type="text" required></simple-input>
-            <simple-input v-model="event.phone" label="telefone" type="tel" required></simple-input>
-            <simple-input v-model="event.password" label="senha" type="password" required></simple-input>
+    <div class="wrapper">
+        <div class="formulary">
+            <h4>Cadastre sua conta</h4>
+            <form class="form-inputs">
+                <simple-input v-model="event.name" label="nome" type="text" required></simple-input>
+                <simple-input v-model="event.email" label="e-mail" type="email" required></simple-input>
+                <simple-input v-model="event.cpf" label="cpf" type="text"
+                    pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" required></simple-input>
+                <simple-input v-model="event.address" label="endereço" type="text" required></simple-input>
+                <simple-input v-model="event.phone" label="telefone" type="tel" required></simple-input>
+                <simple-input v-model="event.password" label="senha" type="password" required></simple-input>
 
-            <button type="submit" @click="cadastrar()" class="btn-submit"><span
-                    class="btn-submit-text">cadastrar</span></button>
-        </form>
+                <button type="submit" @click="cadastrar()" class="btn-submit"><span
+                        class="btn-submit-text">cadastrar</span></button>
+            </form>
+        </div>
     </div>
 </template>
 

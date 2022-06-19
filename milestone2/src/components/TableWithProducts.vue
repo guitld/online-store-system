@@ -1,16 +1,14 @@
 <template>
-    <div class="grid-container" v-if="items.length">
+    <!-- <div class="grid-container" v-if="items.length">
         <div class="grid-header">
             <div style="grid-column: span 3"></div>
             <span class="grid-header-item">quantidade</span>
-            <span class="grid-header-item">preco unitario</span>
-            <span class="grid-header-item">preco total</span>
+            <span class="grid-header-item">preço unitário</span>
+            <span class="grid-header-item">preço total</span>
         </div>
         <div class="grid-wrapper">
             <template  v-for="item in items" :key="item">
-                <!-- <label for="input-delete" v-if="!edit_disabled"> -->
                 <img v-if="!edit_disabled" :src="require('@/../public/assets/img/delete-button.png')" id="delete-button-image" @click="emitRemoveItem(item.id)"/>
-                <!-- </label> -->
                 <div v-else></div>
                 <input type="button" name="input-delete" id="input-delete" style="display: none">
 
@@ -26,6 +24,38 @@
 
     <div v-else class="error-grid-cart-products">
         <span><strong>Você ainda não possui nenhum item no carrinho.<br>Continue procurando <router-link to="/">itens</router-link> em nossa loja!</strong></span>
+    </div> -->
+
+    <div class="grid-container" v-if="items.length">
+        <table class="table">
+            <thead class="table__header">
+                <tr class="table__row">
+                    <th class="table__cell u-text-left">Remover item</th>
+                    <th class="table__cell u-text-left">Imagem item</th>
+                    <th class="table__cell u-text-left">Nome item</th>
+                    <th class="table__cell u-text-left">Quantidade item</th>
+                    <th class="table__cell u-text-left">Preço unitário</th>
+                    <th class="table__cell u-text-left">Preço</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table__row" v-for="item in items" :key="item">
+                    <td v-if="!edit_disabled" ><img :src="require('@/../public/assets/img/delete-button.png')" id="delete-button-image" @click="emitRemoveItem(item.id)"/></td>
+                    <td v-else><div></div></td>
+                    
+                    <td><input type="button" name="input-delete" id="input-delete" style="display: none"></td>
+                    <td><img :src="item.image" class="grid-item grid-product-image"></td>
+                    <td><span class="grid-item">{{item.title}}</span></td>
+                    <td><span class="grid-item">{{ item.quantities }}</span></td>
+                    <td><span class="grid-item">R$ {{ item.price }}</span></td>
+                    <td><span class="grid-item">R${{ (item.price * item.quantities).toFixed(2) }}</span></td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <td class="final-price"><span ><strong>Total compra:</strong> R$ {{ total }}</span></td>
+            </tfoot>
+        </table>
     </div>
 </template>
 

@@ -26,7 +26,7 @@ header {
     position: sticky;
     top: 0;
     z-index: 2;
-    margin-bottom: 70px;
+    margin-bottom: 30px;
 }
 
 ul {
@@ -112,11 +112,6 @@ nav {
     color: #000000;
 }
 
-.nav-menu .drop-down ul a:hover,
-.nav-menu .drop-down ul .active>a,
-.nav-menu .drop-down ul li:hover>a {
-    color: #00c1c1;
-}
 
 a>strong {
     font-size: 24px;
@@ -151,7 +146,7 @@ footer .fcontainer p {
     }
 
     .fcontainer {
-        display:block !important;
+        display: block !important;
     }
 
     .col {
@@ -166,18 +161,18 @@ footer .fcontainer p {
 * {
     scrollbar-width: thin;
     scrollbar-color: #d8ff6e white;
-  }
-  
-  /* Works on Chrome, Edge, and Safari */
-  *::-webkit-scrollbar {
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
     width: 5px;
-  }
-  
-  *::-webkit-scrollbar-track {
+}
+
+*::-webkit-scrollbar-track {
     background: white;
-  }
-  
-  *::-webkit-scrollbar-thumb {
+}
+
+*::-webkit-scrollbar-thumb {
     border-radius: 20px;
     border: 5px solid #d8ff6e;
-  }
+}

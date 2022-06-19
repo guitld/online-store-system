@@ -1,98 +1,40 @@
 <template>
-  <div class="formulary" v-if="isAdmin">
-    <div class="form-wrapper-flex">
-      <form class="form-inputs">
-        <h4>Gerenciar usuários</h4>
-        <simple-input
-          v-model="event.name"
-          label="nome"
-          type="text"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.email"
-          label="e-mail"
-          type="email"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.cpf"
-          label="cpf"
-          type="text"
-          pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.address"
-          label="endereço"
-          type="text"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.phone"
-          label="telefone"
-          type="tel"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.update"
-          label="alterar/remover"
-          type="text"
-          required
-        ></simple-input>
-        <button
-          class="btn-submit"
-          type="button"
-          @click="handleCadastro()"
-        >
-          atualizar usuário
-        </button>
-      </form>
-      <form class="form-inputs">
-        <h4>Gerenciar produtos</h4>
-        <simple-input
-          v-model="event.nameprd"
-          label="nome do produto"
-          type="text"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.number"
-          label="número de identificação"
-          type="number" min="0"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.description"
-          label="descrição"
-          type="text"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.price"
-          label="preço"
-          type="number" min="0.00" max="10000.00" step="0.01"
-          required
-        ></simple-input>
-        <simple-input
-          v-model="event.update2"
-          label="alterar/adicionar/remover"
-          type="text"
-          required
-        ></simple-input>
-        <button
-          class="btn-submit"
-          type="button"
-          @click="handleProduto()"
-        >
-          atualizar produto
-        </button>
-      </form>
+  <div class="wrapper">
+    <div class="formulary" v-if="isAdmin">
+      <div class="form-wrapper-flex">
+        <form class="form-inputs">
+          <h4>Gerenciar usuários</h4>
+          <simple-input v-model="event.name" label="nome" type="text" required></simple-input>
+          <simple-input v-model="event.email" label="e-mail" type="email" required></simple-input>
+          <simple-input v-model="event.cpf" label="cpf" type="text"
+            pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" required></simple-input>
+          <simple-input v-model="event.address" label="endereço" type="text" required></simple-input>
+          <simple-input v-model="event.phone" label="telefone" type="tel" required></simple-input>
+          <simple-input v-model="event.update" label="alterar/remover" type="text" required></simple-input>
+          <button class="btn-submit" type="button" @click="handleCadastro()">
+            atualizar usuário
+          </button>
+        </form>
+        <form class="form-inputs">
+          <h4>Gerenciar produtos</h4>
+          <simple-input v-model="event.nameprd" label="nome do produto" type="text" required></simple-input>
+          <simple-input v-model="event.number" label="número de identificação" type="number" min="0" required>
+          </simple-input>
+          <simple-input v-model="event.description" label="descrição" type="text" required></simple-input>
+          <simple-input v-model="event.price" label="preço" type="number" min="0.00" max="10000.00" step="0.01"
+            required></simple-input>
+          <simple-input v-model="event.update2" label="alterar/adicionar/remover" type="text" required></simple-input>
+          <button class="btn-submit" type="button" @click="handleProduto()">
+            atualizar produto
+          </button>
+        </form>
+      </div>
+    </div>
+    <div v-else class="login-admin">
+      <h4>Faça login como administrador</h4>
     </div>
   </div>
-  <div v-else class="login-admin">
-    <h4>Faça login como administrador</h4>
-  </div>
+
 </template>
 
 <script>
@@ -134,20 +76,20 @@ export default {
       ) {
         let emailCPFFound = false;
         for (let i = 0; i < users.length; i++) {
-          if (this.event.email == users[i]["email"] || 
-              this.event.cpf == users[i]["cpf"]) {
+          if (this.event.email == users[i]["email"] ||
+            this.event.cpf == users[i]["cpf"]) {
             emailCPFFound = true;
             break;
           }
         }
-        if(emailCPFFound) {
+        if (emailCPFFound) {
           alert("Dados alterados com sucesso!");
         }
         else {
           alert("Usuário não encontrado!");
         }
-      } 
-      else 
+      }
+      else
         alert("Preencha todos os campos!");
     },
 
@@ -158,7 +100,7 @@ export default {
         this.event.description != "" &&
         this.event.price != "" &&
         this.event.update2 != ""
-        ) {
+      ) {
         let numberFound = false;
         for (let i = 0; i < test2.length; i++) {
           if (this.event.number == test2[i]["number"]) {
@@ -166,14 +108,14 @@ export default {
             break;
           }
         }
-        if(numberFound) {
+        if (numberFound) {
           alert("Dados alterados com sucesso!");
         }
         else {
           alert("Produto não encontrado!");
         }
-      } 
-      else 
+      }
+      else
         alert("Preencha todos os campos!");
     },
   },
@@ -203,7 +145,6 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 100px;
+  gap: 50px;
 }
-
 </style>

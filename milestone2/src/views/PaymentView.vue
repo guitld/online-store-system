@@ -1,7 +1,6 @@
 <template>
-    <div class="payment-page-wrapper">
+    <div class="wrapper">
         <div class="payment-page-flex-box">
-            
             <div class="payment-container">
                 <div class="payment-form">
                     <h4>Preencha seus dados</h4>
@@ -21,7 +20,6 @@
                 <table-with-products :items="cart_items" :total="final_price" :edit_disabled="true">
                 </table-with-products>
             </div>
-
         </div>
     </div>
 </template>
@@ -82,11 +80,6 @@ export default {
 <style scoped>
 @import "/public/assets/css/button.css";
 @import "/public/assets/css/forms.css";
-
-.payment-page-wrapper {
-    width: 90%;
-    margin: auto auto;
-}
 
 .payment-page-flex-box {
     display: flex;

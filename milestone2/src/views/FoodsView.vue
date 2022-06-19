@@ -1,5 +1,7 @@
 <template>
-  <item-list :items="items"></item-list>
+	<div class="wrapper">
+		<item-list :items="items"></item-list>
+	</div>
 </template>
 
 <script>

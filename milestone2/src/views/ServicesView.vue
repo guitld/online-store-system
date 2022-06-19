@@ -5,7 +5,7 @@
                 <div class="card-inner">
                     <img :src="card.image" />
                     <div class="description">
-                        <router-link :to="card.link">{{ card.title }}</router-link>
+                        <router-link :to="card.link" :service_type="card.title">{{ card.title }}</router-link>
                     </div>
                 </div>
             </div>

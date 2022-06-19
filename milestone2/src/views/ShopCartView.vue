@@ -1,19 +1,23 @@
 <template>
-    <div class="content-wrapper">
-        <div class="cart-info">
-            <div class="product-table-container">
-                <table-with-products :items="cart_items" @emit-click-remove="removeItem" :total="final_price" :edit_disabled="false"></table-with-products>
+    <div class="wrapper">
+        <div class="content-wrapper">
+            <div class="cart-info">
+                <div class="product-table-container">
+                    <table-with-products :items="cart_items" @emit-click-remove="removeItem" :total="final_price"
+                        :edit_disabled="false"></table-with-products>
+                </div>
+                <div class="continue-purshase-container" v-if="cart_items.length">
+                    <button class="btn-submit" type="button" @click="routePaymentView()">
+                        ir para finalizar a compra
+                    </button>
+                </div>
             </div>
-            <div class="continue-purshase-container" v-if="cart_items.length">
-                <button class="btn-submit" type="button" @click="routePaymentView()">
-                ir para finalizar a compra
-                </button>
+            <div class="cat-dog-image-container">
+                <img :src="catDogImage" alt="" id="cat-dog-image" />
             </div>
-        </div>
-        <div class="cat-dog-image-container" >
-            <img :src="catDogImage" alt="" id="cat-dog-image" />
         </div>
     </div>
+
 </template>
 
 <script>
@@ -23,7 +27,7 @@ import TableWithProducts from '@/components/TableWithProducts.vue'
 export default {
     name: "Cart",
 
-    components: {TableWithProducts},
+    components: { TableWithProducts },
 
     data() {
         return {
@@ -51,7 +55,7 @@ export default {
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
                     "category": "comidinhas",
                     "quantities": "2",
-                    "product_class": "petiscos"      
+                    "product_class": "petiscos"
                 }, {
                     "id": "11",
                     "title": "mordedor",
@@ -75,7 +79,7 @@ export default {
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
                     "category": "comidinhas",
                     "quantities": "2",
-                    "product_class": "petiscos"      
+                    "product_class": "petiscos"
                 }, {
                     "id": "11",
                     "title": "mordedor",
@@ -99,7 +103,7 @@ export default {
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
                     "category": "comidinhas",
                     "quantities": "2",
-                    "product_class": "petiscos"      
+                    "product_class": "petiscos"
                 }, {
                     "id": "11",
                     "title": "mordedor",
@@ -123,7 +127,7 @@ export default {
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
                     "category": "comidinhas",
                     "quantities": "2",
-                    "product_class": "petiscos"      
+                    "product_class": "petiscos"
                 }, {
                     "id": "11",
                     "title": "mordedor",
@@ -147,7 +151,7 @@ export default {
                     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
                     "category": "comidinhas",
                     "quantities": "2",
-                    "product_class": "petiscos"      
+                    "product_class": "petiscos"
                 },
             ],
 
@@ -158,7 +162,7 @@ export default {
 
     mounted() {
         this.computeFinalPrice();
-    },  
+    },
 
     methods: {
         computeFinalPrice() {
@@ -179,7 +183,7 @@ export default {
         },
 
         routePaymentView() {
-            this.$router.push({name: 'pagamento', params: { data : this.cart_items } })
+            this.$router.push({ name: 'pagamento', params: { data: this.cart_items } })
         }
     }
 };
@@ -190,7 +194,7 @@ export default {
 @import "/public/assets/css/style.css";
 
 .content-wrapper {
-    width: 90%;
+    width: 100%;
     margin: auto auto;
     display: flex;
     flex-direction: row;
@@ -206,6 +210,7 @@ export default {
 #cat-dog-image {
     margin: auto auto;
     width: 90%;
+    display: block;
 }
 
 .cart-info {
@@ -225,7 +230,4 @@ export default {
     float: right;
     margin: auto auto;
 }
-
-
-
 </style>

@@ -3,14 +3,10 @@
         <nav>
             <ul v-show="!mobile" class="navigation">
                 <li>
-                    <div class="menu-item">
-                        <dropdown-view title="acessórios" path="/acessorios" :items="acessories" @click.prevent="handleSound()"></dropdown-view>
-                    </div>
+                    <dropdown-view title="acessórios" path="/acessorios" :items="acessories" @click.prevent="handleSound()"></dropdown-view>
                 </li>
                 <li>
-                    <div class="menu-item">
-                        <dropdown-view title="comidinhas" path="/comidinhas" :items="foods" @click.prevent="handleSound()"></dropdown-view>
-                    </div>
+                    <dropdown-view title="comidinhas" path="/comidinhas" :items="foods" @click.prevent="handleSound()"></dropdown-view>
                 </li>
                 <li>
                     <div class="menu-item">
@@ -29,7 +25,7 @@
                 </li>
                 <li v-else>
                     <div class="menu-item">
-                        <router-link class="disabled" to="/login" @click.prevent="handleSound()"> carrinho </router-link>
+                        <router-link class="disabled" to="/login" @click.prevent="handleSound(); redirectLogin()"> carrinho </router-link>
                     </div>
                 </li>
                 <li v-if="authenticated">
@@ -134,6 +130,10 @@ export default {
             let randomKey = objKey[Math.floor(Math.random() * objKey.length - 1)];
             let sound = new Audio(randomKey.sound)
             sound.play()
+        },
+
+        redirectLogin() {
+            alert('Você não está logado. Faça o seu login para conseguir acessar o carrinho :)')
         }
     },
 
@@ -228,7 +228,8 @@ router-link {
 .menu-item a:active,
 .menu-item a:hover,
 #current_page.menu-item a:active,
-#current_page.menu-item a:hover {
+#current_page.menu-item a:hover,
+.menu-item-inside-drop>a {
     color: #00c1c1;
     border-color: #00c1c1;
 }

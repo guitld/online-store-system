@@ -1,6 +1,7 @@
 .wrapper {
     width: 80%;
     margin: auto auto;
+    margin-bottom: 50px;
 }
 
 .cards-wrap {
@@ -53,3 +54,4 @@
     min-width: 250px;
     max-width: 400px
 }
+
