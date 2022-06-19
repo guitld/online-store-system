@@ -29,7 +29,7 @@
                 </li>
                 <li v-else>
                     <div class="menu-item">
-                        <a href="/login" @click.prevent="handleSound()"> carrinho </a>
+                        <router-link class="disabled" to="/login" @click.prevent="handleSound()"> carrinho </router-link>
                     </div>
                 </li>
                 <li v-if="authenticated">
@@ -44,7 +44,7 @@
                 </li>
                 <li v-if="authenticated">
                     <div class="menu-item">
-                        <a href="/" @click="logout()" @click.prevent="handleSound()"> sair </a>
+                        <router-link class="disabled" to="/" @click="logout()" @click.prevent="handleSound()"> sair </router-link>
                     </div>
                 </li>
                 <li v-else>
@@ -70,10 +70,10 @@
                         <router-link to="/servicos" @click.prevent="handleSound()">serviços</router-link>
                     </li>
                     <li v-if="authenticated" class="menu-item">
-                        <router-link to="/carrinho" @click.prevent="handleSound()">carrinho</router-link>
+                        <router-link  to="/carrinho" @click.prevent="handleSound()">carrinho</router-link>
                     </li>
                     <li v-else class="menu-item">
-                        <a href="/login" @click.prevent="handleSound()"> carrinho </a>
+                        <router-link class="disabled" to="/login" @click.prevent="handleSound()"> carrinho </router-link>
                     </li>
                     <li v-if="authenticated" class="menu-item">
                         <router-link to="/perfil-cliente" @click.prevent="handleSound()">perfil</router-link>
@@ -82,7 +82,7 @@
                         <router-link to="/login" @click.prevent="handleSound()">entrar</router-link>
                     </li>
                     <li v-if="authenticated" class="menu-item">
-                        <a href="/" @click="logout()" @click.prevent="handleSound()"> sair </a>
+                        <router-link class="disabled" to="/" @click="logout()" @click.prevent="handleSound()"> sair </router-link>
                     </li>
                     <li v-else class="menu-item">
                         <router-link to="/cadastro" @click.prevent="handleSound()">cadastrar</router-link>
@@ -238,8 +238,13 @@ router-link {
     color: #000000;
 }
 
+
 .menu-item>a.active-link {
     color: #d403b9;
+}
+
+.menu-item>a.disabled {
+    color: black !important;
 }
 
 .navigation {
@@ -308,4 +313,5 @@ i {
     text-decoration: none;
     color: black;
 }
+
 </style>
