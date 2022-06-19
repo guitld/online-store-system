@@ -1,32 +1,32 @@
 {
     "0":{
-        "sound": "/assets/audio/cat.m4a"
-    },
-    "1": {
-        "sound": "/assets/audio/cat2.m4a"
-    },
-    "2": {
-        "sound": "/assets/audio/dog.m4a"
-    },
-    "3": {
-        "sound": "/assets/audio/dog2.m4a"
-    },
-    "4": {
-        "sound": "/assets/audio/frog.m4a"
-    },
-    "5": {
-        "sound": "/assets/audio/chicken.m4a"
-    },
-    "6": {
-        "sound": "/assets/audio/cow.m4a"
-    },
-    "7": {
-        "sound": "/assets/audio/monkey.m4a"
-    },
-    "8": {
         "sound": "/assets/audio/bird.m4a"
     },
+    "1": {
+        "sound": "/assets/audio/cat.m4a"
+    },
+    "2": {
+        "sound": "/assets/audio/cat2.mp3"
+    },
+    "3": {
+        "sound": "/assets/audio/chicken.mp3"
+    },
+    "4": {
+        "sound": "/assets/audio/cow.mp3"
+    },
+    "5": {
+        "sound": "/assets/audio/dog2.mp3"
+    },
+    "6": {
+        "sound": "/assets/audio/dog.m4a"
+    },
+    "7": {
+        "sound": "/assets/audio/frog.m4a"
+    },
+    "8": {
+        "sound": "/assets/audio/horse.mp3"
+    },
     "9": {
-        "sound": "/assets/audio/horse.m4a"
+        "sound": "/assets/audio/monkey.mp3"
     }
 }
