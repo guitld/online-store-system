@@ -1,5 +1,7 @@
 .formulary {
-    margin: 2% auto;
+    margin: auto;
+    /* margin: 2% auto ? */
+    margin-bottom: 70px;
 }
 
 .formulary h4 {
@@ -15,7 +17,7 @@
     margin-bottom: 12px;
 }
 
-label {
+form label {
     margin: -0.7em 0.8em;
     position: absolute;
     font-size: small;
@@ -25,7 +27,7 @@ label {
     z-index: 0;
 }
 
-input {
+form input {
     border: 2px solid #F5E9EE;
     background-color: #FAD2E1;
     border-radius: 5px;

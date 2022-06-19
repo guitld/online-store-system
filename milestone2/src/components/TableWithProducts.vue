@@ -8,9 +8,9 @@
         </div>
         <div class="grid-wrapper">
             <template  v-for="item in items" :key="item">
-                <label for="input-delete" v-if="!edit_disabled">
-                    <img :src="require('@/../public/assets/img/delete-button.png')" id="delete-button-image" @click="emitRemoveItem(item.id)"/>
-                </label>
+                <!-- <label for="input-delete" v-if="!edit_disabled"> -->
+                <img v-if="!edit_disabled" :src="require('@/../public/assets/img/delete-button.png')" id="delete-button-image" @click="emitRemoveItem(item.id)"/>
+                <!-- </label> -->
                 <div v-else></div>
                 <input type="button" name="input-delete" id="input-delete" style="display: none">
 
@@ -74,7 +74,7 @@ export default {
     row-gap: 20px;
     padding: 15px 30px 15px 30px;
     max-height: 400px;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .grid-header {
@@ -82,16 +82,6 @@ export default {
     margin-bottom: 20px;
     padding: 10px 30px 10px 30px;
     text-align: center;
-}
-
-/* width */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #d8ff6e;
 }
 
 .grid-header {

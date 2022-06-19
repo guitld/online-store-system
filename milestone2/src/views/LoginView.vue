@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
     <div class="sign-in-flexbox">
       <div class="sign-in">
         <h4>Acesse sua conta</h4>
@@ -8,18 +7,8 @@
           <router-link to="/cadastro"><strong>cadastre-se</strong></router-link>
         </p>
         <form class="form-inputs">
-          <simple-input
-            v-model="event.email"
-            label="e-mail"
-            type="email"
-            required
-          ></simple-input>
-          <simple-input
-            v-model="event.password"
-            label="senha"
-            type="password"
-            required
-          ></simple-input>
+          <simple-input v-model="event.email" label="e-mail" type="email" required></simple-input>
+          <simple-input v-model="event.password" label="senha" type="password" required></simple-input>
           <button type="submit" @click="login()" class="btn-submit"><span class="btn-submit-text">entrar</span></button>
         </form>
       </div>
@@ -28,7 +17,6 @@
         <img :src="catDogImage" alt="" />
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -73,15 +61,17 @@ export default {
 @import "/public/assets/css/button.css";
 @import "/public/assets/css/forms.css";
 
-.container {
-  width: 70%;
-  margin: auto auto;
-}
 
 .sign-in-flexbox {
   display: flex;
   flex-direction: row;
   gap: 100px;
+  margin: auto auto;
+  flex-wrap: wrap;
+}
+
+.sign-in {
+  margin: auto;
 }
 
 .sign-in p {
@@ -93,7 +83,7 @@ export default {
   padding-bottom: 10px;
 }
 
-.sign-in p a > strong {
+.sign-in p a>strong {
   color: black;
   font-size: 16px;
 }
@@ -103,12 +93,11 @@ export default {
 }
 
 .pet-img {
-  width: 100%;
   margin: auto;
 }
 
 .pet-img img {
   width: 400px;
+  min-width: 340px;
 }
-
 </style>

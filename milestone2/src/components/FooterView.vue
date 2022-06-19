@@ -4,7 +4,7 @@
       <div class="col">
         <h5 class="ftitle">contatos</h5>
         <p>
-          +55 (16) 3241-1413<br />
+          +55 (16) 3241-1413<br>
           meu.amigo.pet@usp.br
         </p>
       </div>
