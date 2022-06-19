@@ -3,14 +3,14 @@
         <nav>
             <ul v-show="!mobile" class="navigation">
                 <li>
-                    <dropdown-view title="acessórios" path="/acessorios" :items="acessories" @click.prevent="handleSound()"></dropdown-view>
+                    <dropdown-view title="acessórios" path="/acessorios" :items="acessories"></dropdown-view>
                 </li>
                 <li>
-                    <dropdown-view title="comidinhas" path="/comidinhas" :items="foods" @click.prevent="handleSound()"></dropdown-view>
+                    <dropdown-view title="comidinhas" path="/comidinhas" :items="foods"></dropdown-view>
                 </li>
                 <li>
                     <div class="menu-item">
-                        <router-link to="/servicos" @click.prevent="handleSound()">serviços</router-link>
+                        <router-link to="/servicos" >serviços</router-link>
                     </div>
                 </li>
                 <li>
@@ -20,22 +20,22 @@
                 </li>
                 <li v-if="authenticated">
                     <div class="menu-item">
-                        <router-link to="/carrinho" @click.prevent="handleSound()">carrinho</router-link>
+                        <router-link to="/carrinho">carrinho</router-link>
                     </div>
                 </li>
                 <li v-else>
                     <div class="menu-item">
-                        <router-link class="disabled" to="/login" @click.prevent="handleSound(); redirectLogin()"> carrinho </router-link>
+                        <router-link class="disabled" to="/login" @click.prevent="redirectLogin()"> carrinho </router-link>
                     </div>
                 </li>
                 <li v-if="authenticated">
                     <div class="menu-item">
-                        <router-link to="/perfil-cliente" @click.prevent="handleSound()">perfil</router-link>
+                        <router-link to="/perfil-cliente">perfil</router-link>
                     </div>
                 </li>
                 <li v-else>
                     <div class="menu-item">
-                        <router-link to="/login" @click.prevent="handleSound()">entrar</router-link>
+                        <router-link to="/login">entrar</router-link>
                     </div>
                 </li>
                 <li v-if="authenticated">
@@ -57,31 +57,31 @@
             <transition name="mobile-nav">
                 <ul v-show="mobileNav" class="dropdown-nav">
                     <li class="menu-item">
-                        <router-link to="/acessorios" @click.prevent="handleSound()">acessórios</router-link>
+                        <router-link to="/acessorios">acessórios</router-link>
                     </li>
                     <li class="menu-item">
-                        <router-link to="/comidinhas" @click.prevent="handleSound()">comidinhas</router-link>
+                        <router-link to="/comidinhas" >comidinhas</router-link>
                     </li>
                     <li class="menu-item">
-                        <router-link to="/servicos" @click.prevent="handleSound()">serviços</router-link>
+                        <router-link to="/servicos" >serviços</router-link>
                     </li>
                     <li v-if="authenticated" class="menu-item">
-                        <router-link  to="/carrinho" @click.prevent="handleSound()">carrinho</router-link>
+                        <router-link  to="/carrinho">carrinho</router-link>
                     </li>
                     <li v-else class="menu-item">
-                        <router-link class="disabled" to="/login" @click.prevent="handleSound()"> carrinho </router-link>
+                        <router-link class="disabled" to="/login"> carrinho </router-link>
                     </li>
                     <li v-if="authenticated" class="menu-item">
-                        <router-link to="/perfil-cliente" @click.prevent="handleSound()">perfil</router-link>
+                        <router-link to="/perfil-cliente">perfil</router-link>
                     </li>
                     <li v-else class="menu-item">
-                        <router-link to="/login" @click.prevent="handleSound()">entrar</router-link>
+                        <router-link to="/login">entrar</router-link>
                     </li>
                     <li v-if="authenticated" class="menu-item">
-                        <router-link class="disabled" to="/" @click="logout()" @click.prevent="handleSound()"> sair </router-link>
+                        <router-link class="disabled" to="/" @click="logout()"> sair </router-link>
                     </li>
                     <li v-else class="menu-item">
-                        <router-link to="/cadastro" @click.prevent="handleSound()">cadastrar</router-link>
+                        <router-link to="/cadastro">cadastrar</router-link>
                     </li>
                 </ul>
             </transition>
