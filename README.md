@@ -43,13 +43,12 @@ Gerenciamento de produto: os administradores podem criar/atualizar/ler/excluir n
 
 Nosso sistema, como funcionalidade extra, possui sons customizados para cada aba clicável na barra de navegação. Os sons são característicos de animas pets populares.
 
-## 2. Descrição do Projeto
-Nesta primeira entrega, criamos o HTML e CSS da página principal, login e cadastro.
+O e-commerce é responsivo, garantindo facilidade de acesso por qualquer dispositivo.
 
-Todas as outras telas foram feitas no Figma e criamos também o diagrama de navegação. 
+## 2. Descrição do Projeto
+Meu Amigo Pet é um e-commerce de petshop, destinado à venda de acessórios e comidas, além de agendamento de serviços como banho e tosa. A loja online foi criada utilizando HTML, CSS, Vue,js para o front-end, e, nesta segunda entrega, o back-end foi simulado utilizando e manipulando JSONs.
 
 Para garantir uma boa experiência para o úsario, criamos um menu em todas as páginas que garante a movimentação rápida e eficiente entre as páginas.
-A página de Carrinho só será possivel de visualizar após o cliente realizar o login, bem como a página de alteração de informações de cadastro pelo usuário.
 
 ### Diagrama de navegação
 <img src="https://github.com/guitld/online-store-system/blob/main/milestone1/assets/img/diagrama_navegacao.png" width=900px>
@@ -64,23 +63,54 @@ As funcionalidades do site são:
 - Visualização de um produto, com seu nome, descrição, preço, id, quantidade em estoque, quantidade já vendida e botão para adicionar ao carrinho.
 - Acesso ao carrinho de compras, com opção de mudar a quantidade de itens, conferir o preço total e finalizar compra.
 - Opção de inserir informações do cartão de crédito para efetuar o pagamento.
+- Feature personalizada com sons de animais ao clicar nos links do header.
+
+### Servidor
+As informações salvas no servidor são:
+
+#### Usuários:
+- nome
+- e-mail (como número identificador do cliente)
+- senha
+- cpf (como número identificador do cliente)
+- endereço
+- telefone
+#### Produtos:
+- id (número identificador do produto)
+- título
+- preço
+- imagem
+- quantidade do produto em estoque
+- quantidade do produto vendida
+- descrição
+- categoria
+- classe
 
 
 ## 3. Comentários sobre o código
-Utilizamos apenas HTML e CSS, conforme explicitado no Millestone 1. Nossas páginas são estaticas e, para essa primeira entrega, criamos 3 HTMLs.
-
+Nenhum
 
 ## 4. Plano de teste
-Nosso projeto foi desenvolvido e testado no Edge e no Google Chrome, no Windows.
+Nosso projeto foi desenvolvido e testado no Edge e no Google Chrome, no Windows e também com diferentes tamanhos de telas.
 
 ## 5. Resultados dos testes
 O comportamento do site apresenta ser satisfatório nos dois navegadores testados, com um tempo de resposta rápido. 
 
 ## 6. Building
-Para essa primeira entrega, basta baixar esse repositório e abrir as páginas HTML no navegador da sua escolha.
+É necessário ter o npm e node.js instalados.
+Para rodar na sua máquinha, é necessário:
+- baixar este repositório, 
+- entrar na pasta do projeto (`code .`)
+- rodar `npm install`
+- rodar `npm run serve`
+- o programa, no termina, indicará em qual localhost está sendo executado
+- basta acessá-lo no navegador de sua preferência.
+
 
 ## 7. Problemas
-Certa dificuldade de traduzir as imagens do mockup para código HTML e CSS, por causa da falta de padronização do tamanho das fontes entre as telas feitas no mockup.
+- Certa dificuldade de traduzir as imagens do mockup para código HTML e CSS, por causa da falta de padronização do tamanho das fontes entre as telas feitas no mockup.
+- Dificuldade para lidar com rotas no Vue
+- Tempo pequeno para realizar o trabalho
 
 ## 8. Comentários
 Algumas das ferramentas usadas pelo grupo foram:
