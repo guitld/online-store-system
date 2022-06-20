@@ -46,7 +46,7 @@ Nosso sistema, como funcionalidade extra, possui sons customizados para cada aba
 O e-commerce é responsivo, garantindo facilidade de acesso por qualquer dispositivo.
 
 ## 2. Descrição do Projeto
-Meu Amigo Pet é um e-commerce de petshop, destinado à venda de acessórios e comidas, além de agendamento de serviços como banho e tosa. A loja online foi criada utilizando HTML, CSS, Vue,js para o front-end, e, nesta segunda entrega, o back-end foi simulado utilizando e manipulando JSONs.
+Meu Amigo Pet é um e-commerce de petshop, destinado à venda de acessórios e comidas, além de agendamento de serviços como banho e tosa. A loja online foi criada utilizando HTML, CSS, Vue.js para o front-end, e, nesta segunda entrega, o back-end foi simulado utilizando e manipulando JSONs.
 
 Para garantir uma boa experiência para o úsario, criamos um menu em todas as páginas que garante a movimentação rápida e eficiente entre as páginas.
 
