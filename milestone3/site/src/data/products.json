@@ -1,0 +1,201 @@
+{ 
+    "0": {
+        "id": "0",
+        "title": "colete para gato",
+        "price": "R$ 19,90",
+        "image": "/assets/img/colete.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "roupas"
+    },
+    "1": {
+        "id": "1",
+        "title": "camisa fruit",
+        "price": "R$ 22,90",
+        "image": "/assets/img/fruit.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "roupas" 
+    },
+    "2": {
+        "id": "2",
+        "title": "suéter",
+        "price": "R$ 22,90",
+        "image": "/assets/img/roupinha.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "roupas" 
+    },
+    "3": {
+        "id": "3",
+        "title": "casinha iglu",
+        "price": "R$ 89,90",
+        "image": "/assets/img/casinha.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "camas"
+    },
+    "4": {
+        "id": "4",
+        "title": "cama listrada",
+        "price": "R$ 49,90",
+        "image": "/assets/img/caminha.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category" : "acessorios",
+        "product_class": "camas"
+
+    },
+    "5": {
+        "id": "5",
+        "title": "tapete gelado",
+        "price": "R$ 23,90",
+        "image": "/assets/img/tapete.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "camas"
+    },
+    "6": {
+        "id": "6",
+        "title": "bolinha",
+        "price": "R$ 6,90",
+        "image": "/assets/img/bola.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "brinquedos"
+    },
+    "7": {
+        "id": "7",
+        "title": "pelúcia",
+        "price": "R$ 14,90",
+        "image": "/assets/img/pelucia.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "brinquedos"
+    },
+    "8": {
+        "id": "8",
+        "title": "mordedor",
+        "price": "R$ 12,90",
+        "image": "/assets/img/mordedor.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "brinquedos"
+    },
+    "9": {
+        "id": "9",
+        "title": "jogo americano",
+        "price": "R$ 17,90",
+        "image": "/assets/img/americano.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "product_class": "alimentacao",
+        "category": "acessorios"
+    },
+    "10": {
+        "id": "10",
+        "title": "bebedouro",
+        "price": "R$ 34,90",
+        "image": "/assets/img/bebedouro.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "product_class": "alimentacao",
+        "category": "acessorios"
+    },
+    "11": {
+        "id": "11",
+        "title": "comedouro",
+        "price": "R$ 8,90",
+        "image": "/assets/img/comedouro.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
+        "category": "acessorios",
+        "product_class": "alimentacao"
+    },
+    "12": {
+        "id": "12",
+        "title": "ossinhos",
+        "price": "R$ 14,90",
+        "image": "/assets/img/ossinho.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
+        "category": "comidinhas",
+        "product_class": "petiscos"      
+    },
+    "13": {
+        "id": "13",
+        "title": "bifinhos",
+        "price": "R$ 18,90",
+        "image": "/assets/img/bifinho.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
+        "category": "comidinhas",
+        "product_class": "petiscos" 
+    },
+    "14": {
+        "id": "14",
+        "title": "biscoito",
+        "price": "R$ 9,90",
+        "image": "/assets/img/biscoito.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
+        "category": "comidinhas",
+        "product_class": "petiscos" 
+    },
+    "15": {
+        "id": "15",
+        "title": "ração para cachorro",
+        "price": "R$ 29,90",
+        "image": "/assets/img/raçao_dog.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "category": "comidinhas",
+        "product_class": "racoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod"
+    },
+    "16": {
+        "id": "16",
+        "title": "ração para gato",
+        "price": "R$ 24,90",
+        "image": "/assets/img/raçao.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "category": "comidinhas",
+        "product_class": "racoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod"
+    },
+    "17": {
+        "id": "17",
+        "title": "ração para peixe",
+        "price": "R$ 19,90",
+        "image": "/assets/img/raçao_peixe.png",
+        "stock_quantities": 0,
+        "sold_quantities": 0,
+        "category": "comidinhas",
+        "product_class": "racoes",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod"
+    }
+}
