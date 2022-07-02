@@ -1,10 +1,10 @@
-'use strict';
+'use strict'
 
-const mongoose = require('mongoose');
-// const nodemon = require('nodemon');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
 
-const schema = new Schema({
+const Schema = mongoose.Schema
+
+const ProductSchema = new Schema({
     product_id: {
         type: Number,
         required: true,
@@ -24,11 +24,19 @@ const schema = new Schema({
         required: true,
         trim: true
     },
-    qtd: {
+    img: {
+        type: String,
+        required: true
+    },
+    soldQtd: {
+        type: Number,
+        required: true
+    },
+    stockQtd: {
         type: Number,
         required: true
     }
-});
+})
 
 
-module.exports = mongoose.model('Product', schema);
+module.exports = mongoose.model('Product', ProductSchema)

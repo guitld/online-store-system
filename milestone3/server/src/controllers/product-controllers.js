@@ -13,9 +13,21 @@ exports.get = (req, res, next) => {
         });
 }
 
-exports.post = (req,res,next) => {
-    var product = new Product(req.body);
-    console.log(req.body);
+exports.getById = (req, res, next) => {
+    const id = req.params.id
+   
+    Product
+        .findOne({ product_id: id })
+        .then(x => {
+            res.status(200).send(data)
+        }).catch(e => {
+            res.status(400).send(e)
+        });
+}
+
+exports.post = (req, res, next) => {
+    const product = new Product(req.body);
+
     product.save(function(err) {
         if (err) {
             console.log(err)
@@ -25,7 +37,7 @@ exports.post = (req,res,next) => {
                         });
         }
         else {
-            console.log('Dado cadastrado');
+            console.log('Produto cadastrado');
             res.status(200).send();
         }
     })
@@ -33,7 +45,7 @@ exports.post = (req,res,next) => {
 
 exports.put = (req, res, next) => {
     let id = req.params.id;
-    console.log(req.body.name)
+
     Product.findOneAndUpdate({product_id: id},  
        {
             name: req.body.name,
@@ -47,7 +59,7 @@ exports.put = (req, res, next) => {
                 res.status(400).send();
             }
             else {
-                console.log('Dado atualizado original: ', p);
+                console.log('Produto atualizado original: ', p);
                 res.status(200).send();
             }
         }
@@ -56,7 +68,6 @@ exports.put = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
     let id = req.params.id;
-    console.log(id);
 
     Product.findOneAndRemove({product_id:id}, function(err) {
         if (err) {
@@ -64,7 +75,7 @@ exports.delete = (req, res, next) => {
             res.status(400).send();
         }
         else {
-            console.log('Dado removido com sucesso!');
+            console.log('Produto removido com sucesso!');
             res.status(200).send();
         }
     })
