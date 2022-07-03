@@ -3,18 +3,18 @@
         <div class="flex-box">
             <div class="product-image-wrapper">
                 <div class="product-image-area">
-                    <img :src="product.image" alt="" class="product-image" />
+                    <img :src="product.img" alt="" class="product-image" />
                 </div>
                 <div class="product-image-info">
-                    <p>quantidade vendida: {{ product.sold_quantities }}</p>
-                    <p>quantidade em estoque: {{ product.stock_quantities }}</p>
+                    <p>quantidade vendida: {{ product.sold_quantity }}</p>
+                    <p>quantidade em estoque: {{ product.stock_quantity }}</p>
                 </div>
             </div>
             <div class="product-description">
                 <div class="product-text-field">
                     <h2 class="product-description-title">{{ product.title }}</h2>
-                    <h5 v-if="product.brand != undefined">Marca: {{ product.brand }}</h5>
-                    <h5>n° de identificação: {{ product.id }}</h5>
+                    <!-- <h5 v-if="product.brand != undefined">Marca: {{ product.brand }}</h5> -->
+                    <h5>Identificador: {{ product.slug }}</h5>
                     <div class="product-description-text">
                         <p>{{ product.description }}</p>
                     </div>
@@ -48,41 +48,32 @@
 </template>
 
 <script>
-import data from "@/data/products.json";
+// import data from "@/data/products.json";
 
 export default {
     name: "product",
     data() {
         return {
-            product_id: 0,
+            product: Object(),
+            number_of_products: 0,
             final_price: 0,
-            number_of_products: 1,
-            product: {},
-            unitary_price: 0,
         };
     },
 
-    created() {
-        this.product_id = this.$route.params.id;
+    mounted() {
+        this.product_slug = this.$route.params.slug;
         this.fetchProduct();
     },
 
     methods: {
-        fetchProduct() {
-            this.product = data[this.product_id];
-            this.unitary_price = this.loadPrice();
-            this.final_price = this.unitary_price;
-        },
-
-        loadPrice() {
-            let price_string = this.product["price"];
-            price_string = price_string.replace(/[R$. ]+/g, "");
-            price_string = price_string.replace(/,+/g, ".");
-            console.log(price_string);
-
-            this.unitary_price = parseFloat(price_string);
-
-            return this.unitary_price;
+        async fetchProduct() {
+            try {
+                let resp = await fetch(`http://localhost:3000/products/${this.product_slug}`, {method: 'GET'}); 
+                let product = await resp.json();
+                this.product = product;
+            } catch(e) {
+                alert('Erro na busca do produto, tente novamente');
+            }
         },
 
         changeCounter: function (num) {
@@ -91,13 +82,13 @@ export default {
             !isNaN(this.number_of_products) && this.number_of_products > 0
                 ? this.number_of_products
                 : (this.number_of_products = 0);
-            this.final_price = (this.number_of_products * this.unitary_price).toFixed(
+            this.final_price = (this.number_of_products * this.product.price).toFixed(
                 2
             );
         },
 
+        // DEPOIS FAZER A LOGICA
         addToCart() {
-            // DEPOIS FAZER A LOGICA
             if (this.number_of_products > 0) {
                 alert("Produto adicionado ao carrinho!");
             }

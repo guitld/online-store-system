@@ -107,9 +107,16 @@ export default {
         this.emitter.on("authenticated", (status) => {
             this.authenticated = status;
         });
+
+        this.checkLoggedUser();
     },
 
     methods: {
+        async checkLoggedUser() {
+            let resp = await fetch('http://localhost:3000/customers/authenticate');
+            
+        },
+
         logout() {
             this.authenticated = false;
         },
@@ -162,7 +169,7 @@ export default {
                 {
                     title: "alimentação",
                     link: "/acessorios",
-                    hash: "#alimentacao",
+                    hash: "#alimentação",
                 },
             ],
             foods: [
@@ -174,7 +181,7 @@ export default {
                 {
                     title: "rações",
                     link: "/comidinhas",
-                    hash: "#racoes",
+                    hash: "#rações",
                 },
             ],
         };

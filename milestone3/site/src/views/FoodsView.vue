@@ -6,7 +6,6 @@
 
 <script>
 import ItemList from "@/components/ItemListView.vue"
-import data from "@/data/products.json"
 
 export default {
   name: "Foods",
@@ -15,36 +14,30 @@ export default {
 
   data() {
     return {
-      items: []
+      items: {}
     };
   },
 
-  created() {
-		this.fetchData()
+  mounted() {
+		this.fetch_data()
 	},
 
 	methods: {
-		fetchData() {
-			let products_by_category = {}
-			
-			let products_ids = Object.keys(data)
-			console.log(data)
-			products_ids.forEach((product_id) => {
-				if (data[product_id]['category'] === 'comidinhas') {
-					if (!(data[product_id]['product_class'] in products_by_category)) products_by_category[data[product_id]['product_class']] = new Array(data[product_id])
-					else products_by_category[data[product_id]['product_class']].push(data[product_id])
-				}
-			})
-
-			Object.keys(products_by_category).forEach((key) => {
-				let obj = {}
-				obj['section'] = key
-				obj['products'] = products_by_category[key]
-				this.items.push(obj)
-			})
-
-			console.log(this.items)
-	  	}
+		async fetch_data() {
+			try {
+				let resp = await fetch('http://localhost:3000/products/category/comidinhas', { method: 'GET' });
+				let items = await resp.json();
+				items.forEach((object) => {
+					if (this.items.hasOwnProperty(object.product_class)) {
+						this.items[object.product_class].push(object);
+					} else {
+						this.items[object.product_class] = [object];
+					}
+				})
+			} catch (e) {
+				alert('Falha no carregamento dos itens, tente novamente');
+			}
+		}
 	}
 };
 </script>

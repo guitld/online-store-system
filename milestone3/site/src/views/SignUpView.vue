@@ -6,12 +6,13 @@
                 <simple-input v-model="event.name" label="nome" type="text" required></simple-input>
                 <simple-input v-model="event.email" label="e-mail" type="email" required></simple-input>
                 <simple-input v-model="event.cpf" label="cpf" type="text"
-                    pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" required></simple-input>
+                    pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})" required>
+                </simple-input>
                 <simple-input v-model="event.address" label="endereço" type="text" required></simple-input>
                 <simple-input v-model="event.phone" label="telefone" type="tel" required></simple-input>
                 <simple-input v-model="event.password" label="senha" type="password" required></simple-input>
 
-                <button type="submit" @click="cadastrar()" class="btn-submit"><span
+                <button type="button" @click="cadastrar()" class="btn-submit"><span
                         class="btn-submit-text">cadastrar</span></button>
             </form>
         </div>
@@ -38,40 +39,48 @@ export default {
         };
     },
     methods: {
-        cadastrar() {
-            if (this.event.email != "" &&
-                this.event.password != "" &&
-                this.event.name != "" &&
-                this.event.cpf != "" &&
-                this.event.address != "" &&
-                this.event.phone != "") {
-                let newEmail = true;
-                let newCPF = true;
+        validateEmail(email) {
+            return email.match(
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        },
 
-                for (let i = 0; i < users.length; i++) {
-                    newEmail = !(this.event.email == users[i]['email'])
-                    newCPF = !(this.event.cpf == users[i]['cpf'])
-                    if (!newEmail || !newCPF) break
-                }
-                
-                if (!newCPF && !newEmail)
-                    alert("Uma conta com este CPF e e-mail já foi cadastrada. Utilize outros dados");
+        async cadastrar() {
+            if (this.event.email != "" && this.event.password != "" && this.event.name != "" && this.event.cpf != "" && this.event.address != "" && this.event.phone != "" && this.validateEmail(this.event.email)) {
+                try {
+                    let req_body = JSON.stringify({
+                            name: this.event.name,
+                            email: this.event.email,
+                            cpf: this.event.cpf,
+                            address: this.event.address,
+                            phone: this.event.phone,
+                            password: this.event.password,
+                    });
 
-                else if (!newEmail)
-                    alert("Uma conta com este e-mail já foi cadastrada. Utilize outro e-mail");
+                    let resp = await fetch('http://localhost:3000/customers/sign-up', 
+                    { 
+                        method: 'POST', 
+                        body: req_body,
+                        headers: { 'Content-Type': 'application/json' }
+                    });
 
-                else if (!newCPF)
-                    alert("Uma conta com este CPF já foi cadastrada. Utilize outro CPF");
+                    if (resp.status === 201) {
+                        alert(`Cadastro realizado com sucesso :).\nSeja bem vindo ${this.event.name}`);
+                        let resp_json = await resp.json();
+                        localStorage.user_token = resp_json.token;
+                        this.$router.push('/');
+                    }
 
-                else {
-                    alert("Bem-vindx ao Meu Amigo Pet!")
-                    this.emitter.emit('authenticated', true)
-                    this.$router.push('/')
-                    return
+                    else if (resp.status === 400) {
+                        let resp_data = await resp.json();
+                        alert(resp_data.message);
+                    }
+                } catch(e) {
+                    alert('Falha no cadastro!');
                 }
             }
             else {
-                alert("Preencha todos os campos");
+                alert("Campos inválidos. Preencha todos os campos corretamente");
             }
         },
     },

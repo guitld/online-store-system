@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { parse } from 'path';
+// import { parse } from 'path';
 import TableWithProducts from '@/components/TableWithProducts.vue'
 import SimpleInput from "@/components/SimpleInput.vue";
 

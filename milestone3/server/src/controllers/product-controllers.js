@@ -1,82 +1,81 @@
 ' use strict'
 
-const mongoose = require('mongoose');
-const Product = mongoose.model('Product');
+const repository = require('../respositories/product-repository');
 
-exports.get = (req, res, next) => {
-    Product
-        .find({})
-        .then(x => {
-            res.status(200).send(data)
-        }).catch(e => {
-            res.status(400).send(e)
-        });
+exports.get = async (req,res,next) => {
+    try {
+        let data = await repository.get();
+        res.status(200).send(data);
+    } catch (e) {
+        res.status(500).send({message: 'Falha ao processar requisição GET'});
+    }
 }
 
-exports.getById = (req, res, next) => {
-    const id = req.params.id
-   
-    Product
-        .findOne({ product_id: id })
-        .then(x => {
-            res.status(200).send(data)
-        }).catch(e => {
-            res.status(400).send(e)
-        });
+exports.get_by_slug = async (req, res, next) => {
+    try {
+        let data = await repository.get_by_slug(req.params.slug)
+        res.status(200).send(data)
+    } catch(err) {
+        res.status(500).send({message: 'Falha ao processar GET com Slug'})
+    }
 }
 
-exports.post = (req, res, next) => {
-    const product = new Product(req.body);
-
-    product.save(function(err) {
-        if (err) {
-            console.log(err)
-            res.status(400).send({
-                            message: 'Falha ao cadastrar produto',
-                            data: e
-                        });
-        }
-        else {
-            console.log('Produto cadastrado');
-            res.status(200).send();
-        }
-    })
+exports.get_by_id = async (req, res, next) => {
+    try {
+        let data = await repository.get_by_id(req.params.id)
+        res.status(200).send(data)
+    } catch(err) {
+        res.status(500).send({message: 'Falha ao processar GET com ID'})
+    }
 }
 
-exports.put = (req, res, next) => {
-    let id = req.params.id;
+exports.get_by_category = async (req, res, next) => {
+    try {
+        let data = await repository.get_by_category(req.params.category)
+        res.status(200).send(data)
+    } catch(err) {
+        res.status(500).send({message: 'Falha ao processar GET com categoria'})
+    }
+}
 
-    Product.findOneAndUpdate({product_id: id},  
-       {
-            name: req.body.name,
-            description: req.body.description,
-            product_id: req.body.product_id,
-            price: req.body.price,
-            qtd: req.body.qtd,
-        }, function(err, p) {
-            if (err) {
-                console.log(err)
-                res.status(400).send();
-            }
-            else {
-                console.log('Produto atualizado original: ', p);
-                res.status(200).send();
-            }
-        }
-    )
+exports.post = async (req, res, next) => {
+    try {
+        await repository.create(req.body)
+        res.status(201).send({ message: 'Produto cadastrado com sucesso' })
+    } catch (e) {
+        res.status(400).send(
+            {
+                message: 'Falha ao cadastrar produto',
+                data: e
+            })
+    }
 };
 
-exports.delete = (req, res, next) => {
-    let id = req.params.id;
+exports.put = async (req, res, next) => {
+    try {
+        await repository.update(req.params.id, req.body)
+        res.status(200).send({
+            message: 'Produto atualizado com sucesso!'
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao atualizar produto',
+            data: e
+        })
+    }
+        
+};
 
-    Product.findOneAndRemove({product_id:id}, function(err) {
-        if (err) {
-            console.log(err)
-            res.status(400).send();
-        }
-        else {
-            console.log('Produto removido com sucesso!');
-            res.status(200).send();
-        }
-    })
-}
+exports.delete = async (req, res, next) => {
+    try {
+        await repository.delete(req.body.id)
+        res.status(200).send({
+            message: 'Produto removido com sucesso!'
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao remover produto',
+            data: e
+        })
+    }
+};

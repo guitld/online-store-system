@@ -1,57 +1,46 @@
 <template>
-  <div class="wrapper">
-    <item-list :items="items"></item-list>
-  </div>
+	<div class="wrapper">
+		<item-list :items="items"></item-list>
+	</div>
 </template>
 
 <script>
 import ItemList from "@/components/ItemListView.vue";
-import data from "@/data/products.json";
-import { throwStatement } from "@babel/types";
 
 export default {
-  name: "Accessories",
+	name: "Accessories",
 
-  components: { ItemList },
+	components: { ItemList },
 
-  data() {
-    return {
-      items: [],
-    };
-  },
+	data() {
+		return {
+			items: Object(),
+		};
+	},
 
-  created() {
-    this.fetchData();
-  },
+	mounted() {
+		this.fetch_data();
+	},
 
-  methods: {
-    fetchData() {
-      let products_by_category = {};
+	methods: {
+		async fetch_data() {
+			try {
+				let resp = await fetch('http://localhost:3000/products/category/acessorios', { method: 'GET' });
+				let items = await resp.json();
 
-      let products_ids = Object.keys(data);
+				items.forEach((object) => {
+					if (this.items.hasOwnProperty(object.product_class)) {
+						this.items[object.product_class].append(object);
+					} else {
+						this.items[object.product_class] = [object];
+					}
+				})
+			} catch (e) {
+				alert('Falha no carregamento dos itens, tente novamente');
+			}
 
-      products_ids.forEach((product_id) => {
-        if (data[product_id]["category"] === "acessorios") {
-          if (!(data[product_id]["product_class"] in products_by_category))
-            products_by_category[data[product_id]["product_class"]] = new Array(
-              data[product_id]
-            );
-          else
-            products_by_category[data[product_id]["product_class"]].push(
-              data[product_id]
-            );
-        }
-      });
-
-      Object.keys(products_by_category).forEach((key) => {
-        let obj = {};
-        obj["section"] = key;
-        obj["products"] = products_by_category[key];
-        this.items.push(obj);
-      });
-
-      console.log(this.items);
-    },
-  },
+			console.log(this.items);
+		}
+	},
 };
 </script>

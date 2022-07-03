@@ -1,24 +1,27 @@
-'use strict'
+'use strict';
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
+const nodemon = require('nodemon');
+const Schema = mongoose.Schema;
 
-const Schema = mongoose.Schema
-
-const ProductSchema = new Schema({
-    product_id: {
-        type: Number,
-        required: true,
-        unique: true
-    },
-    name: {
+const schema = new Schema({
+    title: {
         type: String,
         required: true,
+        trim: true
+    },
+    slug: {
+        type: String,
+        required: [true, 'slug é obrigatório'],
         trim: true,
+        index: true,
+        unique: true
     },
     description: {
         type: String,
         required: true,
-    },
+        trim: true
+    }, 
     price: {
         type: Number,
         required: true,
@@ -28,15 +31,22 @@ const ProductSchema = new Schema({
         type: String,
         required: true
     },
-    soldQtd: {
+    sold_quantity: {
         type: Number,
         required: true
     },
-    stockQtd: {
+    stock_quantity: {
         type: Number,
         required: true
-    }
-})
+    },
+    category: {
+        type: String,
+        required: true
+    },
+    product_class: {
+        type: String,
+        required: true
+    } 
+});
 
-
-module.exports = mongoose.model('Product', ProductSchema)
+module.exports = mongoose.model('Product', schema);

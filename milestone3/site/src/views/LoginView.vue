@@ -10,7 +10,7 @@
                 <form class="form-inputs">
                     <simple-input v-model="event.email" label="e-mail" type="email" required></simple-input>
                     <simple-input v-model="event.password" label="senha" type="password" required></simple-input>
-                    <button type="submit" @click="login()" class="btn-submit"><span
+                    <button type="button" @click="login()" class="btn-submit"><span
                             class="btn-submit-text">entrar</span></button>
                 </form>
             </div>
@@ -24,7 +24,7 @@
 
 <script>
 import SimpleInput from "@/components/SimpleInput.vue";
-import users from "@/data/users.json";
+import { assertDeclareExportAllDeclaration } from "@babel/types";
 
 export default {
     components: { SimpleInput },
@@ -38,22 +38,45 @@ export default {
         };
     },
 
-    methods: {
-        login() {
-            if (this.event.email != "" && this.event.password != "") {
-                let emailFound = false;
 
-                for (let i = 0; i < users.length; i++) {
-                    if (this.event.email == users[i]["email"]) {
-                        emailFound = true;
-                        if (this.event.password == users[i]["password"]) {
-                            this.emitter.emit("authenticated", true);
-                            this.$router.push('/')
-                            break;
-                        } else alert("Senha incorreta.");
+
+    methods: {
+        validateEmail(email) {
+            return email.match(
+                /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+        },
+
+        async login() {
+            if (this.event.email != "" && this.event.password != "" && this.validateEmail(this.event.email)) {
+				try {
+                    let req_body = JSON.stringify({
+                            email: this.event.email,
+                            password: this.event.password
+                    });
+                            
+                    let resp = await fetch('http://localhost:3000/customers/authenticate', 
+                    { 
+                        method: 'POST', 
+                        body: req_body,
+                        headers: { 'Content-Type': 'application/json' }
+                    });
+
+                    if (resp.status === 201) { // Usuário autenticado no sistema
+                        let user_data = await resp.json();
+                        localStorage.user_token = user_data.token;
+                        this.$router.push('/');
+                        alert(`Seja bem vindo ${user_data.data.name}`)
+
+                    } else if (resp.status === 400) { // Falha ao procurar usuário
+                        alert('Falha na busca pelo cadastro, tente novamente')
+                    } else if (resp.status === 404) { // Usuário não encontrado no sistema
+                        alert('Cadastro não encontrado: usuário ou senha inválidos')
                     }
+
+                } catch (e) {
+                    console.log('Erro durante sign-in');
                 }
-                if (!emailFound) alert("Email não cadastrado.");
             } else alert("Preencha os campos de Email e Senha");
         },
     },
