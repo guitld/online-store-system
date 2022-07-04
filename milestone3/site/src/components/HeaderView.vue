@@ -20,7 +20,8 @@
                 </li>
                 <li v-if="authenticated">
                     <div class="menu-item">
-                        <router-link to="/carrinho">carrinho</router-link>
+                        <router-link v-if="authenticated" to="/carrinho">carrinho</router-link>
+                        <router-link v-else to="/login">carrinho</router-link>
                     </div>
                 </li>
                 <li v-else>
@@ -104,25 +105,35 @@ export default {
     created() {
         window.addEventListener('resize', this.checkScreen);
         this.checkScreen();
-        this.emitter.on("authenticated", (status) => {
-            this.authenticated = status;
-        });
-
         this.checkLoggedUser();
     },
 
     methods: {
         async checkLoggedUser() {
-            let resp = await fetch('http://localhost:3000/customers/authenticate');
-            
+            if (localStorage.user_token) {
+                console.log('entrou aqui');
+                let resp = await fetch('http://localhost:3000/customers/authenticate_token', 
+                    { 
+                        method: 'GET', 
+                        headers: { 'x-access-token': localStorage.user_token }
+                    });
+                if (resp.status === 200) {
+                    this.authenticated = true;
+                } else if (resp.status === 400) {
+                    console.log(resp.body.message);
+                }
+            }
         },
 
         logout() {
             this.authenticated = false;
+            localStorage.removeItem('user_token')
         },
+
         toggleMobileNav() {
             this.mobileNav = !this.mobileNav;
         },
+
         checkScreen() {
             this.windowWidth = window.innerWidth;
             if (this.windowWidth <= 920) {

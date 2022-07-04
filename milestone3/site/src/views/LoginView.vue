@@ -66,8 +66,7 @@ export default {
                         let user_data = await resp.json();
                         localStorage.user_token = user_data.token;
                         this.$router.push('/');
-                        alert(`Seja bem vindo ${user_data.data.name}`)
-
+                        alert(`Seja bem vindo ${user_data.data.name}`);
                     } else if (resp.status === 400) { // Falha ao procurar usuário
                         alert('Falha na busca pelo cadastro, tente novamente')
                     } else if (resp.status === 404) { // Usuário não encontrado no sistema

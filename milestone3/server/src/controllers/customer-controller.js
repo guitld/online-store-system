@@ -42,7 +42,7 @@ exports.post = async (req, res, next) => {
             name: new_customer.name,
             is_admin: false
         });
-
+        
         res.status(201).send({ message: 'Cadastrado realizado com sucesso', token: new_customer_token });
     } catch (e) {
         res.status(400).send(
@@ -52,6 +52,20 @@ exports.post = async (req, res, next) => {
             });
     }
 };
+
+exports.authenticate_token = async (req, res, next) => {
+    try {
+        let user_token = req.headers['x-access-token'];
+        let user_data  = await auth_service.decode_token(user_token);
+        res.status(200).send({message: 'Usuário validado', is_admin: user_data.is_admin, email: user_data.email, name: user_data.name })
+    } catch(e) {
+        res.status(400).send(
+            {
+                message: 'Cliente não encontrado',
+                data: e
+            });
+    }
+}
 
 exports.authenticate = async (req, res, next) => {
     try {
