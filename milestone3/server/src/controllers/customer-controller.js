@@ -141,3 +141,24 @@ exports.refresh_token = async(req, res, next) => {
             })
     }
 }
+
+exports.add_to_cart = async (req, res, next) => {
+    try {
+        let product_id = req.body.product;
+        let product_quantity = req.body.quantity;
+        let user_token = req.headers['x-access-token'];
+        
+        let user_data = await auth_service.decode_token(user_token);
+        let user_id = user_data.id;
+
+        // Falta inserir agora o produto no vetor de carrinho do usuário, mas já tem o id do produto, quantidade dele e o id do usuário, então ta de boa
+
+        console.log(user_id);
+    } catch(e) {
+        res.status(400).send(
+            {
+                message: 'Falha ao adicionar produto no carrinho do usuário',
+                data: e
+            })
+    }
+}

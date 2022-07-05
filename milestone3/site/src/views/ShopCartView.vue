@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { parse } from 'path';
 import TableWithProducts from '@/components/TableWithProducts.vue'
 
 export default {

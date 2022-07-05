@@ -23,11 +23,11 @@
                 <div class="product-selection">
                     <div class="product-selection-top">
                         <div class="product-number-input">
-                            <button class="btn btn--minus" @click="changeCounter('-1')" type="button" name="button">
+                            <button class="btn btn--minus" @click="changeCounter(-1)" type="button" name="button">
                                 -
                             </button>
                             <input class="quantity" type="text" name="name" :value="number_of_products" />
-                            <button class="btn btn--plus" @click="changeCounter('1')" type="button" name="button">
+                            <button class="btn btn--plus" @click="changeCounter(1)" type="button" name="button">
                                 +
                             </button>
                         </div>
@@ -68,8 +68,8 @@ export default {
     methods: {
         async fetchProduct() {
             try {
-                let resp = await fetch(`http://localhost:3000/products/${this.product_slug}`, {method: 'GET'}); 
-                let product = await resp.json();
+                let response = await fetch(`http://localhost:3000/products/${this.product_slug}`, {method: 'GET'}); 
+                let product = await response.json();
                 this.product = product;
             } catch(e) {
                 alert('Erro na busca do produto, tente novamente');
@@ -77,6 +77,7 @@ export default {
         },
 
         changeCounter: function (num) {
+            if (this.number_of_products + num > this.product.stock_quantity) return;
             this.number_of_products += +num;
             console.log(this.number_of_products);
             !isNaN(this.number_of_products) && this.number_of_products > 0
@@ -87,10 +88,30 @@ export default {
             );
         },
 
-        // DEPOIS FAZER A LOGICA
-        addToCart() {
+        async addToCart() {
             if (this.number_of_products > 0) {
                 alert("Produto adicionado ao carrinho!");
+                console.log(JSON.stringify({
+                                product: this.product._id,
+                                quantity: this.number_of_products
+                            }));
+                try {
+                    let response = await fetch('http://localhost:3000/customers/add-to-cart', 
+                        {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                product: this.product._id,
+                                quantity: this.number_of_products
+                            }),
+                            headers: {
+                                'x-access-token': localStorage.user_token,
+                                'Content-Type': 'application/json'
+                            }
+                        }
+                    );
+                } catch(e) {
+                    alert('Erro interno ao adicionar produto');
+                }
             }
             else
                 alert("Preencha o campo de quantidade");

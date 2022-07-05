@@ -68,7 +68,7 @@ export default {
                         alert(`Cadastro realizado com sucesso :).\nSeja bem vindo ${this.event.name}`);
                         let resp_json = await resp.json();
                         console.log(resp_json.token);
-                        localStorage.user_token = resp_json.token;
+                        this.$store.commit('login', resp_json.token);
                         this.$router.push('/');
                     }
 

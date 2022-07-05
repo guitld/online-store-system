@@ -18,10 +18,9 @@
                         <router-link to="/" @click.prevent="handleSound()"><strong>meu amigo pet</strong></router-link>
                     </div>
                 </li>
-                <li v-if="authenticated">
+                <li v-if="$store.state.user_authenticated">
                     <div class="menu-item">
-                        <router-link v-if="authenticated" to="/carrinho">carrinho</router-link>
-                        <router-link v-else to="/login">carrinho</router-link>
+                        <router-link to="/carrinho">carrinho</router-link>
                     </div>
                 </li>
                 <li v-else>
@@ -29,7 +28,7 @@
                         <router-link class="disabled" to="/login" @click.prevent="redirectLogin()"> carrinho </router-link>
                     </div>
                 </li>
-                <li v-if="authenticated">
+                <li v-if="$store.state.user_authenticated">
                     <div class="menu-item">
                         <router-link to="/perfil-cliente">perfil</router-link>
                     </div>
@@ -39,7 +38,7 @@
                         <router-link to="/login">entrar</router-link>
                     </div>
                 </li>
-                <li v-if="authenticated">
+                <li v-if="$store.state.user_authenticated">
                     <div class="menu-item">
                         <router-link class="disabled" to="/" @click="logout()" @click.prevent="handleSound()"> sair </router-link>
                     </div>
@@ -105,7 +104,9 @@ export default {
     created() {
         window.addEventListener('resize', this.checkScreen);
         this.checkScreen();
-        this.checkLoggedUser();
+        if (!this.$store.state.user_authenticated) {
+            this.checkLoggedUser();
+        }
     },
 
     methods: {
@@ -118,7 +119,7 @@ export default {
                         headers: { 'x-access-token': localStorage.user_token }
                     });
                 if (resp.status === 200) {
-                    this.authenticated = true;
+                    this.$store.commit('login', localStorage.user_token);
                 } else if (resp.status === 400) {
                     console.log(resp.body.message);
                 }
@@ -126,8 +127,7 @@ export default {
         },
 
         logout() {
-            this.authenticated = false;
-            localStorage.removeItem('user_token')
+            this.$store.commit('logout');
         },
 
         toggleMobileNav() {
