@@ -150,10 +150,9 @@ exports.add_to_cart = async (req, res, next) => {
         
         let user_data = await auth_service.decode_token(user_token);
         let user_id = user_data.id;
+        
+        await repository.update_cart(user_id, product_id, product_quantity);
 
-        // Falta inserir agora o produto no vetor de carrinho do usuário, mas já tem o id do produto, quantidade dele e o id do usuário, então ta de boa
-
-        console.log(user_id);
     } catch(e) {
         res.status(400).send(
             {

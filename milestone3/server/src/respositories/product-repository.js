@@ -20,7 +20,6 @@ exports.get_by_id = async (id) => {
 
 exports.get_by_category = async (category) => {
     const res = await Product.find({category: category}, 'title description price slug product_class img');
-    console.log(res);
     return res;
 }
 

@@ -26,3 +26,21 @@ exports.get_user = async (obj_check) => {
     const res = await Customer.findOne(obj_check);
     return res;
 }
+
+exports.update_cart = async (id, product_id, quantity) => {
+    const user = await Customer.findOne( { _id: id });
+    let shopping_cart = user.shopping_cart;
+    // console.log(typeof(shopping_cart));
+
+    shopping_cart.push({ product: id, quantity: quantity});
+
+    // console.log('Element');
+    // shopping_cart.forEach((element) => {
+    //     if (element.product === product_id) {
+    //         element.quantity = quantity;
+    //     }
+    // })
+
+    const res = await Customer.findOneAndUpdate({ _id: id }, { $push: { shopping_cart : shopping_cart }});
+    console.log('Res: ', res);
+}

@@ -11,7 +11,7 @@ router.get('/:slug', controller.get_by_slug); // Busca por um produto específic
 router.get('/category/:category', controller.get_by_category); // Busca por categoria
 
 // Busca por id (apenas o administrador possui conhecimento do real ID no banco de dados)
-router.get('/admin/:id', controller.get_by_id); // Como teria a mesma estrutura do get acima, devemos mudar para outra rota
+router.get('/admin/:id', auth_service.is_admin, controller.get_by_id); // Como teria a mesma estrutura do get acima, devemos mudar para outra rota
 
 // Funcionalidades de administrador - rotas de atualização, remoção e adição de produtos
 router.post('/', auth_service.is_admin, controller.post);
