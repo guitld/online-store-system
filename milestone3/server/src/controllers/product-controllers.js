@@ -83,7 +83,7 @@ exports.delete = async (req, res, next) => {
 
 exports.update_product = async (req, res, next) => {
     try {
-        await repository.update_product(req.params.id, req.body.sold_quantity);
+        await repository.update_product(req.params.id, req.body);
         res.status(200).send({
             message: 'Estoque do produto atualizado com sucesso!'
         })

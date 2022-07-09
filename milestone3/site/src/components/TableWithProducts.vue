@@ -31,7 +31,7 @@
                         </td>
                         <td v-if="!edit_disabled">
                             <img :src="require('@/../public/assets/img/delete-button.png')" id="delete-button-image"
-                                @click="emitRemoveItem(item.id)" />
+                                @click="emitRemoveItem(item.id, item.quantities)" />
                         </td>
                         <td v-else></td>
                     </tr>

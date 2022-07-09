@@ -79,6 +79,7 @@ export default {
         changeCounter: function (num) {
             if (this.number_of_products + num > this.product.stock_quantity) return;
             this.number_of_products += +num;
+            
             console.log(this.number_of_products);
             !isNaN(this.number_of_products) && this.number_of_products > 0
                 ? this.number_of_products
@@ -90,13 +91,8 @@ export default {
 
         async addToCart() {
             if (this.number_of_products > 0) {
-                alert("Produto adicionado ao carrinho!");
-                console.log(JSON.stringify({
-                                product: this.product._id,
-                                quantity: this.number_of_products
-                            }));
                 try {
-                    let response = await fetch('http://localhost:3000/customers/add-to-cart', 
+                    let response_cart = await fetch('http://localhost:3000/customers/add-to-cart', 
                         {
                             method: 'POST',
                             body: JSON.stringify({
@@ -110,18 +106,19 @@ export default {
                         }
                     );
 
-                    let response_prod = await fetch(`http://localhost:3000/products/${this.product._id}`, {
+                    let response_product = await fetch(`http://localhost:3000/products/${this.product._id}`, 
+                    { 
                         method: 'PUT',
-                        body: JSON.stringify({sold_quantity: this.number_of_products}),
+                        body: JSON.stringify({
+                            stock_quantity: this.product.stock_quantity - this.number_of_products
+                        }),
                         headers: {
                             'x-access-token': localStorage.user_token,
-                            'Content-Type': 'application/json'
+                            'Content-type': 'application/json'
                         }
-                    });
+                    })
 
-                    console.log(response_prod.status, response.status);
-                    
-                    if (response_prod.status === 200 && response.status === 200) {
+                    if (response_product.status === 200 && response_cart.status === 200) {
                         this.$router.push('/carrinho');
                         alert('Produto adicionado ao carrinho')
                     }                

@@ -48,18 +48,11 @@ exports.delete = async (id) => {
     await Product.findOneAndRemove(id)
 }
 
-exports.update_product = async (id, sold_quantity) => {
-    let data = await Product.findById(id);
-
-    let new_sold_quantity = data.sold_quantity + sold_quantity;
-    let new_stock_quantity = data.stock_quantity - sold_quantity;
-    console.log('stock: ', data.stock_quantity, ' new stock: ', new_stock_quantity);
-    console.log('sold: ', data.sold_quantity, ' new sold: ', new_sold_quantity);
-    
+exports.update_product = async (id, body) => {
+    console.log(body);
     await Product.findByIdAndUpdate(id, {
-        $set: {
-            sold_quantity: new_sold_quantity,
-            stock_quantity: new_stock_quantity
-        }
+        $set: body
     });
+
+    console.log(await Product.findById(id))
 }

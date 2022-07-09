@@ -12,6 +12,8 @@ router.post('/authenticate', controller.authenticate);
 // router.post('/refresh-token', auth_service.authorize, controller.refresh_token);
 
 router.post('/add-to-cart', auth_service.authorize, controller.add_to_cart);
+router.put('/remove-from-cart', auth_service.authorize, controller.remove_from_cart);
+
 router.put('/update-customer', auth_service.authorize, controller.update_customer)
 
 module.exports = router;

@@ -151,7 +151,7 @@ exports.add_to_cart = async (req, res, next) => {
         let user_data = await auth_service.decode_token(user_token);
         let user_id = user_data.id;
 
-        await repository.update_cart(user_id, product_id, product_quantity);
+        await repository.add_to_cart(user_id, product_id, product_quantity);
         res.status(200).send({message: 'Produto adicionado com sucesso!'});
     } catch (e) {
         res.status(400).send(
@@ -159,6 +159,24 @@ exports.add_to_cart = async (req, res, next) => {
                 message: 'Falha ao adicionar produto no carrinho do usuário',
                 data: e
             })
+    }
+}
+
+exports.remove_from_cart = async (req, res, next) => {
+    try {
+        let product_id = req.body.product_id;
+        let user_token = req.headers['x-access-token'];
+
+        let user_data = await auth_service.decode_token(user_token);
+        let user_id = user_data.id;
+
+        await repository.remove_from_cart(user_id, req.body.product_id);
+        res.status(200).send({message: 'Produto removido com sucesso!'});
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao remover produto no carrinho do usuário',
+            data: e
+        })
     }
 }
 
@@ -189,8 +207,7 @@ exports.get_user_data = async (req, res, next) => {
         const token = req.body.token || req.query.token || req.headers['x-access-token']
         const data = await auth_service.decode_token(token);
 
-        let user = await repository.get_by_id(data._id);
-        console.log(user.shopping_cart);
+        let user = await repository.get_user({ email: data.email });
         res.status(200).send({
             message: 'Perfil encontrado com sucesso!',
             data: {

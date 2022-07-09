@@ -19,16 +19,16 @@ exports.authenticate = async (data) => {
 }
 
 exports.get_by_id = async (id) => {
-    const res = await Customer.findOne(id);
+    const res = await Customer.findOne(id).populate('shopping_cart.product', 'title slug price img sold_quantity stock_quantity');
     return res;
 }
 
 exports.get_user = async (obj_check) => {
-    const res = await Customer.findOne(obj_check);
+    const res = await Customer.findOne(obj_check).populate('shopping_cart.product', 'title slug price img sold_quantity stock_quantity');
     return res;
 }
 
-exports.update_cart = async (id, product_id, quantity) => {
+exports.add_to_cart = async (id, product_id, quantity) => {
     const user = await Customer.findOne( { _id: id });
     let shopping_cart = user.shopping_cart;
 
@@ -40,11 +40,27 @@ exports.update_cart = async (id, product_id, quantity) => {
         }
     });
     
+    console.log(product_exist);
     if (!product_exist) {
         shopping_cart.push( { product: product_id, quantity: quantity } );
     }
 
-    await Customer.findOneAndUpdate(id, { $set: { shopping_cart : shopping_cart }});
+    console.log(shopping_cart);
+    await Customer.findByIdAndUpdate(id, { $set: { shopping_cart : shopping_cart }});
+}
+
+exports.remove_from_cart = async (id, product_id) => {
+    const user = await Customer.findOne( { _id: id } );
+    let shopping_cart = user.shopping_cart;
+    
+    console.log(shopping_cart);
+    
+    shopping_cart = shopping_cart.filter(object => {
+        console.log(object.product.toString(), product_id);
+        return object.product.toString() !== product_id;
+    })
+    
+    await Customer.findByIdAndUpdate(id, { $set: { shopping_cart : shopping_cart }});
 }
 
 exports.update_profile = async(id, data) => {
