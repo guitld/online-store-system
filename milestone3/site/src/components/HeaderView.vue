@@ -65,19 +65,19 @@
                     <li class="menu-item">
                         <router-link to="/servicos" >serviços</router-link>
                     </li>
-                    <li v-if="authenticated" class="menu-item">
+                    <li v-if="$store.state.user_authenticated" class="menu-item">
                         <router-link  to="/carrinho">carrinho</router-link>
                     </li>
                     <li v-else class="menu-item">
                         <router-link class="disabled" to="/login"> carrinho </router-link>
                     </li>
-                    <li v-if="authenticated" class="menu-item">
+                    <li v-if="$store.state.user_authenticated" class="menu-item">
                         <router-link to="/perfil-cliente">perfil</router-link>
                     </li>
                     <li v-else class="menu-item">
                         <router-link to="/login">entrar</router-link>
                     </li>
-                    <li v-if="authenticated" class="menu-item">
+                    <li v-if="$store.state.user_authenticated" class="menu-item">
                         <router-link class="disabled" to="/" @click="logout()"> sair </router-link>
                     </li>
                     <li v-else class="menu-item">

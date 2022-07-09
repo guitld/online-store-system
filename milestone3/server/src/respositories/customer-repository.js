@@ -44,3 +44,18 @@ exports.update_cart = async (id, product_id, quantity) => {
     const res = await Customer.findOneAndUpdate({ _id: id }, { $push: { shopping_cart : shopping_cart }});
     console.log('Res: ', res);
 }
+
+exports.update_profile = async(id, data) => {
+    await Customer.findByIdAndUpdate(id, {
+        $set: {
+            name: data.name,
+            email: data.email,
+            cpf: data.cpf,
+            phone: data.phone,
+            address: data.address,
+            password: data.password,
+            is_admin: data.is_admin,
+            shopping_cart: data.shopping_cart   
+        }
+    })
+}
