@@ -40,6 +40,7 @@ exports.get_by_category = async (req, res, next) => {
 
 exports.post = async (req, res, next) => {
     try {
+        console.log(req.body)
         await repository.create(req.body)
         res.status(201).send({ message: 'Produto cadastrado com sucesso' })
     } catch (e) {
