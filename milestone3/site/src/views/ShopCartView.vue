@@ -37,10 +37,28 @@ export default {
     },
 
     created() {
+        this.fetchShoppingCart();
         this.computeFinalPrice();
     },
 
     methods: {
+        async fetchShoppingCart() {
+            let response = await fetch('http://localhost:3000/customers',{
+                method: 'GET',
+                headers: {'x-access-token': localStorage.user_token}
+            });
+
+            if (response.status === 200) {
+                let response_body = await response.json();
+                console.log(response_body.data.shopping_cart);
+            }
+            else {
+                alert('Falha em carregar dados do usuário');
+                this.$router.push('/');
+            }
+        },
+
+
         computeFinalPrice() {
             this.cart_items.forEach((element) => {
                 console.log(element)

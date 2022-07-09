@@ -109,6 +109,22 @@ export default {
                             }
                         }
                     );
+
+                    let response_prod = await fetch(`http://localhost:3000/products/${this.product._id}`, {
+                        method: 'PUT',
+                        body: JSON.stringify({sold_quantity: this.number_of_products}),
+                        headers: {
+                            'x-access-token': localStorage.user_token,
+                            'Content-Type': 'application/json'
+                        }
+                    });
+
+                    console.log(response_prod.status, response.status);
+                    
+                    if (response_prod.status === 200 && response.status === 200) {
+                        this.$router.push('/carrinho');
+                        alert('Produto adicionado ao carrinho')
+                    }                
                 } catch(e) {
                     alert('Erro interno ao adicionar produto');
                 }
