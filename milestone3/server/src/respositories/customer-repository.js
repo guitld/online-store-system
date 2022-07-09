@@ -2,6 +2,7 @@
 
 const mongoose = require('mongoose');
 const Customer = mongoose.model('Customer');
+const Product  = mongoose.model('Product');
 
 exports.create = async (data) => {
     let customer = new Customer(data);
@@ -30,19 +31,20 @@ exports.get_user = async (obj_check) => {
 exports.update_cart = async (id, product_id, quantity) => {
     const user = await Customer.findOne( { _id: id });
     let shopping_cart = user.shopping_cart;
-    // console.log(typeof(shopping_cart));
 
-    shopping_cart.push({ product: id, quantity: quantity});
+    let product_exist = false;
+    shopping_cart.forEach((element) => {
+        if (element.product._id.toString() === product_id) {
+            element.quantity += quantity;
+            product_exist = true;
+        }
+    });
+    
+    if (!product_exist) {
+        shopping_cart.push( { product: product_id, quantity: quantity } );
+    }
 
-    // console.log('Element');
-    // shopping_cart.forEach((element) => {
-    //     if (element.product === product_id) {
-    //         element.quantity = quantity;
-    //     }
-    // })
-
-    const res = await Customer.findOneAndUpdate({ _id: id }, { $push: { shopping_cart : shopping_cart }});
-    console.log('Res: ', res);
+    await Customer.findOneAndUpdate(id, { $set: { shopping_cart : shopping_cart }});
 }
 
 exports.update_profile = async(id, data) => {

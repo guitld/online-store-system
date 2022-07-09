@@ -5,6 +5,7 @@ const router = express.Router();
 const controller = require('../controllers/customer-controller');
 const auth_service = require('../services/auth-service');
 
+router.get('/', auth_service.authorize, controller.get_user_data);
 router.post('/sign-up', controller.post);
 router.get('/authenticate_token', controller.authenticate_token);
 router.post('/authenticate', controller.authenticate);

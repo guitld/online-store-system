@@ -5,6 +5,7 @@ const repository = require('../respositories/product-repository');
 exports.get = async (req,res,next) => {
     try {
         let data = await repository.get();
+        console.log(data);
         res.status(200).send(data);
     } catch (e) {
         res.status(500).send({message: 'Falha ao processar requisição GET'});
@@ -79,3 +80,17 @@ exports.delete = async (req, res, next) => {
         })
     }
 };
+
+exports.update_product = async (req, res, next) => {
+    try {
+        await repository.update_product(req.params.id, req.body.sold_quantity);
+        res.status(200).send({
+            message: 'Estoque do produto atualizado com sucesso!'
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao atualizar número de estoque do produto',
+            data: e
+        })
+    }
+}

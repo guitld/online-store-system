@@ -152,7 +152,7 @@ exports.add_to_cart = async (req, res, next) => {
         let user_id = user_data.id;
 
         await repository.update_cart(user_id, product_id, product_quantity);
-
+        res.status(200).send({message: 'Produto adicionado com sucesso!'});
     } catch (e) {
         res.status(400).send(
             {
@@ -181,5 +181,28 @@ exports.update_customer = async (req, res, next) => {
                 message: 'Falha ao atualizar perfil do Cliente',
                 data: e
             });
+    }
+}
+
+exports.get_user_data = async (req, res, next) => {
+    try {
+        const token = req.body.token || req.query.token || req.headers['x-access-token']
+        const data = await auth_service.decode_token(token);
+
+        let user = await repository.get_by_id(data._id);
+        console.log(user.shopping_cart);
+        res.status(200).send({
+            message: 'Perfil encontrado com sucesso!',
+            data: {
+                name: user.name,
+                email: user.email,
+                shopping_cart: user.shopping_cart,
+            }
+        });
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao dar GET em usuário',
+            data: e
+        });
     }
 }
