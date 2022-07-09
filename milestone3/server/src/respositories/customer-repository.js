@@ -59,3 +59,15 @@ exports.update_profile = async(id, data) => {
         }
     })
 }
+
+exports.update = async (id, data) => {
+    await Customer.findByIdAndUpdate(id, {
+        $set: {
+            is_admin: data.is_admin
+        }
+    })
+}
+
+exports.delete = async (id) => {
+    await Customer.findOneAndRemove(id)
+}

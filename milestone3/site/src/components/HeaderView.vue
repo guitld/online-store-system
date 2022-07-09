@@ -18,9 +18,14 @@
                         <router-link to="/" @click.prevent="handleSound()"><strong>meu amigo pet</strong></router-link>
                     </div>
                 </li>
-                <li v-if="$store.state.user_authenticated">
+                <li v-if="$store.state.user_authenticated && !$store.state.is_admin">
                     <div class="menu-item">
                         <router-link to="/carrinho">carrinho</router-link>
+                    </div>
+                </li>
+                <li v-else-if="$store.state.is_admin">
+                    <div class="menu-item">
+                        <router-link to="/admin">gerenciar site</router-link>
                     </div>
                 </li>
                 <li v-else>

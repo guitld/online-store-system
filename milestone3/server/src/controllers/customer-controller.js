@@ -180,3 +180,51 @@ exports.update_customer = async (req, res, next) => {
         })
     }
 }
+
+exports.put = async (req, res, next) => {
+    try {
+        let resp_check_email = await repository.get_user({ email: req.params.id })
+        console.log(resp_check_email)
+        if (resp_check_email === null) {
+            res.status(400).send({
+                message: 'Não existe nenhum usuário com esse e-mail'
+            });
+            return;
+        }
+        if(req.body.is_admin === "Cliente")
+            req.body.is_admin = false
+        else req.body.is_admin = true
+
+        await repository.update(resp_check_email._id, req.body)
+        res.status(200).send({
+            message: 'Dado do usuário atualizado com sucesso!'
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao atualizar dado do usuário',
+            data: e
+        })
+    }
+
+};
+
+exports.delete = async (req, res, next) => {
+    try {
+        let resp_check_email = await repository.get_user({ email: req.params.id })
+        if (resp_check_email === null) {
+            res.status(400).send({
+                message: 'Não existe nenhum usuário com esse e-mail'
+            });
+            return;
+        }
+        await repository.delete(req.body.id)
+        res.status(200).send({
+            message: 'Produto removido com sucesso!'
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao remover produto',
+            data: e
+        })
+    }
+};

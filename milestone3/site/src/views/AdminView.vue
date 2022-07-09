@@ -5,34 +5,9 @@
         <form class="form-inputs">
           <h4>Gerenciar usuários</h4>
           <simple-input
-            v-model="event.name"
-            label="nome"
-            type="text"
-            required
-          ></simple-input>
-          <simple-input
             v-model="event.email"
             label="e-mail"
             type="email"
-            required
-          ></simple-input>
-          <simple-input
-            v-model="event.cpf"
-            label="cpf"
-            type="text"
-            pattern="(\d{3}\.?\d{3}\.?\d{3}-?\d{2})|(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2})"
-            required
-          ></simple-input>
-          <simple-input
-            v-model="event.address"
-            label="endereço"
-            type="text"
-            required
-          ></simple-input>
-          <simple-input
-            v-model="event.phone"
-            label="telefone"
-            type="tel"
             required
           ></simple-input>
           <simple-input
@@ -41,6 +16,31 @@
             type="text"
             required
           ></simple-input>
+          <div class="user-type-choice">
+            <span class="user-type-label">tipo do usuário:</span>
+
+            <div class="user-type-checkbox-container">
+              <input
+                class="user-type-checkbox"
+                type="radio"
+                name="tipo-usuario"
+                value="Cliente"
+                checked="checked"
+                v-model="typeUser"
+                id="cliente"
+              /><span for="cliente">Cliente</span>
+            </div>
+            <div class="user-type-checkbox-container">
+              <input
+                class="user-type-checkbox"
+                type="radio"
+                name="tipo-usuario"
+                value="Admin"
+                v-model="typeUser"
+                id="admin"
+              /><span for="admin">Admin</span>
+            </div>
+          </div>
           <button class="btn-submit" type="button" @click="handleCadastro()">
             atualizar usuário
           </button>
@@ -110,12 +110,9 @@ export default {
   data() {
     return {
       event: {
-        name: "",
         email: "",
-        cpf: "",
-        address: "",
-        phone: "",
         action: "",
+
         nameprd: "",
         number: "",
         description: "",
@@ -123,42 +120,80 @@ export default {
         action2: "",
         qtd: "",
       },
+      typeUser: "Cliente",
     };
   },
   methods: {
     isAdmin() {
-      return this.$store.state.isAdmin && this.$store.state.isAuthenticated;
+      console.log("is_admin adminview", this.$store.state.is_admin);
+      console.log("logado", this.$store.state.user_authenticated);
+      console.log(
+        "teste de sanidade",
+        this.$store.state.is_admin && this.$store.state.user_authenticated
+      );
+      return this.$store.state.is_admin && this.$store.state.user_authenticated;
+    },
+
+    updateUser: async function () {
+      try {
+        let body = JSON.stringify({ is_admin: this.typeUser });
+        let resp = await fetch(
+          `http://localhost:3000/customers/${this.event.email}`,
+          {
+            method: "PUT",
+            body: body,
+            headers: {
+              "x-access-token": localStorage.user_token,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+
+        if (resp.status === 200) {
+          alert("Dado atualizado");
+        } else {
+          alert("Falha na atualização do dado");
+        }
+      } catch (e) {
+        alert("Erro durante a atualização do dado do usuário: " + e);
+      }
+    },
+
+    removeUser: async function () {
+      try {
+        let resp = await fetch(
+          `http://localhost:3000/customers/admin/${this.event.email}`,
+          {
+            method: "DELETE",
+            headers: {
+              "x-access-token": localStorage.user_token,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        if (resp.status === 200) {
+          alert("Cliente removido com sucesso");
+        } else {
+          alert("Falha na remoção do cliente");
+        }
+      } catch (e) {
+        alert("Error durante a remoção do cliente: " + e);
+      }
     },
 
     handleCadastro() {
-      if (
-        this.event.email !== "" &&
-        this.event.password !== "" &&
-        this.event.name !== "" &&
-        this.event.cpf !== "" &&
-        this.event.address !== "" &&
-        this.event.phone !== "" &&
-        this.event.update !== ""
-      ) {
-        let emailCPFFound = false;
-        for (let i = 0; i < users.length; i++) {
-          if (
-            this.event.email == users[i]["email"] ||
-            this.event.cpf == users[i]["cpf"]
-          ) {
-            emailCPFFound = true;
-            break;
-          }
-        }
-        if (emailCPFFound) {
-          alert("Dados alterados com sucesso!");
+      if (this.event.email !== "" && this.event.cpf !== "") {
+        if (this.event.action.toLowerCase() === "alterar") {
+          this.updateUser();
+        } else if (this.event.action.toLowerCase() === "remover") {
+          this.removeUser();
         } else {
-          alert("Usuário não encontrado!");
+          alert("Ação inválida!");
         }
       } else alert("Preencha todos os campos!");
     },
 
-    create: async function () {
+    createProduct: async function () {
       let productInfo = {
         name: this.event.nameprd,
         description: this.event.description,
@@ -172,35 +207,44 @@ export default {
         let resp = await fetch("http://localhost:3000/products/", {
           method: "POST",
           body: body,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "x-access-token": localStorage.user_token,
+            "Content-Type": "application/json",
+          },
         });
         if (resp.status === 200) {
-          alert("Dado inserido");
+          alert("Produto criado com sucesso");
         } else {
-          alert("Falha na inserção do dado");
+          alert("Falha na criação do produto");
         }
       } catch (e) {
-        alert("Error: " + e);
+        alert("Erro durante a criação do produto: " + e);
       }
     },
 
-    remove: async function () {
+    removeProduct: async function () {
       try {
         let resp = await fetch(
           `http://localhost:3000/products/${this.event.number}`,
-          { method: "DELETE" }
+          {
+            method: "DELETE",
+            headers: {
+              "x-access-token": localStorage.user_token,
+              "Content-Type": "application/json",
+            },
+          }
         );
         if (resp.status === 200) {
-          alert("Dado removido");
+          alert("Produto removido com sucesso");
         } else {
-          alert("Falha na remoção do dado");
+          alert("Falha na remoção do produto");
         }
       } catch (e) {
-        alert("Error remove: " + e);
+        alert("Error durante a remoção do produto: " + e);
       }
     },
 
-    update: async function () {
+    updateProduct: async function () {
       let productInfo = {
         name: this.event.nameprd,
         description: this.event.description,
@@ -216,7 +260,10 @@ export default {
           {
             method: "PUT",
             body: body,
-            headers: { "Content-Type": "application/json" },
+            headers: {
+              "x-access-token": localStorage.user_token,
+              "Content-Type": "application/json",
+            },
           }
         );
 
@@ -239,11 +286,11 @@ export default {
         this.event.action2 !== ""
       ) {
         if (this.event.action2.toLowerCase() === "alterar") {
-          this.update();
+          this.updateProduct();
         } else if (this.event.action2.toLowerCase() === "remover") {
-          this.remove();
+          this.removeProduct();
         } else if (this.event.action2.toLowerCase() === "adicionar") {
-          this.create();
+          this.createProduct();
         } else {
           alert("Ação inválida!");
         }
@@ -277,5 +324,31 @@ export default {
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 50px;
+}
+
+.user-type-choice {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 14px;
+}
+
+.user-type-checkbox-container {
+  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.user-type-checkbox {
+  width: 15px;
+}
+
+.user-type-label {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 14px;
 }
 </style>
