@@ -164,22 +164,19 @@ exports.add_to_cart = async (req, res, next) => {
 
 exports.update_customer = async (req, res, next) => {
     try {
-        // Recupera o token
-        const token = req.body.token || req.query.token || req.headers['x-access-token']
+        let user_token = req.headers['x-access-token']
+        let user_data = await auth_service.decode_token(user_token)
+        let user_id = user_data.id
 
-        // Decodifica o token
-        const data = await auth_service.decode_token(token)
-
-        await repository.update_profile(data._id, req.body)
+        await repository.update_profile(user_id, req.body)
         res.status(200).send({
-            message: "Perfil atualizado com sucesso!"
+            message: 'Cadastro atualizado com sucesso!',
+            data: req.body.name
         })
-
     } catch (e) {
-        res.status(400).send(
-            {
-                message: 'Falha ao atualizar perfil do Cliente',
-                data: e
-            });
+        res.status(400).send({
+            message: 'Falha ao atualizar cadastro',
+            data: e
+        })
     }
 }

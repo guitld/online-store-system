@@ -15,7 +15,6 @@ export const store = createStore({
         },
 
         login(state, token) {
-            console.log('tentou fazer login');
             state.user_authenticated = true;
             localStorage.setItem('user_token', token);
         }

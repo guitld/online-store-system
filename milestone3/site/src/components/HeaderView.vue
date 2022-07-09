@@ -112,7 +112,6 @@ export default {
     methods: {
         async checkLoggedUser() {
             if (localStorage.user_token) {
-                console.log('entrou aqui');
                 let resp = await fetch('http://localhost:3000/customers/authenticate_token', 
                     { 
                         method: 'GET', 
