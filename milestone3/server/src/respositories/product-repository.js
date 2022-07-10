@@ -49,9 +49,11 @@ exports.delete = async (id) => {
 }
 
 exports.update_product = async (id, body) => {
-    console.log(body);
     await Product.findByIdAndUpdate(id, {
-        $set: body
+        $set: {
+            stock_quantity: body.stock_quantity,
+            sold_quantity: body.sold_quantity
+        }
     });
 
     console.log(await Product.findById(id))
