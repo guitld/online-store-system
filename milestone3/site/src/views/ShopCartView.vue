@@ -97,11 +97,10 @@ export default {
                 return object.id !== id;
             })
             
-            // this.final_price
             try {
                 let response_customer = await fetch('http://localhost:3000/customers/remove-from-cart',{
                     method: 'PUT',
-                    body: JSON.stringify({ stock_quantity:  }),
+                    body: JSON.stringify({  }), // alterar isso daqui
                     headers: {
                         'x-access-token': localStorage.user_token,
                         'Content-Type': 'application/json'
