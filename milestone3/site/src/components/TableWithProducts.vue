@@ -64,7 +64,7 @@ export default {
             required: true,
         },
         total: {
-            type: Number,
+            type: String,
             required: true,
         },
         edit_disabled: {
@@ -72,7 +72,7 @@ export default {
             required: true,
         },
     },
-
+   
     methods: {
         emitRemoveItem(id) {
             this.$emit("emit-click-remove", id);

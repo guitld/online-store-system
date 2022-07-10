@@ -65,47 +65,57 @@ export default {
       },
     };
   },
+
+  created() {
+    if (!this.$store.state.user_authenticated) {
+      this.$router.push("/login");
+      alert("Faça o login para acessar esta página");
+    }
+  },
   methods: {
     async updateProfile() {
-      if (localStorage.user_token) {
-        if (
-          this.event.email !== "" &&
-          this.event.password !== "" &&
-          this.event.name !== "" &&
-          this.event.cpf !== "" &&
-          this.event.address !== "" &&
-          this.event.phone !== "" &&
-          this.event.password !== ""
-        ) {
-          try {
-            let req_body = JSON.stringify({
-              email: this.event.email,
-              password: this.event.password,
-              name: this.event.name,
-              cpf: this.event.cpf,
-              address: this.event.address,
-              phone: this.event.phone,
-            });
+      if (
+        this.event.email !== "" &&
+        this.event.password !== "" &&
+        this.event.name !== "" &&
+        this.event.cpf !== "" &&
+        this.event.address !== "" &&
+        this.event.phone !== "" &&
+        this.event.password !== ""
+      ) {
+        try {
+          let req_body = JSON.stringify({
+            email: this.event.email,
+            password: this.event.password,
+            name: this.event.name,
+            cpf: this.event.cpf,
+            address: this.event.address,
+            phone: this.event.phone,
+          });
 
-            let resp = await fetch(
-              "http://localhost:3000/customers/update-customer",
-              {
-                method: "PUT",
-                body: req_body,
-                headers: { "Content-Type": "application/json" },
-              }
-            );
+          console.log(req_body);
 
-            if (resp.status === 200) {
-              // Usuário autenticado no sistema
-              let user_data = await resp.json();
-              alert(`Dados alterados com sucesso, ${user_data.data.name}`);
-            } else alert("Falha na atualização do perfil");
-          } catch (e) {
-            console.log("Erro durante a atualização");
+          let resp = await fetch(
+            "http://localhost:3000/customers/update-customer",
+            {
+              method: "PUT",
+              body: req_body,
+              headers: {
+                "x-access-token": localStorage.user_token,
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          if (resp.status === 200) {
+            let user_name = await resp.json()
+            alert(`Dados alterados com sucesso, ${user_name.data}!`)
+          } else if(resp.status === 400) {
+            alert("Este email e/ou CPF já está sendo utilizado por outro usuário.")
           }
-        } else alert("Preencha todos os campos.");
-      } else alert("Faça login para acessar esta página");
+        } catch (e) {
+          console.log("Erro durante a atualização: " + e);
+        }
+      } else alert("Preencha todos os campos.");
     },
   },
 };

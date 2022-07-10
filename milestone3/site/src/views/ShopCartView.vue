@@ -33,7 +33,7 @@ export default {
         return {
             cart_items: [],
             catDogImage: "assets/img/header-pet-na-cabine.png",
-            final_price: 0,
+            final_price: '',
         }
     },
 
@@ -82,25 +82,36 @@ export default {
             this.final_price = 0;
 
             this.cart_items.forEach((element) => {
-                this.final_price += parseFloat((parseInt(element.quantities) * parseFloat(element.price)));
+                this.final_price += Number(element.quantities * element.price);
             })
-            
-            this.final_price = parseFloat(this.final_price.toFixed(2))
+
+            this.final_price = this.final_price.toFixed(2);
         },
 
         async removeItem(id) {
             let item = this.cart_items.filter(object => {
                 return object.id === id;
-            })
+            })[0]
 
             this.cart_items = this.cart_items.filter(object => {
                 return object.id !== id;
             })
             
+            this.final_price = (this.final_price - item.price * item.quantities).toFixed(2);
+            console.log(item);
             try {
                 let response_customer = await fetch('http://localhost:3000/customers/remove-from-cart',{
                     method: 'PUT',
-                    body: JSON.stringify({  }), // alterar isso daqui
+                    body: JSON.stringify({ product_id: item.id }), 
+                    headers: {
+                        'x-access-token': localStorage.user_token,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                let response_product = await fetch(`http://localhost:3000/products/${item.id}`, { 
+                    method: 'PUT',
+                    body: JSON.stringify({ stock_quantity: item.stock_quantity + item.quantities, sold_quantity: item.sold_quantity }), 
                     headers: {
                         'x-access-token': localStorage.user_token,
                         'Content-Type': 'application/json'

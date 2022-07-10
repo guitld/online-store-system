@@ -18,9 +18,14 @@
                         <router-link to="/" @click.prevent="handleSound()"><strong>meu amigo pet</strong></router-link>
                     </div>
                 </li>
-                <li v-if="$store.state.user_authenticated">
+                <li v-if="$store.state.user_authenticated && !$store.state.is_admin">
                     <div class="menu-item">
                         <router-link to="/carrinho">carrinho</router-link>
+                    </div>
+                </li>
+                <li v-else-if="$store.state.is_admin">
+                    <div class="menu-item">
+                        <router-link to="/admin">gerenciar site</router-link>
                     </div>
                 </li>
                 <li v-else>
@@ -112,14 +117,15 @@ export default {
     methods: {
         async checkLoggedUser() {
             if (localStorage.user_token) {
-                console.log('entrou aqui');
                 let resp = await fetch('http://localhost:3000/customers/authenticate_token', 
                     { 
                         method: 'GET', 
                         headers: { 'x-access-token': localStorage.user_token }
                     });
                 if (resp.status === 200) {
-                    this.$store.commit('login', localStorage.user_token);
+                    let resp_body = await resp.json();
+                    let payload = { token: localStorage.user_token, is_admin: resp_body.is_admin }
+                    this.$store.commit('login',  payload);
                 } else if (resp.status === 400) {
                     console.log(resp.body.message);
                 }
