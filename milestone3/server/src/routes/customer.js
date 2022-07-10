@@ -16,4 +16,8 @@ router.put('/remove-from-cart', auth_service.authorize, controller.remove_from_c
 
 router.put('/update-customer', auth_service.authorize, controller.update_customer)
 
+// Funcionalidades de administrador - rotas de atualização e remoção de usuarios
+router.put('/:id', auth_service.is_admin, controller.put);
+router.delete('/admin/:id', auth_service.is_admin, controller.delete);
+
 module.exports = router;

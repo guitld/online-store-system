@@ -54,7 +54,7 @@ exports.post = async (req, res, next) => {
 
 exports.put = async (req, res, next) => {
     try {
-        await repository.update(req.params.id, req.body)
+        await repository.update(req.params.slug, req.body)
         res.status(200).send({
             message: 'Produto atualizado com sucesso!'
         })
@@ -69,7 +69,7 @@ exports.put = async (req, res, next) => {
 
 exports.delete = async (req, res, next) => {
     try {
-        await repository.delete(req.body.id)
+        await repository.delete(req.body.slug)
         res.status(200).send({
             message: 'Produto removido com sucesso!'
         })

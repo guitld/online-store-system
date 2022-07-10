@@ -19,6 +19,6 @@ router.get('/admin/:id', auth_service.is_admin, controller.get_by_id); // Como t
 // Funcionalidades de administrador - rotas de atualização, remoção e adição de produtos
 router.post('/', auth_service.is_admin, controller.post);
 router.delete('/admin', auth_service.is_admin, controller.delete);
-router.put('/admin/:id', auth_service.is_admin, controller.put);
+router.put('/admin/:slug', auth_service.is_admin, controller.put);
 
 module.exports = router;

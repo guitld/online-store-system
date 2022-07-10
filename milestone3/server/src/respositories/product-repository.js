@@ -28,8 +28,8 @@ exports.create = async (data) => {
     await product.save();
 }
 
-exports.update = async (id, data) => {
-    await Product.findByIdAndUpdate(id, {
+exports.update = async (slug, data) => {
+    await Product.findOneAndUpdate({slug: slug}, {
             $set: {
                 title: data.title,
                 description: data.description,
@@ -44,8 +44,8 @@ exports.update = async (id, data) => {
         })
 }
 
-exports.delete = async (id) => {
-    await Product.findOneAndRemove(id)
+exports.delete = async (slug) => {
+    await Product.findOneAndRemove({slug: slug})
 }
 
 exports.update_product = async (id, body) => {

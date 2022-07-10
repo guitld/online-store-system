@@ -2,7 +2,6 @@
 
 const mongoose = require('mongoose');
 const Customer = mongoose.model('Customer');
-const Product  = mongoose.model('Product');
 
 exports.create = async (data) => {
     let customer = new Customer(data);
@@ -76,4 +75,16 @@ exports.update_profile = async(id, data) => {
             shopping_cart: data.shopping_cart   
         }
     })
+}
+
+exports.update = async (id, data) => {
+    await Customer.findByIdAndUpdate(id, {
+        $set: {
+            is_admin: data.is_admin
+        }
+    })
+}
+
+exports.delete = async (id) => {
+    await Customer.findOneAndRemove(id)
 }

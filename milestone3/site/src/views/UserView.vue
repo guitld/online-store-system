@@ -65,7 +65,6 @@ export default {
       },
     };
   },
-
   created() {
     if (!this.$store.state.user_authenticated) {
       this.$router.push("/login");
@@ -92,9 +91,7 @@ export default {
             address: this.event.address,
             phone: this.event.phone,
           });
-
           console.log(req_body);
-
           let resp = await fetch(
             "http://localhost:3000/customers/update-customer",
             {
@@ -125,7 +122,6 @@ export default {
 <style>
 @import "/public/assets/css/forms.css";
 @import "/public/assets/css/button.css";
-
 .btn-submit {
   width: 150px;
 }

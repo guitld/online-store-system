@@ -180,27 +180,7 @@ exports.remove_from_cart = async (req, res, next) => {
     }
 }
 
-exports.update_customer = async (req, res, next) => {
-    try {
-        // Recupera o token
-        const token = req.body.token || req.query.token || req.headers['x-access-token']
 
-        // Decodifica o token
-        const data = await auth_service.decode_token(token)
-
-        await repository.update_profile(data._id, req.body)
-        res.status(200).send({
-            message: "Perfil atualizado com sucesso!"
-        })
-
-    } catch (e) {
-        res.status(400).send(
-            {
-                message: 'Falha ao atualizar perfil do Cliente',
-                data: e
-            });
-    }
-}
 
 exports.get_user_data = async (req, res, next) => {
     try {
@@ -223,3 +203,67 @@ exports.get_user_data = async (req, res, next) => {
         });
     }
 }
+
+exports.update_customer = async (req, res, next) => {
+    try {
+        let user_token = req.headers['x-access-token']
+        let user_data = await auth_service.decode_token(user_token)
+        let user_id = user_data.id
+
+        await repository.update_profile(user_id, req.body)
+        res.status(200).send({
+            message: 'Cadastro atualizado com sucesso!',
+            data: req.body.name
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao atualizar cadastro',
+            data: e
+        })
+    }
+}
+
+exports.put = async (req, res, next) => {
+    try {
+        let resp_check_email = await repository.get_user({ email: req.params.id })
+        console.log(resp_check_email)
+        if (resp_check_email === null) {
+            res.status(400).send({
+                message: 'Não existe nenhum usuário com esse e-mail'
+            });
+            return;
+        }
+
+        await repository.update(resp_check_email._id, req.body)
+        res.status(200).send({
+            message: 'Dado do usuário atualizado com sucesso!'
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao atualizar dado do usuário',
+            data: e
+        })
+    }
+
+};
+
+exports.delete = async (req, res, next) => {
+    try {
+        let resp_check_email = await repository.get_user({ email: req.params.id })
+        if (resp_check_email === null) {
+            res.status(400).send({
+                message: 'Não existe nenhum usuário com esse e-mail'
+            });
+            return;
+        }
+        await repository.delete(req.body.id)
+        res.status(200).send({
+            message: 'Produto removido com sucesso!'
+        })
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao remover produto',
+            data: e
+        })
+    }
+};
