@@ -22,6 +22,7 @@
 
 <script>
 import TableWithProducts from '@/components/TableWithProducts.vue'
+import { processSlotOutlet } from '@vue/compiler-core';
 
 export default {
     name: "Cart",
@@ -32,31 +33,92 @@ export default {
         return {
             cart_items: [],
             catDogImage: "assets/img/header-pet-na-cabine.png",
-            final_price: 0,
+            final_price: '',
         }
     },
 
     created() {
-        this.computeFinalPrice();
+        this.fetchShoppingCart();
     },
 
     methods: {
-        computeFinalPrice() {
-            this.cart_items.forEach((element) => {
-                console.log(element)
-                this.final_price += parseFloat((parseInt(element.quantities) * parseFloat(element.price)))
-            })
+        async fetchShoppingCart() {
+            try {
+                let response = await fetch('http://localhost:3000/customers',{
+                    method: 'GET',
+                    headers: {'x-access-token': localStorage.user_token}
+                });
 
-            this.final_price = this.final_price.toFixed(2)
+                if (response.status === 200) {
+                    let response_body = await response.json();
+                    let shopping_cart = response_body.data.shopping_cart;
+                    
+                    shopping_cart.forEach((element) => {
+                        this.cart_items.push({
+                            image: element.product.img,
+                            title: element.product.title,
+                            quantities: element.quantity,
+                            price: element.product.price,
+                            id: element.product._id,
+                            sold_quantity: element.product.sold_quantity,
+                            stock_quantity: element.product.stock_quantity,
+                        });
+                    });
+
+                    this.computeFinalPrice();
+                }
+                else {
+                    alert('Falha em carregar dados do usuário');
+                    this.$router.push('/');
+                }
+            } catch (e) {
+                alert('Falha do servidor');
+            }
+
         },
 
-        removeItem(id) {
-            for (let idx in this.cart_items) {
-                if (this.cart_items[idx].id === id) {
-                    this.final_price = (this.final_price - (this.cart_items[idx].price * this.cart_items[idx].quantities)).toFixed(2)
-                    this.cart_items.splice(idx, 1)
-                    console.log(idx)
-                }
+
+        computeFinalPrice() {
+            this.final_price = 0;
+
+            this.cart_items.forEach((element) => {
+                this.final_price += Number(element.quantities * element.price);
+            })
+
+            this.final_price = this.final_price.toFixed(2);
+        },
+
+        async removeItem(id) {
+            let item = this.cart_items.filter(object => {
+                return object.id === id;
+            })[0]
+
+            this.cart_items = this.cart_items.filter(object => {
+                return object.id !== id;
+            })
+            
+            this.final_price = (this.final_price - item.price * item.quantities).toFixed(2);
+            console.log(item);
+            try {
+                let response_customer = await fetch('http://localhost:3000/customers/remove-from-cart',{
+                    method: 'PUT',
+                    body: JSON.stringify({ product_id: item.id }), 
+                    headers: {
+                        'x-access-token': localStorage.user_token,
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                let response_product = await fetch(`http://localhost:3000/products/${item.id}`, { 
+                    method: 'PUT',
+                    body: JSON.stringify({ stock_quantity: item.stock_quantity + item.quantities, sold_quantity: item.sold_quantity }), 
+                    headers: {
+                        'x-access-token': localStorage.user_token,
+                        'Content-Type': 'application/json'
+                    }
+                });
+            } catch (e) {
+                alert('Falha do servidor');
             }
         },
 

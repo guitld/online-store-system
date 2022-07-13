@@ -123,7 +123,9 @@ export default {
                         headers: { 'x-access-token': localStorage.user_token }
                     });
                 if (resp.status === 200) {
-                    this.$store.commit('login', localStorage.user_token);
+                    let resp_body = await resp.json();
+                    let payload = { token: localStorage.user_token, is_admin: resp_body.is_admin }
+                    this.$store.commit('login',  payload);
                 } else if (resp.status === 400) {
                     console.log(resp.body.message);
                 }

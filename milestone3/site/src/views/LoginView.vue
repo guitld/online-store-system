@@ -64,7 +64,12 @@ export default {
 
                     if (resp.status === 201) { // Usuário autenticado no sistema
                         let user_data = await resp.json();
+<<<<<<< HEAD
                         this.$store.commit('login', user_data);
+=======
+                        let data = { token: user_data.token, is_admin: user_data.data.is_admin }
+                        this.$store.commit('login', data);
+>>>>>>> produtos
                         this.$router.push('/');
                         alert(`Seja bem vindo ${user_data.data.name}`);
                     } else if (resp.status === 400) { // Falha ao procurar usuário

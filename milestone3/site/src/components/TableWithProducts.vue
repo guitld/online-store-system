@@ -31,7 +31,7 @@
                         </td>
                         <td v-if="!edit_disabled">
                             <img :src="require('@/../public/assets/img/delete-button.png')" id="delete-button-image"
-                                @click="emitRemoveItem(item.id)" />
+                                @click="emitRemoveItem(item.id, item.quantities)" />
                         </td>
                         <td v-else></td>
                     </tr>
@@ -64,7 +64,7 @@ export default {
             required: true,
         },
         total: {
-            type: Number,
+            type: String,
             required: true,
         },
         edit_disabled: {
@@ -72,7 +72,7 @@ export default {
             required: true,
         },
     },
-
+   
     methods: {
         emitRemoveItem(id) {
             this.$emit("emit-click-remove", id);

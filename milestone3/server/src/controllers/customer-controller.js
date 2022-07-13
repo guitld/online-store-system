@@ -151,8 +151,8 @@ exports.add_to_cart = async (req, res, next) => {
         let user_data = await auth_service.decode_token(user_token);
         let user_id = user_data.id;
 
-        await repository.update_cart(user_id, product_id, product_quantity);
-
+        await repository.add_to_cart(user_id, product_id, product_quantity);
+        res.status(200).send({message: 'Produto adicionado com sucesso!'});
     } catch (e) {
         res.status(400).send(
             {
@@ -162,12 +162,55 @@ exports.add_to_cart = async (req, res, next) => {
     }
 }
 
+exports.remove_from_cart = async (req, res, next) => {
+    try {
+        let product_id = req.body.product_id;
+        let user_token = req.headers['x-access-token'];
+
+        let user_data = await auth_service.decode_token(user_token);
+        let user_id = user_data.id;
+
+        await repository.remove_from_cart(user_id, req.body.product_id);
+        res.status(200).send({message: 'Produto removido com sucesso!'});
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao remover produto no carrinho do usuário',
+            data: e
+        })
+    }
+}
+
+
+
+exports.get_user_data = async (req, res, next) => {
+    try {
+        const token = req.body.token || req.query.token || req.headers['x-access-token']
+        const data = await auth_service.decode_token(token);
+
+        let user = await repository.get_user({ email: data.email });
+        res.status(200).send({
+            message: 'Perfil encontrado com sucesso!',
+            data: {
+                name: user.name,
+                email: user.email,
+                shopping_cart: user.shopping_cart,
+            }
+        });
+    } catch (e) {
+        res.status(400).send({
+            message: 'Falha ao dar GET em usuário',
+            data: e
+        });
+    }
+}
+
 exports.update_customer = async (req, res, next) => {
     try {
-        let user_token = req.headers['x-access-token']
-        let user_data = await auth_service.decode_token(user_token)
-        let user_id = user_data.id
-
+        let user_token = req.headers['x-access-token'];
+        let user_data = await auth_service.decode_token(user_token);
+        let user_id = user_data.id;
+        
+        req.body.password = md5(req.body.password + global.SALT_KEY);
         await repository.update_profile(user_id, req.body)
         res.status(200).send({
             message: 'Cadastro atualizado com sucesso!',
@@ -191,9 +234,6 @@ exports.put = async (req, res, next) => {
             });
             return;
         }
-        if(req.body.is_admin === "Cliente")
-            req.body.is_admin = false
-        else req.body.is_admin = true
 
         await repository.update(resp_check_email._id, req.body)
         res.status(200).send({

@@ -99,46 +99,56 @@ export default {
       }
     },
 
-    changeCounter: function (num) {
-      if (this.number_of_products + num > this.product.stock_quantity) return;
-      this.number_of_products += +num;
-      console.log(this.number_of_products);
-      !isNaN(this.number_of_products) && this.number_of_products > 0
-        ? this.number_of_products
-        : (this.number_of_products = 0);
-      this.final_price = (this.number_of_products * this.product.price).toFixed(
-        2
-      );
-    },
+        changeCounter: function (num) {
+            if (this.number_of_products + num > this.product.stock_quantity) return;
+            this.number_of_products += +num;
+            
+            console.log(this.number_of_products);
+            !isNaN(this.number_of_products) && this.number_of_products > 0
+                ? this.number_of_products
+                : (this.number_of_products = 0);
+            this.final_price = (this.number_of_products * this.product.price).toFixed(
+                2
+            );
+        },
 
-    async addToCart() {
-      if (this.number_of_products > 0) {
-        alert("Produto adicionado ao carrinho!");
-        console.log(
-          JSON.stringify({
-            product: this.product._id,
-            quantity: this.number_of_products,
-          })
-        );
-        try {
-          let response = await fetch(
-            "http://localhost:3000/customers/add-to-cart",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                product: this.product._id,
-                quantity: this.number_of_products,
-              }),
-              headers: {
-                "x-access-token": localStorage.user_token,
-                "Content-Type": "application/json",
-              },
-            }
-          );
-        } catch (e) {
-          alert("Erro interno ao adicionar produto");
-        }
-      } else alert("Preencha o campo de quantidade");
+        async addToCart() {
+            if (this.number_of_products > 0) {
+                try {
+                    let response_cart = await fetch('http://localhost:3000/customers/add-to-cart', 
+                        {
+                            method: 'POST',
+                            body: JSON.stringify({
+                                product: this.product._id,
+                                quantity: this.number_of_products
+                            }),
+                            headers: {
+                                'x-access-token': localStorage.user_token,
+                                'Content-Type': 'application/json'
+                            }
+                        }
+                    );
+
+                    let response_product = await fetch(`http://localhost:3000/products/${this.product._id}`, 
+                    { 
+                        method: 'PUT',
+                        body: JSON.stringify({
+                            stock_quantity: this.product.stock_quantity - this.number_of_products
+                        }),
+                        headers: {
+                            'x-access-token': localStorage.user_token,
+                            'Content-type': 'application/json'
+                        }
+                    })
+
+                    if (response_product.status === 200 && response_cart.status === 200) {
+                        this.$router.push('/carrinho');
+                        alert('Produto adicionado ao carrinho')
+                    }                
+                } catch(e) {
+                    alert('Erro interno ao adicionar produto');
+                }
+            } else alert("Preencha o campo de quantidade");
     },
   },
 };

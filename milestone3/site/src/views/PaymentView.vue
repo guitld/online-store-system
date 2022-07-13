@@ -35,55 +35,52 @@ export default {
 
     data() {
         return {
-            cart_items: [{
-                    "id": "11",
-                    "title": "mordedor",
-                    "price": 12.90,
-                    "image": "/assets/img/mordedor.png",
-                    "stock_quantities": 0,
-                    "sold_quantities": 0,
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
-                    "category": "acessorios",
-                    "quantities": "5",
-                    "product_class": "brinquedos"
-                },
-
-                {
-                    "id": "12",
-                    "title": "ossinhos",
-                    "price": 14.90,
-                    "image": "/assets/img/ossinho.png",
-                    "stock_quantities": 0,
-                    "sold_quantities": 0,
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod",
-                    "category": "comidinhas",
-                    "quantities": "2",
-                    "product_class": "petiscos"
-                }, {
-                    "id": "1",
-                    "title": "camisa fruit",
-                    "price": 22.90,
-                    "image": "/assets/img/fruit.png",
-                    "stock_quantities": 0,
-                    "sold_quantities": 0,
-                    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sed sem efficitur, varius lacus vel, consectetur orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque fermentum magna at arcu rutrum vestibulum. Morbi mattis aliquet justo, sit amet varius eros suscipit eu. Pellentesque condimentum, leo quis imperdiet facilisis, neque ex lobortis tortor, eu mattis nibh metus ut purus. Aenean fringilla ipsum in sagittis euismod. Mauris fermentum euismod ultrices. Donec euismod felis id nibh condimentum, a iaculis urna tincidunt. Mauris eu leo vitae nisi consequat euismod at et erat. Phasellus et mauris mauris. Suspendisse eu ornare magna. Pellentesque interdum, velit sed lacinia facilisis, felis nibh venenatis tellus, vel fringilla nunc purus nec enim.",
-                    "category": "acessorios",
-                    "product_class": "roupas",
-                    "quantities": "2",
-
-                }],
+            cart_items: [],
             final_price: 0,
         }
     },
 
     created() {
+        this.fetchShoppingCart();
         this.computeFinalPrice();
     },
 
     methods: {
+        async fetchShoppingCart() {
+            try {
+                let response = await fetch('http://localhost:3000/customers',{
+                    method: 'GET',
+                    headers: {'x-access-token': localStorage.user_token}
+                });
+
+                if (response.status === 200) {
+                    let response_body = await response.json();
+                    let shopping_cart = response_body.data.shopping_cart;
+                    
+                    shopping_cart.forEach((element) => {
+                        this.cart_items.push({
+                            image: element.product.img,
+                            title: element.product.title,
+                            quantities: element.quantity,
+                            price: element.product.price,
+                            id: element.product._id,
+                        });
+                    });
+
+                    this.computeFinalPrice();
+                }
+                else {
+                    alert('Falha em carregar dados do usuário');
+                    this.$router.push('/');
+                }
+            } catch (e) {
+                alert('Falha do servidor');
+            }
+        },
+
         computeFinalPrice() {
+            this.final_price = 0;
             this.cart_items.forEach((element) => {
-                console.log(element)
                 this.final_price += parseFloat((parseInt(element.quantities) * parseFloat(element.price)))
             })
 

@@ -28,6 +28,7 @@ exports.create = async (data) => {
     await product.save();
 }
 
+<<<<<<< HEAD
 exports.update = async (id, data) => {
     await Product.findByIdAndUpdate(id, {
         $set: {
@@ -37,8 +38,35 @@ exports.update = async (id, data) => {
             slug: data.slug
         }
     })
+=======
+exports.update = async (slug, data) => {
+    await Product.findOneAndUpdate({slug: slug}, {
+            $set: {
+                title: data.title,
+                description: data.description,
+                price: data.price,
+                slug: data.slug,
+                img: data.img,
+                sold_quantity: data.sold_quantity,
+                stock_quantity: data.stock_quantity,
+                category: data.category,
+                product_class: data.product_class
+            }
+        })
+>>>>>>> produtos
 }
 
-exports.delete = async (id) => {
-    await Product.findOneAndRemove(id)
+exports.delete = async (slug) => {
+    await Product.findOneAndRemove({slug: slug})
+}
+
+exports.update_product = async (id, body) => {
+    await Product.findByIdAndUpdate(id, {
+        $set: {
+            stock_quantity: body.stock_quantity,
+            sold_quantity: body.sold_quantity
+        }
+    });
+
+    console.log(await Product.findById(id))
 }

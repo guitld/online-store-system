@@ -16,12 +16,19 @@ export const store = createStore({
             localStorage.removeItem('user_token');
         },
 
+<<<<<<< HEAD
         login(state, user_data) {
             state.user_authenticated = true;
             localStorage.setItem('user_token', user_data.token);
             console.log("token", user_data.token)
             state.is_admin = user_data.data.is_admin;
             console.log(state.is_admin)
+=======
+        login(state, obj) {
+            state.is_admin = obj.is_admin;
+            state.user_authenticated = true;
+            localStorage.setItem('user_token', obj.token);
+>>>>>>> produtos
         }
     },
     actions: { // funções assíncronas
