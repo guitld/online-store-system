@@ -206,10 +206,11 @@ exports.get_user_data = async (req, res, next) => {
 
 exports.update_customer = async (req, res, next) => {
     try {
-        let user_token = req.headers['x-access-token']
-        let user_data = await auth_service.decode_token(user_token)
-        let user_id = user_data.id
-
+        let user_token = req.headers['x-access-token'];
+        let user_data = await auth_service.decode_token(user_token);
+        let user_id = user_data.id;
+        
+        req.body.password = md5(req.body.password + global.SALT_KEY);
         await repository.update_profile(user_id, req.body)
         res.status(200).send({
             message: 'Cadastro atualizado com sucesso!',
