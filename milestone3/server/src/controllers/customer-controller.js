@@ -86,8 +86,6 @@ exports.authenticate = async (req, res, next) => {
             is_admin: customer.is_admin
         });
 
-        console.log(token);
-
         res.status(201).send({
             token: token,
             data: {
@@ -169,8 +167,9 @@ exports.remove_from_cart = async (req, res, next) => {
 
         let user_data = await auth_service.decode_token(user_token);
         let user_id = user_data.id;
-
-        await repository.remove_from_cart(user_id, req.body.product_id);
+        
+        console.log('id do produto: ', product_id);
+        await repository.remove_from_cart(user_id, product_id);
         res.status(200).send({message: 'Produto removido com sucesso!'});
     } catch (e) {
         res.status(400).send({
@@ -210,15 +209,15 @@ exports.update_customer = async (req, res, next) => {
         let user_data = await auth_service.decode_token(user_token);
         let user_id = user_data.id;
         
-        req.body.password = md5(req.body.password + global.SALT_KEY);
+        if (req.body.password !== undefined) req.body.password = md5(req.body.password + global.SALT_KEY);
         await repository.update_profile(user_id, req.body)
         res.status(200).send({
-            message: 'Cadastro atualizado com sucesso!',
+            message: 'Usuário atualizado com sucesso!',
             data: req.body.name
         })
     } catch (e) {
         res.status(400).send({
-            message: 'Falha ao atualizar cadastro',
+            message: 'Falha ao atualizar usuário',
             data: e
         })
     }
@@ -227,7 +226,6 @@ exports.update_customer = async (req, res, next) => {
 exports.put = async (req, res, next) => {
     try {
         let resp_check_email = await repository.get_user({ email: req.params.id })
-        console.log(resp_check_email)
         if (resp_check_email === null) {
             res.status(400).send({
                 message: 'Não existe nenhum usuário com esse e-mail'

@@ -32,7 +32,7 @@ exports.authorize = function (req, res, next) {
 
 exports.is_admin = function (req,res,next) {
     let token = req.body.token || req.query.token || req.headers['x-access-token'];
-    console.log('tokeeeeen is_admin', token)
+
     if (!token) {
         res.status(401).json({
             message: 'Acesso restrito'

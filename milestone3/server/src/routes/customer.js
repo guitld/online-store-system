@@ -20,8 +20,4 @@ router.put('/update-customer', auth_service.authorize, controller.update_custome
 router.put('/:id', auth_service.is_admin, controller.put);
 router.delete('/admin/:id', auth_service.is_admin, controller.delete);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> produtos
 module.exports = router;
