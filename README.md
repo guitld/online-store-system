@@ -101,10 +101,23 @@ O comportamento do site apresenta ser satisfatório nos dois navegadores testado
 Para rodar na sua máquinha, é necessário:
 - baixar este repositório, 
 - entrar na pasta do projeto (`code .`)
+
+Para abrir o site:
+- `cd site`
 - rodar `npm install`
 - rodar `npm run serve`
-- o programa, no termina, indicará em qual localhost está sendo executado
+- o programa, no terminal, indicará em qual localhost está sendo executado
 - basta acessá-lo no navegador de sua preferência.
+
+Para rodar o servidor:
+- `cd server`
+- `npm install`
+- `npm start`
+-  o programa no terminal indicará o localhost que está sendo executado.
+
+OBS: 
+Para criar o Admin raiz, é necessário criar uma conta qualquer e alterar diretamente no mongodb, e a partir dai, popular o banco de dados com os produtos e usuários.
+
 
 
 ## 7. Problemas
