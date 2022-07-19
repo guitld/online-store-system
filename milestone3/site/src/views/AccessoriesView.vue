@@ -27,15 +27,17 @@ export default {
 			try {
 				let resp = await fetch('http://localhost:3000/products/category/acessorios', { method: 'GET' });
 				let items = await resp.json();
-
 				items.forEach((object) => {
+					console.log(object);
+					console.log(this.items.hasOwnProperty(object.product_class))
 					if (this.items.hasOwnProperty(object.product_class)) {
-						this.items[object.product_class].append(object);
+						this.items[object.product_class].push(object);
 					} else {
 						this.items[object.product_class] = [object];
 					}
 				})
 			} catch (e) {
+				console.log(e);
 				alert('Falha no carregamento dos itens, tente novamente');
 			}
 
